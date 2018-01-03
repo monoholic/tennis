@@ -1,10 +1,10 @@
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
-
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 /* 초기화 */
 html,
 body {width:100%;height:100%;}
-body {font-family:'나눔고딕',NanumGothic, serif !important;}
+body {font-family:'나눔고딕',NanumGothic, serif !important; line-height: initial !important;}
 
 ol,ul,dl{margin:0;padding:0;list-style-type:none;}
 a{text-decoration: none!important;}
@@ -13,6 +13,9 @@ a:focus{outline: 0;}
 
 
 /*공통*/
+.container {width: 1200px !important; padding: 0px !important;}
+.row { margin-left: 0px !important; margin-right: 0px !important;}
+
 #container:after{display:block;content:"";clear:both}
 section{position:relative}
 #introduce, #business, #recruit_process, #recruit, #request{padding-top:30px; padding-bottom:130px}
@@ -26,12 +29,19 @@ section{position:relative}
 .content a:hover{text-decoration:none;}
 
 #top_btn{position:fixed;bottom:10%;right:5%;display:block;width:50px;height:50px;border-radius:5px;background-color:#fff !important;text-indent:-9999px;background:url("../img/top_btn.gif") center center no-repeat; overflow:hidden;opacity:0.8;z-index: 999;}
-.center-flexbox {
+.flexbox {
+    display: flex;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: -o-flex;
-    display: flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.flexbox-center {
     -webkit-align-items: center;
     -moz-align-items: center;
     -ms-align-items: center;
@@ -42,6 +52,57 @@ section{position:relative}
     -ms-justify-content: center; 
     -o-justify-content: center; 
     justify-content: center; 
+}
+.flexbox-col{
+    flex-flow: column;
+    -webkit-flex-flow: column;
+    -moz-flex-flow: column;
+    -ms-flex-flow: column;
+    -o-flex-flow: column;
+}
+.flexbox-align-start {
+    align-items: flex-start;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    -ms-align-items: flex-start;
+    -o-align-items: flex-start;
+}
+.flexbox-align-center {
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+}
+.flexbox-align-cont-between {
+    align-content: space-between;
+    -webkit-align-content: space-between;
+    -moz-align-content: space-between;
+    -ms-align-content: space-between;
+    -o-align-content: space-between;
+}
+.flexbox-just-center {
+    justify-content: center; 
+    -webkit-justify-content: center; 
+    -moz-justify-content: center; 
+    -ms-justify-content: center; 
+    -o-justify-content: center; 
+}
+
+.flexbox-just-end {
+    justify-content: flex-end; 
+    -webkit-justify-content: flex-end; 
+    -moz-justify-content: flex-end; 
+    -ms-justify-content: flex-end; 
+    -o-justify-content: flex-end; 
+}
+
+.flexbox-just-between {
+    justify-content: space-between; 
+    -webkit-justify-content: space-between; 
+    -moz-justify-content: space-between; 
+    -ms-justify-content: space-between; 
+    -o-justify-content: space-between; 
 }
 
 /* 화면 낭독 */
@@ -80,14 +141,15 @@ section{position:relative}
 .home_section .home_content .go-ongoing span { font-weight: bold; font-size: 20px; color: #fff; }
 
 /*회사소개*/
-#ranking { background-color: #f8f8f8; }
+#ranking { height: 600px; background-color: #f8f8f8; }
+#ranking .container { width: 1200px; }
 #ranking .ct_header { padding-top: 50px }
 #ranking .ct_header .ct_title { margin: 0px; font-size: 26px; font-weight: bold; }
 #ranking .main_feature { margin: 40px 0px; }
-
-#ranking .main_feature .ranking-tab li {
+#ranking .ranking-tab {height: 40px; margin-bottom: 30px;}
+#ranking .ranking-tab li {
     /* display: inline-block; */
-    width: calc(100% / 4);
+    width: 300px;
     height: 40px;
     border-bottom: 1px solid #dbdbdb;
     float:left;
@@ -102,9 +164,9 @@ section{position:relative}
     -ms-transition: all 0.2s;
     -o-transition: all 0.2s;
     transition: all 0.2s;}
-#ranking .main_feature .ranking-tab li:hover a { color:#2b2b2b; }
-#ranking .main_feature .ranking-tab a li:hover { color: #2b2b2b; text-decoration: none;}
-#ranking .main_feature .ranking-tab li:before {
+#ranking .ranking-tab li:hover a { color:#2b2b2b; }
+#ranking .ranking-tab a li:hover { color: #2b2b2b; text-decoration: none;}
+#ranking .ranking-tab li:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -118,39 +180,60 @@ section{position:relative}
     -webkit-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
 }
-#ranking .main_feature .ranking-tab li:hover:before {
+#ranking .ranking-tab li:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
-#ranking .main_feature .ranking-tab li.active a {color:#4b4b4b;}
-#ranking .main_feature .ranking-tab li.active:before {position: absolute;
+#ranking .ranking-tab li.active a {color:#4b4b4b;}
+#ranking .ranking-tab li.active:before {position: absolute;
     width: 100%; height: 1px; bottom: -1px; left: 0; background: linear-gradient(to right, #dbdbdb, #2b2b2b, #dbdbdb);
   visibility:visible;-webkit-transform: scaleX(1);transform: scaleX(1);}
-#ranking .main_feature .ranking-tab li a {color: #939393;}
-#ranking .main_feature .ranking-tab li a:hover {color:#4b4b4b;text-decoration: none;}
-#ranking .main_feature .ranking-tab li a.active {border-bottom: 4px solid #000;color:#2f2f2f;}
-/* 
-#ranking .main_feature .ranking-tab li ul {
-    padding: 0;position: absolute;top: 48px;left: 0;width: calc(100% / 4);
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    display: none;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transiton: all 0.2s opacity 0.2s;
-    -moz-transition: all 0.2s opacity 0.2s;
-    -ms-transition: all 0.2s opacity 0.2s;
-    -o-transition: all 0.2s opacity 0.2s;
-    -transition: all 0.2s opacity 0.2s;}
-#ranking .main_feature .ranking-tab li ul li { background: rgba(0,0,0,0.55);display: block;color: #fff;font-family: GL;font-size: 12px;padding: 0; height: 43px;}
-#ranking .main_feature .ranking-tab li ul li:hover { background: #000;}
-#ranking .main_feature .ranking-tab li:hover ul li a {color:#fff;}
-#ranking .main_feature .ranking-tab li:hover ul a li:hover {color:#fff;}
-#ranking .main_feature .ranking-tab li:hover ul {width: 100%;display: block;opacity: 1;visibility: visible;margin-top: 2px;}
-#ranking .main_feature .ranking-tab li ul li:before {height:2px;}
-#ranking .main_feature .ranking-tab li ul li a {color:#fff;} */
+#ranking .ranking-tab li a {color: #939393;}
+#ranking .ranking-tab li a:hover {color:#4b4b4b;text-decoration: none;}
+#ranking .ranking-tab li a.active {border-bottom: 4px solid #000;color:#2f2f2f;}
+
+#ranking .user-box { position: relative; width: 231px; height: 344px; border:1px solid #000; }
+#ranking .user-box .photo {width: 150px; height: 150px; margin-top: 45px; background-color: gray; border-radius: 50%;}
+#ranking .user-box .name {margin-top: 18px; color: #000; font-size: 22px; font-weight:bold;}
+#ranking .user-box .belong {margin-top: 7px; color: #07613a;}
+#ranking .user-box .score-box {width:100%; height: 64px; background-color: #353535; color: #fff;}
+#ranking .user-box .score-box .score-title {color: #fff; font-size: 11px;}
+#ranking .user-box .score-box .score-total {color: #fff; font-size: 25px;}
+#ranking .user-box .score-box .score {margin-left:5px; color: #f7bd49; font-size: 25px;}
+
+/*대회리스트*/
+#games .container {height: 650px;padding: 0px; margin-top: 40px;}
+#games .games-box {height: 490px;}
+#games .game-box {position: relative;}
+#games .game-box {width: 576px; height: 225px; float: left; color: #fff; background-color: gray;}
+#games .game-info {padding: 20px 25px;}
+#games .game-owner {padding-top: 26px;}
+#games .more {height: 110px;}
+
+/*공식후원사*/
+#supporter { height: 150px; }
+#supporter .title-box {height: 80px;}
+#supporter .title-box span {font-size: 14px; font-weight: bold; color: gray;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*사업영역*/
@@ -183,7 +266,6 @@ section{position:relative}
 .pr_gall .lt_tit{color:#fff;font-size:1.6em;margin-top:35%;display:block;text-align:center;overflow:hidden;}
 .pr_gall .lt_detail{display:inline-block;width:80%;height:40px;overflow:hidden;margin-top:20px;font-size:90%;}
 .pr_gall .lt_detail a{color:#fff !important;}
-
 
 
 /*채용절차*/
