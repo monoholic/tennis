@@ -4,7 +4,7 @@
 /* 초기화 */
 html,
 body {width:100%;height:100%;}
-body {font-family:'Jeju Gothic', serif;}
+body {font-family:'나눔고딕',NanumGothic, serif !important;}
 
 ol,ul,dl{margin:0;padding:0;list-style-type:none;}
 a{text-decoration: none!important;}
@@ -15,7 +15,7 @@ a:focus{outline: 0;}
 /*공통*/
 #container:after{display:block;content:"";clear:both}
 section{position:relative}
-#introduce, #business, #recruit_process, #recruit, #request{padding-top:90px; padding-bottom:130px}
+#introduce, #business, #recruit_process, #recruit, #request{padding-top:30px; padding-bottom:130px}
 .more_down{margin-top:10px; width:19px;height:19px;display:inline-block;background: url("../img/more_down.png") center center no-repeat}
 .more_down2{margin-top:10px; width:19px;height:19px;display:inline-block;background: url("../img/more_down2.png") center center no-repeat}
 .scl_top{margin-top:10px; width:19px;height:19px;display:inline-block;background: url("../img/scl_top.png") center center no-repeat}
@@ -26,7 +26,23 @@ section{position:relative}
 .content a:hover{text-decoration:none;}
 
 #top_btn{position:fixed;bottom:10%;right:5%;display:block;width:50px;height:50px;border-radius:5px;background-color:#fff !important;text-indent:-9999px;background:url("../img/top_btn.gif") center center no-repeat; overflow:hidden;opacity:0.8;z-index: 999;}
-
+.center-flexbox {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -o-flex;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center; 
+    -moz-justify-content: center; 
+    -ms-justify-content: center; 
+    -o-justify-content: center; 
+    justify-content: center; 
+}
 
 /* 화면 낭독 */
 #hd_login_msg {position:absolute;top:0;left:0;font-size:0;line-height:0;overflow:hidden}
@@ -37,29 +53,105 @@ section{position:relative}
 #skip_to_container a {z-index:100000;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0;overflow:hidden}
 #skip_to_container a:focus, #skip_to_container a:active {width:100%;height:75px;background:#21272e;color:#fff;font-size:2em;font-weight:bold;text-align:center;text-decoration:none;line-height:3.3em}
 
+/* #header .container { height: 100px; } */
+@media (min-width: 768px) {
+    .navbar-inverse .navbar-nav li a { padding-top: 43px; height: 100px; }
+}
+
+#header { background-color: #fff; }
+.navbar-inverse .navbar-brand img { border: 1px solid #000;}
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active > a:focus {background: transparent;color:#ff6565 !important}
-.navbar-inverse .navbar-nav li a{color: #fff!important;}
+.navbar-inverse .navbar-nav > .active > a:focus {background: transparent; color: white !important; background-color: #06713a !important; }
+.navbar-inverse .navbar-nav li a{color: #000!important;}
 
 
 /* #home 배너 */
 #home:after{display:block;clear:both;content:"";}
-.home_section {height:100%;padding:150px 0 200px 0;overflow:hidden;}
-.background_bg, .backstretch{position:absolute;top:0;bottom:0;left:0;right:0;height:100%;width:100%;background: url("../img/bg.jpg") center center no-repeat; background-image:100%; !important;-webkit-background-size: cover;-moz-background-size: cover;background-size: cover;-o-background-size: cover;}
+.home_section {height:710px; padding:170px 0 200px 0;overflow:hidden;}
+.background_bg, .backstretch{position:absolute;top:0;bottom:0;left:0;right:0;height:100%;width:100%;background: url("../img/main_banner.jpg") center center no-repeat; background-image:100% !important;-webkit-background-size: cover;-moz-background-size: cover;background-size: cover;-o-background-size: cover;}
 .home_section .container {height: 100%;}
 .home_content {position:relative;display:table;height:100%;width:100%;overflow: hidden;}
 .title {font-size:40px;line-height:50px;color:#fff;font-weight:600;margin:20px 0}
-.description {margin-bottom: 30px;font-size: 18px;line-height: 30px;color: #fff;}
-
+.description {margin-bottom: 30px;font-size: 16px;line-height: 30px;color: #fff;}
+.black_overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: black; opacity: 0.2; }
+.home_section .home_content .title { margin: 20px 0 5px 0; }
+.home_section .home_content .go-ongoing { width: 250px; height: 60px; background-color: #507c69; margin: auto; border: 2px solid #96b0a5;} 
+.home_section .home_content .go-ongoing span { font-weight: bold; font-size: 20px; color: #fff; }
 
 /*회사소개*/
-#introduce .itd_ct{padding-top:30px;}
-#introduce .ct_header {padding-top: 20px}
-#introduce .main_feature{margin:40px 0px;}
-#introduce .content span.icon_img{width:107px; height:76px; margin-bottom:60px;display:inline-block; background: url("../img/introduce_title.png") center center no-repeat !important;}
-#introduce .com_intro_more{display:inline-block;color:#fff;background:#222;border-radius:100px;padding:5px 15px;margin-top:30px !important;height:30px;line-height:22px;}
-#introduce .com_intro_more:hover{background:#000;color:#fff;}
+#ranking { background-color: #f8f8f8; }
+#ranking .ct_header { padding-top: 50px }
+#ranking .ct_header .ct_title { margin: 0px; font-size: 26px; font-weight: bold; }
+#ranking .main_feature { margin: 40px 0px; }
+
+#ranking .main_feature .ranking-tab li {
+    /* display: inline-block; */
+    width: calc(100% / 4);
+    height: 40px;
+    border-bottom: 1px solid #dbdbdb;
+    float:left;
+    text-align: center;
+    font-size: 16px;
+    font-family: Gb;
+    cursor:pointer;
+    position: relative;
+    color: #8a8a8a;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;}
+#ranking .main_feature .ranking-tab li:hover a { color:#2b2b2b; }
+#ranking .main_feature .ranking-tab a li:hover { color: #2b2b2b; text-decoration: none;}
+#ranking .main_feature .ranking-tab li:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    background: linear-gradient(to right, #dbdbdb, #2b2b2b, #dbdbdb);
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+#ranking .main_feature .ranking-tab li:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+#ranking .main_feature .ranking-tab li.active a {color:#4b4b4b;}
+#ranking .main_feature .ranking-tab li.active:before {position: absolute;
+    width: 100%; height: 1px; bottom: -1px; left: 0; background: linear-gradient(to right, #dbdbdb, #2b2b2b, #dbdbdb);
+  visibility:visible;-webkit-transform: scaleX(1);transform: scaleX(1);}
+#ranking .main_feature .ranking-tab li a {color: #939393;}
+#ranking .main_feature .ranking-tab li a:hover {color:#4b4b4b;text-decoration: none;}
+#ranking .main_feature .ranking-tab li a.active {border-bottom: 4px solid #000;color:#2f2f2f;}
+/* 
+#ranking .main_feature .ranking-tab li ul {
+    padding: 0;position: absolute;top: 48px;left: 0;width: calc(100% / 4);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transiton: all 0.2s opacity 0.2s;
+    -moz-transition: all 0.2s opacity 0.2s;
+    -ms-transition: all 0.2s opacity 0.2s;
+    -o-transition: all 0.2s opacity 0.2s;
+    -transition: all 0.2s opacity 0.2s;}
+#ranking .main_feature .ranking-tab li ul li { background: rgba(0,0,0,0.55);display: block;color: #fff;font-family: GL;font-size: 12px;padding: 0; height: 43px;}
+#ranking .main_feature .ranking-tab li ul li:hover { background: #000;}
+#ranking .main_feature .ranking-tab li:hover ul li a {color:#fff;}
+#ranking .main_feature .ranking-tab li:hover ul a li:hover {color:#fff;}
+#ranking .main_feature .ranking-tab li:hover ul {width: 100%;display: block;opacity: 1;visibility: visible;margin-top: 2px;}
+#ranking .main_feature .ranking-tab li ul li:before {height:2px;}
+#ranking .main_feature .ranking-tab li ul li a {color:#fff;} */
+
 
 /*사업영역*/
 #business{width:100%;height:auto;background:crimson}
