@@ -62,7 +62,7 @@ if(defined('_INDEX_')) {
         <nav class="collapse navbar-collapse<?php echo $idx_nav; ?>" id="bs-example-navbar-collapse-1" role="navigation">
             <ul class="nav navbar-nav navbar-right">
                 <li<?php echo $nav_li_1; ?>><a href="<?php echo $menu_href; ?>#introduce">테니스라인소개</a></li>
-                <li<?php echo $nav_li_2; ?>><a href="<?php echo G5_THEME_URL.'/skin/schedule/schedule_index.php'; ?>"><div>대회스케쥴</div></a></li>
+                <li<?php echo $nav_li_2; ?>><a href="<?php echo 'schedule.php'; ?>"><div>대회스케쥴</div></a></li>
                 <li<?php echo $nav_li_3; ?>><a href="<?php echo $menu_href; ?>#ranking">랭킹</a></li>
                 <li<?php echo $nav_li_4; ?>><a href="<?php echo $menu_href; ?>#recruit_process">클럽리그</a></li>
                 <li<?php echo $nav_li_4; ?>><a href="<?php echo $menu_href; ?>#recruit">커뮤니티</a></li>
