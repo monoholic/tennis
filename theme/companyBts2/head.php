@@ -15,7 +15,7 @@ include_once(G5_LIB_PATH.'/latest.lib.php');
 
 // active 처리
 if(defined('_INDEX_')) {
-    $nav_li_1 = ' class="active"';
+    $nav_li_1 = '';
     $nav_li_2 = '';
     $nav_li_3 = '';
     $nav_li_4 = '';
@@ -29,16 +29,16 @@ if(defined('_INDEX_')) {
     $nav_li_5 = '';
     $nav_li_6 = '';
 
-    if(isset($co_id) && $co_id == 'company')
-        $nav_li_1 = ' class="active"';
+    if(isset($page_id) && $page_id == 'schedule')
+        $nav_li_2 = ' class="active"';
 
-    if(isset($bo_table)) {
-        if($bo_table == 'works') // 홍보센터
-            $nav_li_3 = ' class="active"';
+    // if(isset($bo_table)) {
+    //     if($bo_table == 'works') // 홍보센터
+    //         $nav_li_3 = ' class="active"';
 
-        if($bo_table == 'recruit') // 채용정보
-            $nav_li_4 = ' class="active"';
-    }
+    //     if($bo_table == 'recruit') // 채용정보
+    //         $nav_li_4 = ' class="active"';
+    // }
 }
 ?>
 
