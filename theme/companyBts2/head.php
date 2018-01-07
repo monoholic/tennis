@@ -4,13 +4,14 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 include_once(G5_THEME_PATH.'/head.sub.php');
 include_once(G5_LIB_PATH.'/latest.lib.php');
 
-if(defined('_INDEX_')) {
-    $idx_nav = ' navigation';
-    $menu_href = '';
-} else {
-    $idx_nav = '';
-    $menu_href = G5_URL;
-}
+// navigation scroll
+// if(defined('_INDEX_')) {
+//     $idx_nav = ' navigation';
+//     $menu_href = '';
+// } else {
+//     $idx_nav = '';
+//     $menu_href = G5_URL;
+// }
 
 // active 처리
 if(defined('_INDEX_')) {
@@ -61,8 +62,8 @@ if(defined('_INDEX_')) {
         <nav class="collapse navbar-collapse<?php echo $idx_nav; ?>" id="bs-example-navbar-collapse-1" role="navigation">
             <ul class="nav navbar-nav navbar-right">
                 <li<?php echo $nav_li_1; ?>><a href="<?php echo $menu_href; ?>#introduce">테니스라인소개</a></li>
-                <li<?php echo $nav_li_2; ?>><a href="<?php echo $menu_href; ?>#business">대회스케쥴</a></li>
-                <li<?php echo $nav_li_3; ?>><a href="<?php echo $menu_href; ?>#public_relation">랭킹</a></li>
+                <li<?php echo $nav_li_2; ?>><a href="<?php echo G5_THEME_URL.'/skin/schedule/schedule_index.php'; ?>"><div>대회스케쥴</div></a></li>
+                <li<?php echo $nav_li_3; ?>><a href="<?php echo $menu_href; ?>#ranking">랭킹</a></li>
                 <li<?php echo $nav_li_4; ?>><a href="<?php echo $menu_href; ?>#recruit_process">클럽리그</a></li>
                 <li<?php echo $nav_li_4; ?>><a href="<?php echo $menu_href; ?>#recruit">커뮤니티</a></li>
                 <li<?php echo $nav_li_5; ?>><a href="<?php echo $menu_href; ?>#request">스토어</a></li>
@@ -70,6 +71,13 @@ if(defined('_INDEX_')) {
         </nav>
     </div>
 </header>
+<script>
+    function goPage(link) {
+        console.log(link);
+        window.href = link;
+    }
+</script>
+
 <!-- 콘텐츠 시작 { -->
 <div id="wrapper">
     <div id="container">

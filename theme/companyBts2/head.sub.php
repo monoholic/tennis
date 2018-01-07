@@ -77,7 +77,7 @@ if ($is_admin) {
 <script src="<?php echo G5_THEME_JS_URL ?>/smooth-scroll.js"></script>
 <script src="<?php echo G5_THEME_JS_URL ?>/jquery.backstretch.min.js"></script>
 </head>
-<body data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- <body data-spy="scroll" data-target=".navbar-fixed-top"> -->
 <?php
 if ($is_member) { // 회원이라면 로그인 중이라는 메세지를 출력해준다.
     $sr_admin_msg = '';
