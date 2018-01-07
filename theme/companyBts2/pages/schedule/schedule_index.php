@@ -15,7 +15,25 @@
     </div>
     <div class="game-content flexbox flexbox-just-between">
         <div class="game-left">
-            <div class="complex-map"></div>
+            <div class="complex-map" id="map"></div>
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2f17c15d3dc2614a3da80008b5b1d91a"></script>
+                <script>
+                    var container = document.getElementById('map');
+                    var options = {
+                        center: new daum.maps.LatLng(<?php echo 37.5662952 ?>, <?php echo 126.9779451 ?>),
+                        level: 3
+                    };
+
+                    var map = new daum.maps.Map(container, options);
+
+                    function setZoomable(zoomable) {
+                        // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
+                        map.setZoomable(zoomable);    
+                    }
+
+                    setZoomable(false);
+                </script>
+
             <div class="complex-address"></div> 
         </div>
         <div class="game-right">
