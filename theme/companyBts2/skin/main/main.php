@@ -47,7 +47,6 @@
                     <?php
                     $list = array("1","2","3","4","5");
                     error_log("1");
-                    console.log(count($list) . '');
                     for ($i=0; $i<count($list); $i++) {
                     ?>
                     <div class="user-box flexbox flexbox-col flexbox-align-center flexbox-just-between">
@@ -77,7 +76,6 @@
             <?php
                 $list = array("1","2","3","4");
                 error_log("1");
-                console.log(count($list) . '');
                 for ($i=0; $i<count($list); $i++) {
                 ?>
                 <div class="game-box flexbox flexbox-col flexbox-align-start flexbox-just-end">
