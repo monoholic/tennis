@@ -1,0 +1,27 @@
+/*대회상세*/
+#game-detail {height:710px; margin: 215px 0 200px 0;overflow:hidden;}
+
+#game-detail .title-box {height: 115px !important;  }
+#game-detail .title-box .due-date-box {width: 310px; height: 32px; border: #07613a solid 1px; font-weight: bold; font-size: 17px;}
+#game-detail .title-box .due-date-label {color: #000;}
+#game-detail .title-box .due-date {margin-left: 10px; color: #e7a619;}
+#game-detail .title-box .game-title {margin-top: 15px; font-size: 33px; color: #07613a; font-weight: bold;}
+#game-detail .title-box .part-title {margin-top: 10px; font-size: 20px; color: #484848;}
+
+
+#game-detail .game-content {width: 880px; height: auto; margin-top: 60px;}
+#game-detail .game-left {width: 423px; height: 485px; }
+#game-detail .game-left .complex-map {width: 423px; height: 450px; border: 1px solid #dbdbdb;}
+#game-detail .game-right {width: 423px; height: 485px;}
+
+#game-detail .game-right .game-info {height: 260px;}
+#game-detail .game-right .game-info-row {color: #000;}
+#game-detail .game-right .row-label {margin-right: 16px; font-weight: bold;}
+
+#game-detail .game-right .btns-area {margin-top: 50px;}
+#game-detail .game-right .btns-area .button {width: 143px; height: 42px; font-weight: bold; font-size: 18px;}
+#game-detail .game-right .btns-area .btn-1 {background-color: #07613a; color: #fff; border: #034a2b solid 1px;}
+#game-detail .game-right .btns-area .btn-2 {background-color: #dbdbdb; color: #000; margin-left: 10px;}
+
+#game-detail .game-right .pre-caution {margin-top: 9px; width: 423px; height: 88px; border: #e8ac29 solid 1px;}
+

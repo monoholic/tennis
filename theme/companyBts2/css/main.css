@@ -1,0 +1,104 @@
+/* #home 배너 */
+#home:after{display:block;clear:both;content:"";}
+.home_section {height:710px; padding:170px 0 200px 0;overflow:hidden;}
+.background_bg, .backstretch{position:absolute;top:0;bottom:0;left:0;right:0;height:100%;width:100%;background: url("../img/main_banner.jpg") center center no-repeat; background-image:100% !important;-webkit-background-size: cover;-moz-background-size: cover;background-size: cover;-o-background-size: cover;}
+.home_section .container {height: 100%;}
+.home_content {position:relative;display:table;height:100%;width:100%;overflow: hidden;}
+.title {font-size:40px;line-height:50px;color:#fff;font-weight:600;margin:20px 0}
+.description {margin-bottom: 30px;font-size: 16px;line-height: 30px;color: #fff;}
+.black_overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: black; opacity: 0.2; }
+.home_section .home_content .title { margin: 20px 0 5px 0; }
+.home_section .home_content .go-ongoing { width: 250px; height: 60px; background-color: #507c69; margin: auto; border: 2px solid #96b0a5;} 
+.home_section .home_content .go-ongoing span { font-weight: bold; font-size: 20px; color: #fff; }
+
+/*랭킹*/
+#ranking { height: 600px; background-color: #f8f8f8; }
+#ranking .container { width: 1200px; }
+#ranking .ct_header { padding-top: 50px }
+#ranking .ct_header .ct_title { margin: 0px; font-size: 26px; font-weight: bold; }
+#ranking .main_feature { margin: 40px 0px; }
+#ranking .ranking-tab {height: 40px; margin-bottom: 30px;}
+#ranking .ranking-tab li {
+    /* display: inline-block; */
+    width: 300px;
+    height: 40px;
+    border-bottom: 1px solid #dbdbdb;
+    float:left;
+    text-align: center;
+    font-size: 16px;
+    font-family: Gb;
+    cursor:pointer;
+    position: relative;
+    color: #8a8a8a;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;}
+#ranking .ranking-tab li:hover a { color:#2b2b2b; }
+#ranking .ranking-tab a li:hover { color: #2b2b2b; text-decoration: none;}
+#ranking .ranking-tab li:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    background: linear-gradient(to right, #dbdbdb, #2b2b2b, #dbdbdb);
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+#ranking .ranking-tab li:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+#ranking .ranking-tab li.active a {color:#4b4b4b;}
+#ranking .ranking-tab li.active:before {position: absolute;
+    width: 100%; height: 1px; bottom: -1px; left: 0; background: linear-gradient(to right, #dbdbdb, #2b2b2b, #dbdbdb);
+  visibility:visible;-webkit-transform: scaleX(1);transform: scaleX(1);}
+#ranking .ranking-tab li a {color: #939393;}
+#ranking .ranking-tab li a:hover {color:#4b4b4b;text-decoration: none;}
+#ranking .ranking-tab li a.active {border-bottom: 4px solid #000;color:#2f2f2f;}
+
+#ranking .user-box { position: relative; width: 231px; height: 344px; border:1px solid #000; }
+#ranking .user-box .photo {width: 150px; height: 150px; margin-top: 45px; background-color: gray; border-radius: 50%;}
+#ranking .user-box .name {margin-top: 18px; color: #000; font-size: 22px; font-weight:bold;}
+#ranking .user-box .belong {margin-top: 7px; color: #07613a;}
+#ranking .user-box .score-box {width:100%; height: 64px; background-color: #353535; color: #fff;}
+#ranking .user-box .score-box .score-title {color: #fff; font-size: 11px;}
+#ranking .user-box .score-box .score-total {color: #fff; font-size: 25px;}
+#ranking .user-box .score-box .score {margin-left:5px; color: #f7bd49; font-size: 25px;}
+
+/*대회리스트*/
+#games .container {height: 650px;padding: 0px; margin-top: 40px;}
+#games .games-box {height: 490px;}
+#games .game-box {position: relative;}
+#games .game-box {width: 576px; height: 225px; float: left; color: #fff; background-color: gray;}
+#games .game-info {padding: 20px 25px;}
+#games .game-owner {padding-top: 26px;}
+#games .more {height: 110px;}
+
+/*공식후원사*/
+#supporter { height: 150px; }
+#supporter .title-box {height: 80px;}
+#supporter .title-box span {font-size: 14px; font-weight: bold; color: gray;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

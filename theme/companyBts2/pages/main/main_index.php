@@ -1,4 +1,5 @@
 <!-- 홈 배너 -->
+<link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/main.css">
 <section id="home" class="home_section">
     <div class="background_bg"></div>
     <div class="black_overlay"></div>
@@ -38,16 +39,14 @@
         <div class="row itd_ct">
             <div class="main_feature text-center">
                 <ul class="ranking-tab">
-                    <li class="flexbox-center" onclick="onClickRankingTab(this)"><a>MAJOR</a></li>
-                    <li class="flexbox-center" onclick="onClickRankingTab(this)"><a>TOUR</a></li>
-                    <li class="flexbox-center" onclick="onClickRankingTab(this)"><a>CHALLENGER</a></li>
-                    <li class="flexbox-center" onclick="onClickRankingTab(this)"><a>CIRCUIT</a></li>
+                    <li class="" onclick="onClickRankingTab(this)"><a>MAJOR</a></li>
+                    <li class="" onclick="onClickRankingTab(this)"><a>TOUR</a></li>
+                    <li class="" onclick="onClickRankingTab(this)"><a>CHALLENGER</a></li>
+                    <li class="" onclick="onClickRankingTab(this)"><a>CIRCUIT</a></li>
                 </ul>
                 <div class="flexbox flexbox-align-start flexbox-just-between" style="height:600px;">
                     <?php
-                    $list = array("1","2","3","4","5");
-                    error_log("1");
-                    for ($i=0; $i<count($list); $i++) {
+                    for ($i=0; $i<5; $i++) {
                     ?>
                     <div class="user-box flexbox flexbox-col flexbox-align-center flexbox-just-between">
                         <div class="info flexbox flexbox-col flexbox-align-center flexbox-just-between">
@@ -74,9 +73,8 @@
     <div class="container">
         <div class="games-box flexbox flexbox-just-between flexbox-align-cont-between">
             <?php
-                $list = array("1","2","3","4");
                 error_log("1");
-                for ($i=0; $i<count($list); $i++) {
+                for ($i=0; $i<4; $i++) {
                 ?>
                 <div class="game-box flexbox flexbox-col flexbox-align-start flexbox-just-end">
                     <div class="game-info">
