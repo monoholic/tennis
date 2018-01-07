@@ -38,7 +38,7 @@
         </div>
         <div class="row itd_ct">
             <div class="main_feature text-center">
-                <ul class="ranking-tab">
+                <ul class="underline-tab">
                     <li class="" onclick="onClickRankingTab(this)"><a>MAJOR</a></li>
                     <li class="" onclick="onClickRankingTab(this)"><a>TOUR</a></li>
                     <li class="" onclick="onClickRankingTab(this)"><a>CHALLENGER</a></li>

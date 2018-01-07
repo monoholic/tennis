@@ -74,6 +74,13 @@ section{position:relative}
     -ms-align-items: flex-start;
     -o-align-items: flex-start;
 }
+.flexbox-align-end {
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+    -moz-align-items: flex-end;
+    -ms-align-items: flex-end;
+    -o-align-items: flex-end;
+}
 .flexbox-align-center {
     align-items: center;
     -webkit-align-items: center;
@@ -141,6 +148,55 @@ section{position:relative}
 .navbar-inverse .navbar-nav > .active > a:focus {background: transparent; color: #06713a !important; background-color: #fff !important; }
 .navbar-inverse .navbar-nav li a{color: #484848!important; font-weight: bold;}
 
+/* tab */
+.underline-tab {height: 40px; margin-bottom: 30px;}
+.underline-tab li {
+    /* display: inline-block; */
+    width: 300px;
+    height: 40px;
+    border-bottom: 1px solid #dbdbdb;
+    float:left;
+    text-align: center;
+    font-size: 16px;
+    font-family: Gb;
+    cursor:pointer;
+    position: relative;
+    color: #8a8a8a;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;}
+.underline-tab li:hover a { color:#2b2b2b; }
+.underline-tab a li:hover { color: #2b2b2b; text-decoration: none;}
+.underline-tab li:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -1px;
+    left: 0;
+    background: linear-gradient(to right, #dbdbdb, #2b2b2b, #dbdbdb);
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+.underline-tab li:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.underline-tab li.active a {color:#4b4b4b;}
+.underline-tab li.active:before {position: absolute;
+    width: 100%; height: 1px; bottom: -1px; left: 0; background: linear-gradient(to right, #dbdbdb, #2b2b2b, #dbdbdb);
+  visibility:visible;-webkit-transform: scaleX(1);transform: scaleX(1);}
+.underline-tab li a {color: #939393;}
+.underline-tab li a:hover {color:#4b4b4b;text-decoration: none;}
+.underline-tab li a.active {border-bottom: 4px solid #484848;color:#2f2f2f;}
+
+
 /*footer*/
 footer {background:url('../img/ft_bg.png') repeat; !important;}
 #ft{width:100%;}
@@ -155,3 +211,6 @@ footer {background:url('../img/ft_bg.png') repeat; !important;}
 #ft_copy{width:100%;border-top:1px solid #4e5763}
 #ft_copy div {display:inline-block;padding:18px 0;color:#fff;}
 #ft_copy a {display:inline-block;margin:0 10px 0 0;color:#fff;}
+
+
+.div-line-v {width: 2px; border: #dbdbdb 1px solid;}
