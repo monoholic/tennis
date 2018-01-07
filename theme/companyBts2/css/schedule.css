@@ -10,18 +10,27 @@
 
 
 #game-detail .game-content {width: 880px; height: auto; margin-top: 60px;}
+
 #game-detail .game-left {width: 423px; height: 485px; }
-#game-detail .game-left .complex-map {width: 423px; height: 450px; border: 1px solid #dbdbdb;}
+
+#game-detail .complex-map {width: 423px; height: 450px; border: 1px solid #dbdbdb;}
+#game-detail .complex-address { margin-top: 13px; color: #484848; font-size: 12px;}
+#game-detail .complex-address .addr-img { width: 12px; height: 16px; background: gray; margin-right: 5px;}
+#game-detail .complex-address .copy-addr-btn { margin-left: 13px; width: 58px; height: 23px; background-color: #dbdbdb; color: #484848;}
+
+
 #game-detail .game-right {width: 423px; height: 485px;}
 
 #game-detail .game-right .game-info {height: 260px;}
-#game-detail .game-right .game-info-row {color: #000;}
+#game-detail .game-right .game-info-row {color: #484848; width: 100%;}
 #game-detail .game-right .row-label {margin-right: 16px; font-weight: bold;}
 
 #game-detail .game-right .btns-area {margin-top: 50px;}
 #game-detail .game-right .btns-area .button {width: 143px; height: 42px; font-weight: bold; font-size: 18px;}
 #game-detail .game-right .btns-area .btn-1 {background-color: #07613a; color: #fff; border: #034a2b solid 1px;}
-#game-detail .game-right .btns-area .btn-2 {background-color: #dbdbdb; color: #000; margin-left: 10px;}
+#game-detail .game-right .btns-area .btn-2 {background-color: #dbdbdb; color: #484848; margin-left: 10px;}
 
-#game-detail .game-right .pre-caution {margin-top: 9px; width: 423px; height: 88px; border: #e8ac29 solid 1px;}
+#game-detail .game-right .pre-caution {margin-top: 9px; padding: 14px 0px 14px 12px; width: 423px; height: 88px; border: #e8ac29 solid 1px; font-weight: bold;}
+#game-detail .game-right .pre-caution .pre-caution-label { margin-bottom: 10px; font-size: 15px; color: #e8ac29;}
+#game-detail .game-right .pre-caution .pre-caution-descript { font-size: 11px; color: #797373;}
 
