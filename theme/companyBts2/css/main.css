@@ -11,13 +11,14 @@
 .home_section .home_content .go-ongoing { width: 250px; height: 60px; background-color: #507c69; margin: auto; border: 2px solid #96b0a5;} 
 .home_section .home_content .go-ongoing span { font-weight: bold; font-size: 20px; color: #fff; }
 
-/*랭킹*/
+/* 랭킹 */
 #ranking { height: 600px; background-color: #f8f8f8; }
 #ranking .container { width: 1200px; }
 #ranking .ct_header { padding-top: 50px }
 #ranking .ct_header .ct_title { margin: 0px; font-size: 26px; font-weight: bold; }
 #ranking .main_feature { margin: 40px 0px; }
 
+#ranking .user-list { height:600px; margin-top:30px; }
 #ranking .user-box { position: relative; width: 231px; height: 344px; border:1px solid #484848; }
 #ranking .user-box .photo {width: 150px; height: 150px; margin-top: 45px; background-color: gray; border-radius: 50%;}
 #ranking .user-box .name {margin-top: 18px; color: #353535; font-size: 22px; font-weight:bold;}
@@ -27,7 +28,7 @@
 #ranking .user-box .score-box .score-total {color: #fff; font-size: 25px;}
 #ranking .user-box .score-box .score {margin-left:5px; color: #f7bd49; font-size: 25px;}
 
-/*대회리스트*/
+/* 대회리스트 */
 #games .container {height: 650px;padding: 0px; margin-top: 40px;}
 #games .games-box {height: 490px;}
 #games .game-box {position: relative;}
@@ -36,11 +37,10 @@
 #games .game-owner {padding-top: 26px;}
 #games .more {height: 110px;}
 
-/*공식후원사*/
+/* 공식후원사 */
 #supporter { height: 150px; }
 #supporter .title-box {height: 80px;}
 #supporter .title-box span {font-size: 14px; font-weight: bold; color: gray;}
-
 
 
 

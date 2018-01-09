@@ -10,7 +10,7 @@
                 <h3 class="title">모든 테니스대회는 테니스라인과 함께 하세요</h3>
                 <p class="description">전국에서 진행되는 대회를 한눈에 확인 하실 수 있습니다.</p>
                 <div class="btn-area">
-                    <div class="go-ongoing flexbox flexbox-center">
+                    <div class="go-ongoing flexbox just-center">
                         <span>진행중인 대회 보기</span>
                     </div>
                 </div>
@@ -44,17 +44,17 @@
                     <li class="" onclick="onClickRankingTab(this)"><a>CHALLENGER</a></li>
                     <li class="" onclick="onClickRankingTab(this)"><a>CIRCUIT</a></li>
                 </ul>
-                <div class="flexbox flexbox-align-start flexbox-just-between" style="height:600px;">
+                <div class="user-list flexbox align-start just-between">
                     <?php
                     for ($i=0; $i<5; $i++) {
                     ?>
-                    <div class="user-box flexbox flexbox-col flexbox-align-center flexbox-just-between">
-                        <div class="info flexbox flexbox-col flexbox-align-center flexbox-just-between">
+                    <div class="user-box flexbox flow-col align-center just-between">
+                        <div class="info flexbox flow-col align-center just-between">
                             <div class="photo"></div>
                             <span class="name" >안정민</span>
                             <span class="belong">분당알파</span>
                         </div>
-                        <div class="score-box flexbox flexbox-col flexbox-just-center">
+                        <div class="score-box flexbox flow-col just-center">
                             <div class="score-title">RANKING POINT</div>
                             <div>
                                 <span class="score-total">TOTAL</span><span class="score">757</span>
@@ -71,12 +71,12 @@
 
 <section id="games">
     <div class="container">
-        <div class="games-box flexbox flexbox-just-between flexbox-align-cont-between">
+        <div class="games-box flexbox just-between align-cont-between">
             <?php
                 error_log("1");
                 for ($i=0; $i<4; $i++) {
                 ?>
-                <div class="game-box flexbox flexbox-col flexbox-align-start flexbox-just-end">
+                <div class="game-box flexbox flow-col align-start just-end">
                     <div class="game-info">
                         <div style="font-size:18px;">2018.01.01 ~ 2018.01.18</div>
                         <div style="font-size:26px; margin-top: 8px;">제 100회 다이빙대회</div>
@@ -92,7 +92,7 @@
                 </div>
             <?php } ?>
         </div>
-        <div class="more flexbox flexbox-center">
+        <div class="more flexbox just-center">
             <a class="more_down" href="#recruit_process"></a>
         </div>
     </div>
@@ -105,7 +105,7 @@
 </section>
 
 <section id="supporter" style="height: 150px;"> 
-    <div class="title-box flexbox flexbox-center">
+    <div class="title-box flexbox just-center">
         <span>공식 후원사</span>
     </div>
 </section>

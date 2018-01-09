@@ -9,7 +9,7 @@
                 <h3 class="title">모든 테니스대회는 테니스라인과 함께 하세요</h3>
                 <p class="description">전국에서 진행되는 대회를 한눈에 확인 하실 수 있습니다.</p>
                 <div class="btn-area">
-                    <div class="go-ongoing flexbox flexbox-center">
+                    <div class="go-ongoing flexbox just-center">
                         <span>진행중인 대회 보기</span>
                     </div>
                 </div>
@@ -38,27 +38,27 @@
         <div class="row itd_ct">
             <div class="main_feature text-center">
                 <ul class="ranking-tab">
-                    <li class="flexbox-center" onclick="onClickRankingTab(this)"><a>MAJOR</a></li>
-                    <li class="flexbox-center" onclick="onClickRankingTab(this)"><a>TOUR</a></li>
-                    <li class="flexbox-center" onclick="onClickRankingTab(this)"><a>CHALLENGER</a></li>
-                    <li class="flexbox-center" onclick="onClickRankingTab(this)"><a>CIRCUIT</a></li>
+                    <li class="just-center" onclick="onClickRankingTab(this)"><a>MAJOR</a></li>
+                    <li class="just-center" onclick="onClickRankingTab(this)"><a>TOUR</a></li>
+                    <li class="just-center" onclick="onClickRankingTab(this)"><a>CHALLENGER</a></li>
+                    <li class="just-center" onclick="onClickRankingTab(this)"><a>CIRCUIT</a></li>
                 </ul>
-                <div class="flexbox flexbox-align-start flexbox-just-between" style="height:600px;">
+                <div class="flexbox align-start just-between" style="height:600px;">
                     <?php
                     $list = array("1","2","3","4","5");
                     error_log("1");
                     console.log(count($list) . '');
                     for ($i=0; $i<count($list); $i++) {
                     ?>
-                    <div class="user-box flexbox flexbox-col flexbox-align-center flexbox-just-between">
-                        <div class="flexbox flexbox-col flexbox-align-start flexbox-just-end"></div>
-                        <div class="info flexbox flexbox-col flexbox-align-center flexbox-just-between">
+                    <div class="user-box flexbox flow-col align-center just-between">
+                        <div class="flexbox flow-col align-start just-end"></div>
+                        <div class="info flexbox flow-col align-center just-between">
                             <div class="photo">
                             </div>
                             <span class="name" >안정민</span>
                             <span class="belong">분당알파</span>
                         </div>
-                        <div class="score-box flexbox flexbox-col flexbox-just-center">
+                        <div class="score-box flexbox flow-col just-center">
                             <div class="score-title">RANKING POINT</div>
                             <div>
                                 <span class="score-total">TOTAL</span><span class="score">757</span>
@@ -74,20 +74,20 @@
 
 <section id="games">
     <div class="container">
-        <div class="games-box flexbox flexbox-just-between flexbox-align-cont-between">
+        <div class="games-box flexbox just-between align-cont-between">
             <?php
                 $list = array("1","2","3","4");
                 error_log("1");
                 console.log(count($list) . '');
                 for ($i=0; $i<count($list); $i++) {
                 ?>
-                <div class="game-box flexbox flexbox-col flexbox-align-start flexbox-just-end">
+                <div class="game-box flexbox flow-col align-start just-end">
                     <div> 안녕
                     </div>
                 </div>
             <?php } ?>
         </div>
-        <div class="more flexbox flexbox-center">
+        <div class="more flexbox just-center">
             <a class="more_down" href="#recruit_process"></a>
         </div>
     </div>

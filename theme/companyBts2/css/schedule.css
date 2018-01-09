@@ -35,14 +35,30 @@
 #game-detail .game-right .pre-caution .pre-caution-descript { font-size: 11px; color: #797373;}
 
 
-#game-etc {height:900px; margin: 0 0 200px 0;overflow:hidden;}
+#game-etc {height:auto; margin: 0 0 115px 0;overflow:hidden;}
 #game-etc .container {width: 1000px !important;}
 
+#game-1, #game-2, #game-3,
+#game-4, #game-5, #game-6 { display: none; }
+#game-1.active, #game-2.active, #game-3.active,
+#game-4.active, #game-5.active, #game-6.active { display: block; }
+
 #game-etc .game-tab-content {width: 100%;}
-#game-etc .content-box {width: 100%; height: 284px;}
+#game-etc #game-1 {width: 800px;}
 #game-etc .reward-list { width: 800px; height: 210px; }
-#game-etc .reward-box { width: 200px; height: auto; }
+#game-etc .reward-box { width: 120px; height: auto; }
+#game-etc .reward-box:nth-child(2),
+#game-etc .reward-box:nth-child(3){margin-left: 85px;}
+#game-etc .reward-box:nth-child(5){margin-left: 70px;}
 #game-etc .reward-detail { color: #484848; }
 #game-etc .reward-img-1 { width: 120px; height: 62px; background: gray;}
 #game-etc .reward-name { font-size: 15px; font-weight: bold; margin-top: 15px;}
 #game-etc .reward-gift { font-size: 12px; margin-top: 8px;}
+#game-etc .reward-desc { margin-top: 55px; font-size: 12px; color: #939393; font-weight: bold; text-align: center;}
+
+#game-etc #game-2 {width: 880px; height: auto;}
+#game-etc .tab-sub-title {margin: 33px 0 12px 0; padding-left: 20px; font-size: 15px; color: #484848;}
+#game-etc .game-schd-table {}
+
+#game-etc #game-3 {width: 880px; height: auto;}
+#game-etc .court {font-size: 12px;}

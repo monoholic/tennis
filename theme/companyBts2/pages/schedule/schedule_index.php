@@ -1,9 +1,10 @@
 <!-- 홈 배너 -->
+<script src="<?php echo G5_THEME_URL; ?>/pages/schedule/schedule.js"></script>
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule.css">
 <section id="game-detail">
-    <div class="container flexbox flexbox-col flexbox-align-center">
-        <div class="title-box flexbox flexbox-col flexbox-align-center">
-            <div class="due-date-box flexbox flexbox-center">
+    <div class="container flexbox flow-col align-center">
+        <div class="title-box flexbox flow-col align-center">
+            <div class="due-date-box flexbox just-center">
                 <span class="due-date-label">접수마감</span>
                 <span class="due-date">2018.12.31(일) PM 6:00</span>
             </div>
@@ -14,7 +15,7 @@
                 <span>혼합복식부 지역 신인부(남자)</span>
             </div>
         </div>
-        <div class="game-content flexbox flexbox-just-between">
+        <div class="game-content flexbox just-between">
             <div class="game-left">
                 <div class="complex-map" id="map"></div>
                 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2f17c15d3dc2614a3da80008b5b1d91a"></script>
@@ -34,19 +35,19 @@
 
                     setZoomable(false);
                 </script>
-                <div class="complex-address flexbox flexbox-align-center flexbox-just-center">
+                <div class="complex-address flexbox align-center just-center">
                     <div class="addr-img">
                     </div>
                     <div>
                         <span>사천시 수청테니스장외 보조구장</span>
                     </div> 
-                    <div class="copy-addr-btn flexbox flexbox-center">
+                    <div class="copy-addr-btn flexbox just-center">
                         <span>주소복사</span>
                     </div>
                 </div>
             </div>
             <div class="game-right">
-                <div class="game-info flexbox flexbox-col flexbox-just-between">
+                <div class="game-info flexbox flow-col just-between">
                     <div class="game-info-row"><span class="row-label">일시</span><span>2019.01.01(월) ~ 14(일) 2주간</span></div>
                     <div class="game-info-row"><span class="row-label">주최</span><span>경남 필, 빅토리아 운영위원회</span></div>
                     <div class="game-info-row"><span class="row-label">주관</span><span>테니스나라</span></div>
@@ -57,10 +58,10 @@
                     <div class="game-info-row"><span class="row-label">참가팀</span><span>100</span><span>/</span><span>23</span><span>팀 접수중</span></div>
                 </div>
                 <div class="btns-area flexbox">
-                    <div class="button btn-1 flexbox flexbox-center">
+                    <div class="button btn-1 flexbox just-center">
                         <span>참가신청</span>
                     </div>
-                    <div class="button btn-2 flexbox flexbox-center">
+                    <div class="button btn-2 flexbox just-center">
                         <span>뒤로가기</span>
                     </div>
                 </div>
@@ -83,54 +84,158 @@
 <section id="game-etc">
     <div class="container">
         <ul class="underline-tab"><!--510-->
-            <li class="" onclick="onClickTab(this)" style="width: calc(95px + 81px);"><a>대회 우승상품</a></li>
-            <li class="" onclick="onClickTab(this)" style="width: calc(175px + 81px);"><a>대회일정 및 참가허용기준</a></li>
-            <li class="" onclick="onClickTab(this)" style="width: calc(60px + 81px);"><a>대회진행</a></li>
-            <li class="" onclick="onClickTab(this)" style="width: calc(60px + 81px);"><a>대회문의</a></li>
-            <li class="" onclick="onClickTab(this)" style="width: calc(60px + 81px);"><a>대진표</a></li>
-            <li class="" onclick="onClickTab(this)" style="width: calc(60px + 81px);"><a>대회결과</a></li>
+            <li class="active" onclick="onClickTab(this, 1)" style="width: calc(95px + 81px);"><a>대회 우승상품</a></li>
+            <li class="" onclick="onClickTab(this, 2)" style="width: calc(175px + 81px);"><a>대회일정 및 참가허용기준</a></li>
+            <li class="" onclick="onClickTab(this, 3)" style="width: calc(60px + 81px);"><a>대회진행</a></li>
+            <li class="" onclick="onClickTab(this, 4)" style="width: calc(60px + 81px);"><a>대회문의</a></li>
+            <li class="" onclick="onClickTab(this, 5)" style="width: calc(60px + 81px);"><a>대진표</a></li>
+            <li class="" onclick="onClickTab(this, 6)" style="width: calc(60px + 81px);"><a>대회결과</a></li>
         </ul>
-        <div class="game-tab-content">
-            <div id="game-1" class="content-box">
-                <div class="reward-list flexbox flexbox-align-end flexbox-just-between">
-                    <div class="reward-box flexbox flexbox-col flexbox-align-center">
+        <div class="game-tab-content flexbox just-center active">
+            <div id="game-1" class="active content-box flexbox flow-col align-center">
+                <div class="reward-list flexbox align-end just-start">
+                    <div class="reward-box flexbox flow-col align-center">
                         <div class="reward-img-1"></div>
                         <div class="reward-name">우승</div>
                         <div class="reward-gift">상패 및 100만원</div>
                     </div>
-                    <div class="reward-box flexbox flexbox-col flexbox-align-center">
+                    <div class="reward-box flexbox flow-col align-center">
                         <div class="reward-img-1"></div>
                         <div class="reward-name">우승</div>
                         <div class="reward-gift">상패 및 100만원</div>
                     </div>
-                    <div class="reward-box flexbox flexbox-col flexbox-align-center">
+                    <div class="reward-box flexbox flow-col align-center">
                         <div class="reward-img-1"></div>
                         <div class="reward-name">우승</div>
                         <div class="reward-gift">상패 및 100만원</div>
                     </div>
-                    <div style="width:50px;" class="flexbox flexbox-center">
+                    <div style="width:2px; margin-left: 70px;" class="flexbox just-center">
                         <div class="div-line-v" style="height:73px; margin-bottom:44px;"></div>
                     </div>
-                    <div class="reward-box flexbox flexbox-col flexbox-align-center">
+                    <div class="reward-box flexbox flow-col align-center">
                         <div class="reward-img-1"></div>
                         <div class="reward-name">우승</div>
                         <div class="reward-gift">상패 및 100만원</div>
                     </div>
                 </div>
+                <div class="reward-desc">
+                    <span>* 각 리그별 70팀 미만시 시상금이 조정될 수 있습니다.</span>
+                </div>
             </div>  
-            <div id="game-2 content-box">
-
+            <div id="game-2" class="content-box">
+                <div class="tab-sub-title"><span>대회일정</span></div>
+                <table class="table game-schd-table">
+                    <tr>
+                        <th>메이져</th>
+                        <th>투어</th>
+                        <th>챌린져</th>
+                        <th>서킷</th>
+                    </tr>
+                    <tr class="col-type-1">
+                        <td>
+                            <div class="flexbox flow-col align-center">
+                                <span>2017. 12. 17 (금) AM 9:00</span>
+                                <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
+                                <span>코트 추후 안내 예정</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexbox flow-col align-center">
+                                <span>2017. 12. 17 (금) AM 9:00</span>
+                                <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
+                                <span>코트 추후 안내 예정</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexbox flow-col align-center">
+                                <span>2017. 12. 17 (금) AM 9:00</span>
+                                <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
+                                <span>코트 추후 안내 예정</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexbox flow-col align-center">
+                                <span>2017. 12. 17 (금) AM 9:00</span>
+                                <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
+                                <span>코트 추후 안내 예정</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="tab-sub-title"><span>참가 허용기준</span></div>
+                <table class="table game-schd-table">
+                    <tr>
+                        <th>메이져</th>
+                        <th>투어</th>
+                        <th>챌린져</th>
+                        <th>서킷</th>
+                    </tr>
+                    <tr class="col-type-3">
+                        <td>만 50세 이상</td>
+                        <td>만 50세 이상</td>
+                        <td>만 50세 이상</td>
+                        <td>만 50세 이상</td>
+                    </tr>
+                </table>
+                <table class="table game-schd-table">
+                    <tr>
+                        <th>공통부분</th>
+                    </tr>
+                    <tr class="col-type-4">
+                        <td>- 연령은 주민등록상의 연도만 적용</br>- 연령은 주민등록상의 연도만 적용</br>- 연령은 주민등록상의 연도만 적용</br>- 연령은 주민등록상의 연도만 적용</br>- 연령은 주민등록상의 연도만 적용</td>
+                    </tr>
+                </table>
             </div>  
-            <div id="game-3 content-box">
-
+            <div id="game-3" class="content-box">
+                <div class="tab-sub-title"><span>진행방식</span></div>
+                <div class="border-box">
+                    - 예선은 조별리그로 하고</br>
+                    - 예선은 조별리그로 하고</br>
+                    - 예선은 조별리그로 하고</br>
+                    - 예선은 조별리그로 하고</br>
+                    - 예선은 조별리그로 하고</br>
+                </div>
+                <div class="gray-box">
+                    예선리그 성적우선순위</br>
+                    가)승률</br>
+                    가)승률</br>
+                    가)승률</br>
+                    가)승률</br>
+                    가)승률</br>
+                    가)승률</br>
+                    가)승률</br>
+                    가)승률</br>
+                    가)승률</br>
+                    가)승률</br>
+                </div>
+                <div class="tab-sub-title"><span>경기순서</span></div>
+                <div class="border-box">
+                    * 3팀일 경우 : 1-2, 3-(1-2번승자), 3-(1-2번패자)</br>
+                    * 4팀일 경우 : 1-4, 2-3, 2-4, 3-4</br>
+                </div>
+                <div class="gray-box flexbox flow-col align-center">
+                    <div>1코트에 2개조가 들어갈 경우</div>
+                    <div class="game-seq-court flexbox align-center just-between">
+                        <div class="court flexbox flow-col align-center just-between">
+                            <div class="court-img"></div>
+                            <div><span>홀수조 1-2, 3-(1-2번승자), 3-(1-2번패자)</span></div>
+                        </div>
+                        <div class="court flexbox flow-col align-center just-between">
+                            <div class="court-img"></div>
+                            <div><span>홀수조 1-2, 3-(1-2번승자), 3-(1-2번패자)</span></div>
+                        </div>
+                    </div>
+                </div>
             </div>  
-            <div id="game-4 content-box">
-
+            <div id="game-4" class="content-box">
+4
             </div>  
-            <div id="game-5 content-box">
-
+            <div id="game-5" class="content-box">
+5
             </div>  
-            <div id="game-6 content-box">
+            <div id="game-6" class="content-box">
+                6
+            </div>
         </div>
     </div>  
 </section>
