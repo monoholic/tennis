@@ -231,5 +231,20 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 .border-box {border: 1px solid #dbdbdb; padding: 25px 30px;}
 .gray-box {background-color: #dbdbdb; padding: 25px 30px;}
 
-.court-img {width: 260px; height:165px; 
-    background: url('../img/playground.png') no-repeat; background-size: contain;}
+.court-img {width: 257px; height:165px; 
+    background: url('../img/court1.png') no-repeat; background-size: contain;}
+.court-img-2 {width: 419px; height:269px; padding: 42px 28px;
+    background: url('../img/court2.png') no-repeat; background-size: contain;}
+
+/* user box */
+.user-box { position: relative; width: 231px; height: 344px; }
+.user-box .photo { width: 150px; height: 150px;  background-color: gray; border-radius: 50%;}
+.user-box .name { margin-top: 20px; color: #353535; font-size: 22px; font-weight:bold;}
+.user-box .belong { margin-top: 7px; color: #07613a;}
+
+/* rank */
+.rank-img-1 {width: 95px; height:98px; background: url('../img/1st.png') no-repeat; background-size: contain;}
+.rank-img-2 {width: 95px; height:98px; background: url('../img/2nd.png') no-repeat; background-size: contain;}
+.rank-img-3 {width: 95px; height:98px; background: url('../img/3rd.png') no-repeat; background-size: contain;}
+.rank-img-4 {width: 95px; height:98px; background: url('../img/4th.png') no-repeat; background-size: contain;}
+.rank-img-5 {width: 95px; height:98px; background: url('../img/5th.png') no-repeat; background-size: contain;}

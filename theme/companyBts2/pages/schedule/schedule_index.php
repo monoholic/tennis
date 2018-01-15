@@ -213,7 +213,7 @@
                     * 3팀일 경우 : 1-2, 3-(1-2번승자), 3-(1-2번패자)</br>
                     * 4팀일 경우 : 1-4, 2-3, 2-4, 3-4</br>
                 </div>
-                <div class="gray-box flexbox flow-col align-center">
+                <div class="grame-seq-content gray-box flexbox flow-col align-center">
                     <div>1코트에 2개조가 들어갈 경우</div>
                     <div class="game-seq-court flexbox align-center just-between">
                         <div class="court flexbox flow-col align-center just-between">
@@ -226,15 +226,100 @@
                         </div>
                     </div>
                 </div>
+                <div class="tab-sub-title"><span>참가자 준수사항</span></div>
+                <div class="border-box">
+                    - 부서별 연령기준은 연도만 적용한다.</br>
+                    - 부서별 연령기준은 연도만 적용한다.</br>
+                    - 부서별 연령기준은 연도만 적용한다.</br>
+                    - 부서별 연령기준은 연도만 적용한다.</br>
+                    - 부서별 연령기준은 연도만 적용한다.</br>
+                    - 부서별 연령기준은 연도만 적용한다.</br>
+                    - 부서별 연령기준은 연도만 적용한다.</br>
+                    - 부서별 연령기준은 연도만 적용한다.</br>
+                    - 부서별 연령기준은 연도만 적용한다.</br>
+                </div>
             </div>  
             <div id="game-4" class="content-box">
-4
+                <div class="game-helper user-list flexbox align-start just-between">
+                    <?php
+                    for ($i=0; $i<4; $i++) {
+                    ?>
+                    <div class="user-box flexbox flow-col align-center just-between">
+                        <div class="info flexbox flow-col align-center just-between">
+                            <div class="photo"></div>
+                            <span class="name" >안정민</span>
+                            <span class="belong">분당알파</span>
+                        </div>
+                        <div class="info-box flexbox flow-col just-center">
+                            <span class="phone-number">010-1234-1234</span>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div> 
             </div>  
-            <div id="game-5" class="content-box">
-5
+            <div id="game-5" class="content-box major-index">
+                <?php
+                    for ($a=0; $a<4; $a++) {
+                ?>
+                <div class="game-num"><span><?php echo $a+1 ?> GAME</span></div>
+                <?php
+                    for ($b=0; $b<4; $b++) {
+                ?>
+                <div class="court-num"><span>- <?php echo $b+1 ?>번 코트 - </span></div>
+                <div class="court-list flexbox align-center just-between">
+                    <?php
+                        for ($i=0; $i<4; $i++) {
+                    ?>
+                    <div class="court-detail court-img-2 flexbox align-center just-between">
+                        <div class="team flexbox flow-col align-start just-around">
+                            <?php
+                                for ($j=0; $j<2; $j++) {
+                            ?>
+                            <div class="player flexbox align-end">
+                                <span class="name">문재인</span>
+                                <span class="team-name">[청와대]</span>
+                            </div>
+                            <?php } ?>
+                        </div>
+                        <div class="team flexbox flow-col align-end just-around">
+                            <?php
+                                for ($j=0; $j<2; $j++) {
+                            ?>
+                            <div class="player flexbox align-end">
+                                <span class="name">김어준</span>
+                                <span class="team-name">[흑와대]</span>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+                <?php } ?>
+                <?php } ?>
             </div>  
             <div id="game-6" class="content-box">
-                6
+                <div class="result-box flexbox align-center just-between"><!-- 우승 -->
+                    <?php
+                        for ($i=0; $i<4; $i++) {
+                    ?>
+                    <div class="result-rank-box"><!-- 메이저 -->
+                        <div class="result-rank-name"><span>메이저</span></div>
+                        <div class="user-list flexbox align-start just-center">
+                            <?php
+                            for ($j=0; $j<2; $j++) {
+                            ?>
+                            <div class="user-box flexbox flow-col align-center just-between">
+                                <div class="info flexbox flow-col align-center just-between">
+                                    <div class="photo"></div>
+                                    <span class="name" >안정민</span>
+                                    <span class="belong">분당알파</span>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div> 
+                    </div>
+                    <?php } ?>
+                </div>
             </div>
         </div>
     </div>  

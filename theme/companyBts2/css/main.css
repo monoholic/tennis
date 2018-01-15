@@ -18,11 +18,9 @@
 #ranking .ct_header .ct_title { margin: 0px; font-size: 26px; font-weight: bold; }
 #ranking .main_feature { margin: 40px 0px; }
 
-#ranking .user-list { height:600px; margin-top:30px; }
-#ranking .user-box { position: relative; width: 231px; height: 344px; border:1px solid #484848; }
-#ranking .user-box .photo {width: 150px; height: 150px; margin-top: 45px; background-color: gray; border-radius: 50%;}
-#ranking .user-box .name {margin-top: 18px; color: #353535; font-size: 22px; font-weight:bold;}
-#ranking .user-box .belong {margin-top: 7px; color: #07613a;}
+#ranking .user-list { height: 600px; margin-top: 34px; }
+#ranking .user-box .info { margin-top: 45px; }
+#ranking .user-box .rank { position:absolute; left:0px;}
 #ranking .user-box .score-box {width:100%; height: 64px; background-color: #353535; color: #fff;}
 #ranking .user-box .score-box .score-title {color: #fff; font-size: 11px;}
 #ranking .user-box .score-box .score-total {color: #fff; font-size: 25px;}

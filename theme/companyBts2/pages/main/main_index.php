@@ -60,7 +60,7 @@
                                 <span class="score-total">TOTAL</span><span class="score">757</span>
                             </div>
                         </div>
-                        <div style="width:100px; height:100px; background: orange; position:absolute; left:0px;"></div>
+                        <div class="rank rank-img-<?php echo$i+1 ?>"></div>
                     </div>
                     <?php } ?>
                 </div> 
