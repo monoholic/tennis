@@ -1,0 +1,15 @@
+
+
+#game-detail .title-box .game-title {margin-top: 15px; font-size: 14px; color: #484848; font-weight: bold;}
+#game-detail .title-box .game-title input[type=text] {width: 400px;}
+#game-detail .title-box .part-title {margin-top: 15px; font-size: 14px; color: #484848; font-weight: bold;}
+#game-detail .title-box .part-title input[type=text] {width: 275px;}
+#game-detail .title-box .game-image {margin-top: 18px; font-size: 14px; color: #484848; font-weight: bold;}
+#game-detail .title-box .game-image input[type=file] {float: right;}
+
+#game-detail .game-right .game-info-row input[type=text] {width: 195px; margin-left: 0px;}
+#game-detail .game-right .pre-caution {margin-top: 97px; height: 145px;}
+
+#game-etc .game-tab-content {width: 880px !important;}
+#game-etc .game-tab-content .content-box {width: 100% !important;}
+#game-etc .game-tab-title { width:100%; border-bottom: 1px solid #797373;}

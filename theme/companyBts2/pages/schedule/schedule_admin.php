@@ -1,18 +1,21 @@
 <!-- 홈 배너 -->
-<script src="<?php echo G5_THEME_URL; ?>/pages/schedule/schedule.js"></script>
+<script src="<?php echo G5_THEME_URL; ?>/pages/schedule/schedule_admin.js"></script>
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule.css">
+<link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule_admin.css">
 <section id="game-detail">
     <div class="container flexbox flow-col align-center">
         <div class="title-box flexbox flow-col align-center">
-            <div class="due-date-box flexbox just-center">
-                <span class="due-date-label">접수마감</span>
-                <span class="due-date">2018.12.31(일) PM 6:00</span>
-            </div>
             <div class="game-title">
-                <span>제 100회 프리다이빙 대회</span>
+                <span>대회이름</span>
+                <input type="text"/>
             </div>
             <div class="part-title">
-                <span>혼합복식부 지역 신인부(남자)</span>
+                <span>서브타이틀</span>
+                <input type="text"/>
+            </div>
+            <div class="game-image">
+                <span>대회리스트 배경 이미지</span>
+                <input type="file"/>
             </div>
         </div>
         <div class="game-content flexbox just-between">
@@ -39,39 +42,34 @@
                     <div class="addr-img">
                     </div>
                     <div>
-                        <span>사천시 수청테니스장외 보조구장</span>
+                        <input type="text" style="width:225px;"/>
                     </div> 
-                    <div class="copy-addr-btn flexbox just-center">
-                        <span>주소복사</span>
-                    </div>
                 </div>
             </div>
             <div class="game-right">
                 <div class="game-info flexbox flow-col just-between">
-                    <div class="game-info-row"><span class="row-label">일시</span><span>2019.01.01(월) ~ 14(일) 2주간</span></div>
-                    <div class="game-info-row"><span class="row-label">주최</span><span>경남 필, 빅토리아 운영위원회</span></div>
-                    <div class="game-info-row"><span class="row-label">주관</span><span>테니스나라</span></div>
-                    <div class="game-info-row"><span class="row-label">후원</span><span>사천테니스협회, 동광플라워, 프로켄넥스, KT사천대리점</span></div>
-                    <div class="game-info-row"><span class="row-label">협찬</span><span>아머스포츠코리아, 윌슨</span></div>
-                    <div class="game-info-row"><span class="row-label">참가상품</span><span>지역 특산품</span></div>
-                    <div class="game-info-row"><span class="row-label">참가비</span><span>팀당</span><span>52,000</span><span>원</span><span>(유소년 육성기금 2,000원 포함)</span></div>
-                    <div class="game-info-row"><span class="row-label">참가팀</span><span>100</span><span>/</span><span>23</span><span>팀 접수중</span></div>
-                </div>
-                <div class="btns-area flexbox">
-                    <div class="button btn-1 flexbox just-center">
-                        <span>참가신청</span>
+                    <div class="game-info-row"><span class="row-label">일시</span><input type="text" /></div>
+                    <div class="game-info-row"><span class="row-label">주최</span><input type="text" /></div>
+                    <div class="game-info-row"><span class="row-label">주관</span><input type="text" /></div>
+                    <div class="game-info-row"><span class="row-label">후원</span><input type="text" /></div>
+                    <div class="game-info-row"><span class="row-label">협찬</span><input type="text" /></div>
+                    <div class="game-info-row"><span class="row-label">참가상품</span><input type="text" /></div>
+                    <div class="game-info-row flexbox align-center">
+                        <span class="row-label">참가비</span>
+                        <span style="font-weight:bold;">팀당</span>
+                        <input type="text" class="input_sm" style="margin: 0 4px;"/>
+                        <span style="font-weight:bold;">원</span>
+                        <input type="checkbox" style="margin: 0 0 0 10px;"/>
+                        <span style="margin-left: 3px;">(유소년 육성기금 2,000원 포함)</span>
                     </div>
-                    <div class="button btn-2 flexbox just-center">
-                        <span>뒤로가기</span>
-                    </div>
+                    <div class="game-info-row"><span class="row-label">참가팀</span><input type="text" class="input_sm" /></div>
                 </div>
                 <div class="pre-caution">
                     <div class="pre-caution-label">
                         <span>* 참가신청시 주의사항</span>
                     </div>
                     <div class="pre-caution-descript">
-                        - 사이트에서만 접수가능하며 신청 마감일까지 참가비 미입금자는 대진표에서 제외</br>
-                        - 마감 후 환불 불가하며 참가시 상품 지급
+                        <textarea rows="6" style="width:100%; height:100%;"></textarea>
                     </div>
                 </div>
             </div>
@@ -80,18 +78,13 @@
 </section>
 
 <section id="game-etc">
-    <div class="container">
-        <ul class="underline-tab"><!--510-->
-            <li class="active" onclick="onClickTab(this, 1)" style="width: calc(95px + 81px);"><a>대회 우승상품</a></li>
-            <li class="" onclick="onClickTab(this, 2)" style="width: calc(175px + 81px);"><a>대회일정 및 참가허용기준</a></li>
-            <li class="" onclick="onClickTab(this, 3)" style="width: calc(60px + 81px);"><a>대회진행</a></li>
-            <li class="" onclick="onClickTab(this, 4)" style="width: calc(60px + 81px);"><a>대회문의</a></li>
-            <li class="" onclick="onClickTab(this, 5)" style="width: calc(60px + 81px);"><a>대진표</a></li>
-            <li class="" onclick="onClickTab(this, 6)" style="width: calc(60px + 81px);"><a>대회결과</a></li>
-        </ul>
-        <div class="game-tab-content flexbox just-center">
-            <div id="game-1" class="active content-box ">
+    <div class="container flexbox flow-col align-center">
+        <div class="game-tab-content flexbox align-center just-center">
+            <div id="game-1" class="active content-box flexbox flow-col align-center">
                 <div class="flexbox flow-col align-center">
+                    <div class="game-tab-title">
+                        대회 우승상품
+                    </div>
                     <div class="reward-list flexbox align-end just-start">
                         <div class="reward-box flexbox flow-col align-center">
                             <div class="reward-img-1"></div>
@@ -120,9 +113,12 @@
                     <div class="reward-desc">
                         <span>* 각 리그별 70팀 미만시 시상금이 조정될 수 있습니다.</span>
                     </div>
-                </div>
+                </div>  
             </div>  
-            <div id="game-2" class="content-box">
+            <div id="game-2" class="active content-box">
+                <div class="game-tab-title">
+                    대회일정 및 참가허용기준
+                </div>
                 <div class="tab-sub-title"><span>대회일정</span></div>
                 <table class="table game-schd-table">
                     <tr>
@@ -186,7 +182,10 @@
                     </tr>
                 </table>
             </div>  
-            <div id="game-3" class="content-box">
+            <div id="game-3" class="active content-box">
+                <div class="game-tab-title">
+                    대회진행
+                </div>
                 <div class="tab-sub-title"><span>진행방식</span></div>
                 <div class="border-box">
                     - 예선은 조별리그로 하고</br>
@@ -239,7 +238,10 @@
                     - 부서별 연령기준은 연도만 적용한다.</br>
                 </div>
             </div>  
-            <div id="game-4" class="content-box">
+            <div id="game-4" class="active content-box">
+                <div class="game-tab-title">
+                    대회문의
+                </div>
                 <div class="game-helper user-list flexbox align-start just-between">
                     <?php
                     for ($i=0; $i<4; $i++) {
@@ -257,70 +259,6 @@
                     <?php } ?>
                 </div> 
             </div>  
-            <div id="game-5" class="content-box major-index">
-                <?php
-                    for ($a=0; $a<4; $a++) {
-                ?>
-                <div class="game-num"><span><?php echo $a+1 ?> GAME</span></div>
-                <?php
-                    for ($b=0; $b<4; $b++) {
-                ?>
-                <div class="court-num"><span>- <?php echo $b+1 ?>번 코트 - </span></div>
-                <div class="court-list flexbox align-center just-between">
-                    <?php
-                        for ($i=0; $i<4; $i++) {
-                    ?>
-                    <div class="court-detail court-img-2 flexbox align-center just-between">
-                        <div class="team flexbox flow-col align-start just-around">
-                            <?php
-                                for ($j=0; $j<2; $j++) {
-                            ?>
-                            <div class="player flexbox align-end">
-                                <span class="name">문재인</span>
-                                <span class="team-name">[청와대]</span>
-                            </div>
-                            <?php } ?>
-                        </div>
-                        <div class="team flexbox flow-col align-end just-around">
-                            <?php
-                                for ($j=0; $j<2; $j++) {
-                            ?>
-                            <div class="player flexbox align-end">
-                                <span class="name">김어준</span>
-                                <span class="team-name">[흑와대]</span>
-                            </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                    <?php } ?>
-                </div>
-                <?php } ?>
-                <?php } ?>
-            </div>  
-            <div id="game-6" class="content-box">
-                <div class="result-box flexbox align-center just-between"><!-- 우승 -->
-                    <?php
-                        for ($i=0; $i<4; $i++) {
-                    ?>
-                    <div class="result-rank-box"><!-- 메이저 -->
-                        <div class="result-rank-name"><span>메이저</span></div>
-                        <div class="user-list flexbox align-start just-center">
-                            <?php
-                            for ($j=0; $j<2; $j++) {
-                            ?>
-                            <div class="user-box flexbox flow-col align-center just-between">
-                                <div class="info flexbox flow-col align-center just-between">
-                                    <div class="photo"></div>
-                                    <span class="name" >안정민</span>
-                                    <span class="belong">분당알파</span>
-                                </div>
-                            </div>
-                            <?php } ?>
-                        </div> 
-                    </div>
-                    <?php } ?>
-                </div>
-            </div>
         </div>
     </div>  
 </section>

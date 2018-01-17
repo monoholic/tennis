@@ -18,10 +18,13 @@ a{text-decoration: none!important;}
 a:focus{outline: 0;}
 .no-padding{padding: 0;}
 
+input[type=text] {height: 25px; margin-left: 10px;}
+
 
 /*공통*/
 .container {width: 1200px !important; padding: 0px !important;}
 .row { margin-left: 0px !important; margin-right: 0px !important;}
+input.input_sm {width:55px !important;}
 
 #container:after{display:block;content:"";clear:both}
 section{position:relative}
@@ -237,7 +240,7 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
     background: url('../img/court2.png') no-repeat; background-size: contain;}
 
 /* user box */
-.user-box { position: relative; width: 231px; height: 344px; }
+.user-box { position: relative; width: 220px; height: 344px; }
 .user-box .photo { width: 150px; height: 150px;  background-color: gray; border-radius: 50%;}
 .user-box .name { margin-top: 20px; color: #353535; font-size: 22px; font-weight:bold;}
 .user-box .belong { margin-top: 7px; color: #07613a;}

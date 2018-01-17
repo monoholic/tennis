@@ -31,6 +31,8 @@ if(defined('_INDEX_')) {
 
     if(isset($page_id) && $page_id == 'schedule')
         $nav_li_2 = ' class="active"';
+    if(isset($page_id) && $page_id == 'schedule_admin')
+        $nav_li_3 = ' class="active"';
 
     // if(isset($bo_table)) {
     //     if($bo_table == 'works') // 홍보센터
@@ -63,7 +65,7 @@ if(defined('_INDEX_')) {
             <ul class="nav navbar-nav navbar-right">
                 <li<?php echo $nav_li_1; ?>><a href="<?php echo $menu_href; ?>#introduce">테니스라인소개</a></li>
                 <li<?php echo $nav_li_2; ?>><a href="<?php echo 'schedule.php'; ?>"><div>대회스케줄</div></a></li>
-                <li<?php echo $nav_li_3; ?>><a href="<?php echo $menu_href; ?>#ranking">랭킹</a></li>
+                <li<?php echo $nav_li_3; ?>><a href="<?php echo 'schedule_admin.php'; ?>">랭킹</a></li>
                 <li<?php echo $nav_li_4; ?>><a href="<?php echo $menu_href; ?>#recruit_process">클럽리그</a></li>
                 <li<?php echo $nav_li_4; ?>><a href="<?php echo $menu_href; ?>#recruit">커뮤니티</a></li>
                 <li<?php echo $nav_li_5; ?>><a href="<?php echo $menu_href; ?>#request">스토어</a></li>
