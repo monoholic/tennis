@@ -324,3 +324,17 @@
         </div>
     </div>  
 </section>
+<div class="popup flexbox align-center just-between">
+    <div>
+        <div></div>
+        <div></div>
+        <div class="btns-area flexbox">
+            <div class="button btn-1 flexbox just-center">
+                <span>참가신청</span>
+            </div>
+            <div class="button btn-2 flexbox just-center">
+                <span>뒤로가기</span>
+            </div>
+        </div>
+    </div>
+</div>

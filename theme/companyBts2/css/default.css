@@ -251,3 +251,8 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 .rank-img-3 {width: 95px; height:98px; background: url('../img/3rd.png') no-repeat; background-size: contain;}
 .rank-img-4 {width: 95px; height:98px; background: url('../img/4th.png') no-repeat; background-size: contain;}
 .rank-img-5 {width: 95px; height:98px; background: url('../img/5th.png') no-repeat; background-size: contain;}
+
+/* popup */
+.popup {position: absolute; background: #dbdbdb; display: none; width: 100%; height: 100%;}
+.popup.on {display: block;}
+.popup .content {position: fixed; overflow: auto;}
