@@ -48,21 +48,21 @@
             </div>
             <div class="game-right">
                 <div class="game-info flexbox flow-col just-between">
-                    <div class="game-info-row"><span class="row-label">일시</span><input type="text" /></div>
-                    <div class="game-info-row"><span class="row-label">주최</span><input type="text" /></div>
-                    <div class="game-info-row"><span class="row-label">주관</span><input type="text" /></div>
-                    <div class="game-info-row"><span class="row-label">후원</span><input type="text" /></div>
-                    <div class="game-info-row"><span class="row-label">협찬</span><input type="text" /></div>
-                    <div class="game-info-row"><span class="row-label">참가상품</span><input type="text" /></div>
-                    <div class="game-info-row flexbox align-center">
-                        <span class="row-label">참가비</span>
+                    <div class="df-row"><span class="df-row-label">일시</span><input type="text" /></div>
+                    <div class="df-row"><span class="df-row-label">주최</span><input type="text" /></div>
+                    <div class="df-row"><span class="df-row-label">주관</span><input type="text" /></div>
+                    <div class="df-row"><span class="df-row-label">후원</span><input type="text" /></div>
+                    <div class="df-row"><span class="df-row-label">협찬</span><input type="text" /></div>
+                    <div class="df-row"><span class="df-row-label">참가상품</span><input type="text" /></div>
+                    <div class="df-row flexbox align-center">
+                        <span class="df-row-label">참가비</span>
                         <span style="font-weight:bold;">팀당</span>
                         <input type="text" class="input_sm" style="margin: 0 4px;"/>
                         <span style="font-weight:bold;">원</span>
                         <input type="checkbox" style="margin: 0 0 0 10px;"/>
                         <span style="margin-left: 3px;">(유소년 육성기금 2,000원 포함)</span>
                     </div>
-                    <div class="game-info-row"><span class="row-label">참가팀</span><input type="text" class="input_sm" /></div>
+                    <div class="df-row"><span class="df-row-label">참가팀</span><input type="text" class="input_sm" /></div>
                 </div>
                 <div class="pre-caution">
                     <div class="pre-caution-label">

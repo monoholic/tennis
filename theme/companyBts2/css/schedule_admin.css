@@ -7,7 +7,7 @@
 #game-detail .title-box .game-image {margin-top: 18px; font-size: 14px; color: #484848; font-weight: bold;}
 #game-detail .title-box .game-image input[type=file] {float: right;}
 
-#game-detail .game-right .game-info-row input[type=text] {width: 195px; margin-left: 0px;}
+#game-detail .game-right .df-row input[type=text] {width: 195px; margin-left: 0px;}
 #game-detail .game-right .pre-caution {margin-top: 97px; height: 145px;}
 
 #game-etc .game-tab-content {width: 880px !important;}

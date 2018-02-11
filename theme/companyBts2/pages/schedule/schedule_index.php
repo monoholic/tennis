@@ -47,18 +47,42 @@
                 </div>
             </div>
             <div class="game-right">
-                <div class="game-info flexbox flow-col just-between">
-                    <div class="game-info-row"><span class="row-label">일시</span><span>2019.01.01(월) ~ 14(일) 2주간</span></div>
-                    <div class="game-info-row"><span class="row-label">주최</span><span>경남 필, 빅토리아 운영위원회</span></div>
-                    <div class="game-info-row"><span class="row-label">주관</span><span>테니스나라</span></div>
-                    <div class="game-info-row"><span class="row-label">후원</span><span>사천테니스협회, 동광플라워, 프로켄넥스, KT사천대리점</span></div>
-                    <div class="game-info-row"><span class="row-label">협찬</span><span>아머스포츠코리아, 윌슨</span></div>
-                    <div class="game-info-row"><span class="row-label">참가상품</span><span>지역 특산품</span></div>
-                    <div class="game-info-row"><span class="row-label">참가비</span><span>팀당</span><span>52,000</span><span>원</span><span>(유소년 육성기금 2,000원 포함)</span></div>
-                    <div class="game-info-row"><span class="row-label">참가팀</span><span>100</span><span>/</span><span>23</span><span>팀 접수중</span></div>
-                </div>
+                <ul class="game-info flexbox flow-col just-between">
+                    <li class="df-row">
+                        <span class="df-row-label">일시</span>
+                        <span>2019.01.01(월) ~ 14(일) 2주간</span>
+                    </li>
+                    <li class="df-row">
+                        <span class="df-row-label">주최</span>
+                        <span>경남 필, 빅토리아 운영위원회</span>
+                    </li>
+                    <li class="df-row">
+                        <span class="df-row-label">주관</span>
+                        <span>테니스나라</span>
+                    </li>
+                    <li class="df-row">
+                        <span class="df-row-label">후원</span>
+                        <span>사천테니스협회, 동광플라워, 프로켄넥스, KT사천대리점</span>
+                    </li>
+                    <li class="df-row">
+                        <span class="df-row-label">협찬</span>
+                        <span>아머스포츠코리아, 윌슨</span>
+                    </li>
+                    <li class="df-row">
+                        <span class="df-row-label">참가상품</span>
+                        <span>지역 특산품</span>
+                    </li>
+                    <li class="df-row">
+                        <span class="df-row-label">참가비</span>
+                        <span>팀당</span><span>52,000</span><span>원</span><span>(유소년 육성기금 2,000원 포함)</span>
+                    </li>
+                    <li class="df-row">
+                        <span class="df-row-label">참가팀</span>
+                        <span>100</span><span>/</span><span>23</span><span>팀 접수중</span>
+                    </li>
+                </ul>
                 <div class="btns-area flexbox">
-                    <div class="button btn-1 flexbox just-center">
+                    <div class="button btn-1 flexbox just-center" onclick="openRegister()">
                         <span>참가신청</span>
                     </div>
                     <div class="button btn-2 flexbox just-center">
@@ -324,16 +348,77 @@
         </div>
     </div>  
 </section>
-<div class="popup flexbox align-center just-between">
-    <div>
-        <div></div>
-        <div></div>
-        <div class="btns-area flexbox">
+<div id="popup-register" class="popup flexbox flow-col align-center">
+    <div class="popup-back"></div>
+    <div class="popup-box">
+        <div class="popup-title flexbox align-center just-center">
+            <span>참가 신청서</span>
+        </div>
+        <div class="popup-content flexbox flow-col align-center just-start">
+            <div class="game-name flexbox align-center just-center">제 10회 사천단감배 전국동호인테니스대회</div>
+            <div class="inner-content">
+                <table class="game-info-1">
+                    <col align="right" width="70">
+                    <col align="left"  width="130">
+                    <col align="right" width="70">
+                    <col align="left"  width="130">
+                    <tr class="df-row">
+                        <td class="df-row-label df-text-right">출전종목</td>
+                        <td colspan="3">
+                            <select>
+                                <option value="test">test1</option>
+                                <option value="test">test2</option>
+                                <option value="test">test3</option>
+                                <option value="test">test4</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="df-row">
+                        <td class="df-row-label df-text-right">신청자명</td>
+                        <td>안정민</td>
+                        <td class="df-row-label df-text-right">클럽명</td>
+                        <td>강남오픈테니스</td>
+                    </tr>
+                    <tr class="df-row">
+                        <td class="df-row-label df-text-right">휴대폰</td>
+                        <td colspan="3">010 - 5249 - 9994</td>
+                    </tr>
+                </table>
+                <div class="game-info-2">
+                    <table>
+                        <col align="right" width="100">
+                        <col align="left">
+                        <tr class="df-row">
+                            <td class="df-row-label df-text-right">파트너 성명</td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr class="df-row">
+                            <td class="df-row-label df-text-right">파트너 클럽</td>
+                            <td></td>
+                        </tr>
+                        <tr class="df-row">
+                            <td class="df-row-label df-text-right">파트너 휴대폰</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="padding: 8px 12px;">
+                    <span>메모</span>
+                </div>
+                <textarea style="width: 100%;" rows="8">
+                </textarea>
+                <div class="flexbox align-center just-center" style="height: 40px;">
+                    <span class="df-label-caution">* 경기 중 안전사고에 대한 책임은 본인에게 있음을 동의합니다.</span>
+                    <input type="checkbox" style="margin: 0 0 0 6px;"/>
+                </div>
+            </div>            
+        </div>
+        <div class="btns-area flexbox align-center just-center">
             <div class="button btn-1 flexbox just-center">
-                <span>참가신청</span>
+                <span>결제하기</span>
             </div>
-            <div class="button btn-2 flexbox just-center">
-                <span>뒤로가기</span>
+            <div class="button btn-2 flexbox just-center" onclick="closeRegister()">
+                <span>취소</span>
             </div>
         </div>
     </div>

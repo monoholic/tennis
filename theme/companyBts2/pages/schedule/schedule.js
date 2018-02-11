@@ -8,3 +8,13 @@ function onClickTab(selected, tabNum) {
     $('#game-etc .content-box#game-' + tabNum).addClass("active");
 
 }
+
+function openRegister() {
+    var popup = $('#popup-register');
+    popup.addClass("active");
+}
+
+function closeRegister() {
+    var popup = $('#popup-register');
+    popup.removeClass("active");
+}
