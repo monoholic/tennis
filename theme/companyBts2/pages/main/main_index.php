@@ -24,6 +24,14 @@
 	$( function() {
         $.backstretch("<?php echo G5_THEME_IMG_URL ?>/main_banner.jpg");
     });
+
+
+    function onClickRankingTab (btn) {
+        var btn = $(btn)
+        btn.parent().children().removeClass('active');
+        btn.addClass('active');
+    }   
+    
 </script>
 
 <!-- 랭킹 -->
