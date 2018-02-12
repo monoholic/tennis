@@ -1,5 +1,62 @@
 <!-- 홈 배너 -->
+<?php
+    include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
+?>
+<script type="text/javascript">
+    jQuery.browser = {};
+    (function () {
+        jQuery.browser.msie = false;
+        jQuery.browser.version = 0;
+        if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+            jQuery.browser.msie = true;
+            jQuery.browser.version = RegExp.$1;
+        }
+    })();
+
+    
+    $(function(){
+        $("#date_wr1, #date_wr2, #date_wr3, #date_wr4, #date_wr5, #date_wr6").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+1d;" });
+        
+        $('.timeselector').timepicker({
+            template: false,
+            showInputs: false,
+            timeFormat: 'H:i:s'
+        });
+
+        $('#check_level1, #check_level2, #check_level3, #check_level4').on('change', function() { 
+            // From the other examples
+            var Name = this.name;
+            Name = Name.split("_");
+
+            if (this.checked) {
+                $("input[name=" + Name[0] + "_schedule]").removeAttr("disabled");
+                $("input[name=" + Name[0] + "_schedule_time]").removeAttr("disabled");
+                $("input[name=" + Name[0] + "_court_chk]").removeAttr("disabled");
+                $("input[name=" + Name[0] + "_age]").removeAttr("disabled");
+            } else {
+                $("input[name=" + Name[0] + "_schedule]").attr("disabled", "disabled");
+                $("input[name=" + Name[0] + "_schedule_time]").attr("disabled", "disabled");
+                $("input[name=" + Name[0] + "_court_chk]").attr("disabled", "disabled");
+                $("input[name=" + Name[0] + "_age]").attr("disabled", "disabled");
+                $("input[name=" + Name[0] + "_court_chk]").attr("checked", false);
+                $("input[name=" + Name[0] + "_court]").attr("disabled", "disabled");
+            }
+        });
+        $('#major_court_chk, #tour_court_chk, #challenger_court_chk, #circuit_court_chk').on('change', function() { 
+            // From the other examples
+            var Name = this.name;
+            Name = Name.split("_");
+
+            if (this.checked) {
+                $("input[name=" + Name[0] + "_court]").removeAttr("disabled");
+            } else {
+                $("input[name=" + Name[0] + "_court]").attr("disabled", "disabled");
+            }
+        });
+    });
+</script>
 <script src="<?php echo G5_THEME_URL; ?>/pages/schedule/schedule_admin.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule.css">
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule_admin.css">
 <form name="game-form" method="post" action="<?php echo G5_COMPETITION_DIR; ?>/schedule/schedule_admin_regist.php">
@@ -49,12 +106,12 @@
             </div>
             <div class="game-right">
                 <div class="game-info flexbox flow-col just-between">
-                    <div class="df-row"><span class="df-row-label">일시</span><input type="text" id="competition_schedule" name="competition_schedule"/></div>
-                    <div class="df-row"><span class="df-row-label">주최</span><input type="text" id="competition_host" name="competition_host"/></div>
-                    <div class="df-row"><span class="df-row-label">주관</span><input type="text" id="competition_subj" name="competition_subj"/></div>
-                    <div class="df-row"><span class="df-row-label">후원</span><input type="text" id="competition_support" name="competition_support"/></div>
-                    <div class="df-row"><span class="df-row-label">협찬</span><input type="text" id="competition_sponsor" name="competition_sponsor"/></div>
-                    <div class="df-row"><span class="df-row-label">참가상품</span><input type="text" id="competition_goods" name="competition_goods"/></div>
+                    <div class="df-row"><span class="df-row-label">일시</span><input type="text" id="date_wr1" class="frm_input" name="competition_schedule"/></div>
+                    <div class="df-row"><span class="df-row-label">주최</span><input type="text" class="frm_input" id="competition_host" name="competition_host"/></div>
+                    <div class="df-row"><span class="df-row-label">주관</span><input type="text" class="frm_input" id="competition_subj" name="competition_subj"/></div>
+                    <div class="df-row"><span class="df-row-label">후원</span><input type="text" class="frm_input" id="competition_support" name="competition_support"/></div>
+                    <div class="df-row"><span class="df-row-label">협찬</span><input type="text" class="frm_input" id="competition_sponsor" name="competition_sponsor"/></div>
+                    <div class="df-row"><span class="df-row-label">참가상품</span><input type="text" class="frm_input" style="margin: 0 1px;" id="competition_goods" name="competition_goods"/></div>
                     <div class="df-row flexbox align-center">
                         <span class="df-row-label">참가비</span>
                         <span style="font-weight:bold;">팀당</span>
@@ -70,7 +127,7 @@
                         <span>* 참가신청시 주의사항</span>
                     </div>
                     <div class="pre-caution-descript">
-                        <textarea rows="6" style="width:100%; height:100%;" id="competition_caution" name="competition_caution"></textarea>
+                        <textarea rows="6" style="width: 100%; resize: none;" id="competition_caution" name="competition_caution"></textarea>
                     </div>
                 </div>
             </div>
@@ -123,38 +180,42 @@
                 <div class="tab-sub-title"><span>대회일정</span></div>
                 <table class="table game-schd-table">
                     <tr>
-                        <th>메이져</th>
-                        <th>투어</th>
-                        <th>챌린져</th>
-                        <th>서킷</th>
+                        <th><input type="checkbox" id="check_level1" name="major_chk">메이져</th>
+                        <th><input type="checkbox" id="check_level2" name="tour_chk">투어</th>
+                        <th><input type="checkbox" id="check_level3" name="challenger_chk">챌린져</th>
+                        <th><input type="checkbox" id="check_level4" name="circuit_chk">서킷</th>
                     </tr>
                     <tr class="col-type-1">
                         <td>
                             <div class="flexbox flow-col align-center">
-                                <span>2017. 12. 17 (금) AM 9:00</span>
+                                <span><input type="text" id="date_wr2" class="frm_input" name="major_schedule" disabled="disabled"/><br/><input name="major_schedule_time" id="timepicker" class="timepicker" data-provide="timepicker" data-template="false" type="text" disabled="disabled"/></span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
-                                <span>코트 추후 안내 예정</span>
+                                <span><input type="checkbox" id="major_court_chk" name="major_court_chk" disabled="disabled">코트 추후 안내 예정</span>
+                                <span><input type="text" id="major_court" name="major_court" disabled="disabled"></span>
                             </div>
                         </td>
                         <td>
                             <div class="flexbox flow-col align-center">
-                                <span>2017. 12. 17 (금) AM 9:00</span>
+                                <span><input type="text" id="date_wr3" class="frm_input" name="tour_schedule" disabled="disabled"/><br/><input name="tour_schedule_time" id="timepicker" class="timepicker" data-provide="timepicker" data-template="false" type="text" disabled="disabled"/></span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
-                                <span>코트 추후 안내 예정</span>
+                                <span><input type="checkbox" id="tour_court_chk" name="tour_court_chk" disabled="disabled">코트 추후 안내 예정</span>
+                                <span><input type="text" id="tour_court" name="tour_court" disabled="disabled"></span>
                             </div>
                         </td>
                         <td>
                             <div class="flexbox flow-col align-center">
-                                <span>2017. 12. 17 (금) AM 9:00</span>
+                                <span><input type="text" id="date_wr4" class="frm_input" name="challenger_schedule" disabled="disabled"/><br/><input name="challenger_schedule_time" id="timepicker" class="timepicker" data-provide="timepicker" data-template="false" type="text" disabled="disabled"/></span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
-                                <span>코트 추후 안내 예정</span>
+                                <span><input type="checkbox" id="challenger_court_chk" name="challenger_court_chk" disabled="disabled">코트 추후 안내 예정</span>
+                                <span><input type="text" id="challenger_court" name="challenger_court" disabled="disabled"></span>
                             </div>
                         </td>
                         <td>
                             <div class="flexbox flow-col align-center">
-                                <span>2017. 12. 17 (금) AM 9:00</span>
+                                <span><input type="text" id="date_wr5" class="frm_input" name="circuit_schedule" disabled="disabled"/><br/><input name="circuit_schedule_time" id="timepicker" class="timepicker" data-provide="timepicker" data-template="false" type="text" disabled="disabled"/></span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
-                                <span>코트 추후 안내 예정</span>
+                                <span><input type="checkbox" id="circuit_court_chk" name="circuit_court_chk" disabled="disabled">코트 추후 안내 예정</span>
+                                <span><input type="text" id="circuit_court" name="circuit_court" disabled="disabled"></span>
                             </div>
                         </td>
                     </tr>
@@ -168,10 +229,10 @@
                         <th>서킷</th>
                     </tr>
                     <tr class="col-type-3">
-                        <td>만 50세 이상</td>
-                        <td>만 50세 이상</td>
-                        <td>만 50세 이상</td>
-                        <td>만 50세 이상</td>
+                        <td>만 <input type="number" name="major_age" min="5" max="120" disabled="disabled"> 세 이상</td>
+                        <td>만 <input type="number" name="tour_age" min="5" max="120" disabled="disabled">세 이상</td>
+                        <td>만 <input type="number" name="challenger_age" min="5" max="120" disabled="disabled">세 이상</td>
+                        <td>만 <input type="number" name="circuit_age" min="5" max="120" disabled="disabled">세 이상</td>
                     </tr>
                 </table>
                 <table class="table game-schd-table">
@@ -179,7 +240,9 @@
                         <th>공통부분</th>
                     </tr>
                     <tr class="col-type-4">
-                        <td>- 연령은 주민등록상의 연도만 적용</br>- 연령은 주민등록상의 연도만 적용</br>- 연령은 주민등록상의 연도만 적용</br>- 연령은 주민등록상의 연도만 적용</br>- 연령은 주민등록상의 연도만 적용</td>
+                        <td>
+                            <textarea name="common_standard" rows="10" style="width: 100%; resize: none;"></textarea>
+                        </td>
                     </tr>
                 </table>
             </div>  
@@ -189,54 +252,36 @@
                 </div>
                 <div class="tab-sub-title"><span>진행방식</span></div>
                 <div class="border-box">
-                    - 예선은 조별리그로 하고</br>
-                    - 예선은 조별리그로 하고</br>
-                    - 예선은 조별리그로 하고</br>
-                    - 예선은 조별리그로 하고</br>
-                    - 예선은 조별리그로 하고</br>
+                    <textarea rows="6" style="width: 100%; resize: none;" id="competition_proceed" name="competition_proceed"></textarea>
                 </div>
                 <div class="gray-box">
                     예선리그 성적우선순위</br>
-                    가)승률</br>
-                    가)승률</br>
-                    가)승률</br>
-                    가)승률</br>
-                    가)승률</br>
-                    가)승률</br>
-                    가)승률</br>
-                    가)승률</br>
-                    가)승률</br>
-                    가)승률</br>
+                    <textarea rows="6" style="width: 100%; resize: none;" id="competition_priority" name="competition_priority"></textarea>
                 </div>
                 <div class="tab-sub-title"><span>경기순서</span></div>
                 <div class="border-box">
-                    * 3팀일 경우 : 1-2, 3-(1-2번승자), 3-(1-2번패자)</br>
-                    * 4팀일 경우 : 1-4, 2-3, 2-4, 3-4</br>
+                    * 3팀일 경우 : 1-2, 3-(1-2번승자), 3-(1-2번패자)<input type="text" id="competition_priority2" name="competition_priority2"></br>
+                    * 4팀일 경우 : 1-4, 2-3, 2-4, 3-4<input type="text" id="competition_priority3" name="competition_priority3"></br>
                 </div>
                 <div class="grame-seq-content gray-box flexbox flow-col align-center">
                     <div>1코트에 2개조가 들어갈 경우</div>
+                    <input type="text" id="competition_priority4" name="competition_priority4">
                     <div class="game-seq-court flexbox align-center just-between">
                         <div class="court flexbox flow-col align-center just-between">
                             <div class="court-img"></div>
                             <div><span>홀수조 1-2, 3-(1-2번승자), 3-(1-2번패자)</span></div>
+                            <input type="text" id="competition_priority5" name="competition_priority5">
                         </div>
                         <div class="court flexbox flow-col align-center just-between">
                             <div class="court-img"></div>
                             <div><span>홀수조 1-2, 3-(1-2번승자), 3-(1-2번패자)</span></div>
+                            <input type="text" id="competition_priority6" name="competition_priority6">
                         </div>
                     </div>
                 </div>
                 <div class="tab-sub-title"><span>참가자 준수사항</span></div>
                 <div class="border-box">
-                    - 부서별 연령기준은 연도만 적용한다.</br>
-                    - 부서별 연령기준은 연도만 적용한다.</br>
-                    - 부서별 연령기준은 연도만 적용한다.</br>
-                    - 부서별 연령기준은 연도만 적용한다.</br>
-                    - 부서별 연령기준은 연도만 적용한다.</br>
-                    - 부서별 연령기준은 연도만 적용한다.</br>
-                    - 부서별 연령기준은 연도만 적용한다.</br>
-                    - 부서별 연령기준은 연도만 적용한다.</br>
-                    - 부서별 연령기준은 연도만 적용한다.</br>
+                    <textarea name="participant_caution" rows="10" style="width: 100%; resize: none;"></textarea>
                 </div>
             </div>  
             <div id="game-4" class="active content-box">
