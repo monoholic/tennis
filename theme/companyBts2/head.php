@@ -68,7 +68,7 @@ if(defined('_INDEX_')) {
                 <li<?php echo $nav_li_3; ?>><a href="<?php echo 'schedule_admin.php'; ?>">랭킹</a></li>
                 <li<?php echo $nav_li_4; ?>><a href="<?php echo $menu_href; ?>#recruit_process">클럽리그</a></li>
                 <li<?php echo $nav_li_4; ?>><a href="<?php echo $menu_href; ?>#recruit">커뮤니티</a></li>
-                <li<?php echo $nav_li_5; ?>><a href="<?php echo $menu_href; ?>#request">스토어</a></li>
+                <li<?php echo $nav_li_5; ?>><a href="<?php echo 'join.php'; ?>#request">스토어</a></li>
             </ul>
         </nav>
     </div>
