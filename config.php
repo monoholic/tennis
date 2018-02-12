@@ -60,6 +60,7 @@ define('G5_SYNDI_DIR',      'syndi');
 define('G5_PHPMAILER_DIR',  'PHPMailer');
 define('G5_SESSION_DIR',    'session');
 define('G5_THEME_DIR',      'theme');
+define('G5_COMPETITION_DIR','theme/companyBts2/pages');
 
 // URL 은 브라우저상에서의 경로 (도메인으로 부터의)
 if (G5_DOMAIN) {

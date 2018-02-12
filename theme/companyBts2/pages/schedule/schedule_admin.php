@@ -2,16 +2,17 @@
 <script src="<?php echo G5_THEME_URL; ?>/pages/schedule/schedule_admin.js"></script>
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule.css">
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule_admin.css">
+<form name="game-form" method="post" action="<?php echo G5_COMPETITION_DIR; ?>/schedule/schedule_admin_regist.php">
 <section id="game-detail">
     <div class="container flexbox flow-col align-center">
         <div class="title-box flexbox flow-col align-center">
             <div class="game-title">
                 <span>대회이름</span>
-                <input type="text"/>
+                <input type="text" id="competition_title" name="competition_title" value=""/>
             </div>
             <div class="part-title">
                 <span>서브타이틀</span>
-                <input type="text"/>
+                <input type="text" id="competition_subtitle" name="competition_subtitle" value=""/>
             </div>
             <div class="game-image">
                 <span>대회리스트 배경 이미지</span>
@@ -48,28 +49,28 @@
             </div>
             <div class="game-right">
                 <div class="game-info flexbox flow-col just-between">
-                    <div class="game-info-row"><span class="row-label">일시</span><input type="text" /></div>
-                    <div class="game-info-row"><span class="row-label">주최</span><input type="text" /></div>
-                    <div class="game-info-row"><span class="row-label">주관</span><input type="text" /></div>
-                    <div class="game-info-row"><span class="row-label">후원</span><input type="text" /></div>
-                    <div class="game-info-row"><span class="row-label">협찬</span><input type="text" /></div>
-                    <div class="game-info-row"><span class="row-label">참가상품</span><input type="text" /></div>
+                    <div class="game-info-row"><span class="row-label">일시</span><input type="text" id="competition_schedule" name="competition_schedule"/></div>
+                    <div class="game-info-row"><span class="row-label">주최</span><input type="text" id="competition_host" name="competition_host"/></div>
+                    <div class="game-info-row"><span class="row-label">주관</span><input type="text" id="competition_subj" name="competition_subj"/></div>
+                    <div class="game-info-row"><span class="row-label">후원</span><input type="text" id="competition_support" name="competition_support"/></div>
+                    <div class="game-info-row"><span class="row-label">협찬</span><input type="text" id="competition_sponsor" name="competition_sponsor"/></div>
+                    <div class="game-info-row"><span class="row-label">참가상품</span><input type="text" id="competition_goods" name="competition_goods"/></div>
                     <div class="game-info-row flexbox align-center">
                         <span class="row-label">참가비</span>
                         <span style="font-weight:bold;">팀당</span>
-                        <input type="text" class="input_sm" style="margin: 0 4px;"/>
+                        <input type="text" class="input_sm" style="margin: 0 4px;" id="competition_fee" name="competition_fee"/>
                         <span style="font-weight:bold;">원</span>
-                        <input type="checkbox" style="margin: 0 0 0 10px;"/>
+                        <input type="checkbox" style="margin: 0 0 0 10px;" id="competition_youth_fund" name="competition_youth_fund"/>
                         <span style="margin-left: 3px;">(유소년 육성기금 2,000원 포함)</span>
                     </div>
-                    <div class="game-info-row"><span class="row-label">참가팀</span><input type="text" class="input_sm" /></div>
+                    <div class="game-info-row"><span class="row-label">참가팀</span><input type="text" class="input_sm" id="competition_teamcnt"/></div>
                 </div>
                 <div class="pre-caution">
                     <div class="pre-caution-label">
                         <span>* 참가신청시 주의사항</span>
                     </div>
                     <div class="pre-caution-descript">
-                        <textarea rows="6" style="width:100%; height:100%;"></textarea>
+                        <textarea rows="6" style="width:100%; height:100%;" id="competition_caution" name="competition_caution"></textarea>
                     </div>
                 </div>
             </div>
@@ -89,25 +90,25 @@
                         <div class="reward-box flexbox flow-col align-center">
                             <div class="reward-img-1"></div>
                             <div class="reward-name">우승</div>
-                            <div class="reward-gift">상패 및 100만원</div>
+                            <div class="reward-gift"><input type="text" class="input_sm" id="goods_first" name="goods_first"/></div>
                         </div>
                         <div class="reward-box flexbox flow-col align-center">
                             <div class="reward-img-1"></div>
-                            <div class="reward-name">우승</div>
-                            <div class="reward-gift">상패 및 100만원</div>
+                            <div class="reward-name">준우승</div>
+                            <div class="reward-gift"><input type="text" class="input_sm" id="goods_second" name="goods_second"/></div>
                         </div>
                         <div class="reward-box flexbox flow-col align-center">
                             <div class="reward-img-1"></div>
-                            <div class="reward-name">우승</div>
-                            <div class="reward-gift">상패 및 100만원</div>
+                            <div class="reward-name">4강</div>
+                            <div class="reward-gift"><input type="text" class="input_sm" id="goods_third" name="goods_third"/></div>
                         </div>
                         <div style="width:2px; margin-left: 70px;" class="flexbox just-center">
                             <div class="div-line-v" style="height:73px; margin-bottom:44px;"></div>
                         </div>
                         <div class="reward-box flexbox flow-col align-center">
                             <div class="reward-img-1"></div>
-                            <div class="reward-name">우승</div>
-                            <div class="reward-gift">상패 및 100만원</div>
+                            <div class="reward-name">8강</div>
+                            <div class="reward-gift"><input type="text" class="input_sm" id="goods_quater" name="goods_quater"/></div>
                         </div>
                     </div>
                     <div class="reward-desc">
@@ -261,4 +262,8 @@
             </div>  
         </div>
     </div>  
+    <div class="active submit-box">
+        <input type="submit">
+    </div>
 </section>
+</form>

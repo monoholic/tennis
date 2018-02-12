@@ -139,7 +139,7 @@ if (file_exists($dbconfig_file)) {
 
     sql_set_charset('utf8', $connect_db);
     if(defined('G5_MYSQL_SET_MODE') && G5_MYSQL_SET_MODE) sql_query("SET SESSION sql_mode = ''");
-    if (defined(G5_TIMEZONE)) sql_query(" set time_zone = '".G5_TIMEZONE."'");
+    //if (defined(G5_TIMEZONE)) sql_query(" set time_zone = '".G5_TIMEZONE."'");
 } else {
 ?>
 
