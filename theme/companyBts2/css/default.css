@@ -26,6 +26,7 @@ input[type=text] {height: 25px; margin-left: 10px;}
 .row { margin-left: 0px !important; margin-right: 0px !important;}
 input.input_sm {width:55px !important;}
 
+#container {position: relative; height: 100%;}
 #container:after{display:block;content:"";clear:both}
 section{position:relative}
 #introduce, #business, #recruit_process, #recruit, #request{padding-top:30px; padding-bottom:130px}
@@ -251,3 +252,50 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 .rank-img-3 {width: 95px; height:98px; background: url('../img/3rd.png') no-repeat; background-size: contain;}
 .rank-img-4 {width: 95px; height:98px; background: url('../img/4th.png') no-repeat; background-size: contain;}
 .rank-img-5 {width: 95px; height:98px; background: url('../img/5th.png') no-repeat; background-size: contain;}
+
+/* popup */
+.popup {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    z-index: 10000;
+}
+.popup.active {display: flex;}
+.popup .popup-box {
+    margin-top:155px;
+    overflow: auto;
+    width: 645px;
+    height: 785px;
+    background: #ffffff; 
+    z-index: 10001;
+}
+.popup .popup-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000; 
+    opacity: 0.8;
+}
+
+.popup .popup-title{
+    height: 55px;
+    color: #353535;
+    font-size: 22px;
+    border-bottom: 5px solid #484848;
+}
+
+.popup .btns-area {margin-top: 15px;}
+
+/* row style */
+.df-row {color: #484848; width: 100%; height: 30px;}
+.df-row-label {margin-right: 16px; font-weight: bold;}
+.df-text-right {text-align: right;}
+.df-label-caution {font-size: 11px; color: red;}
+
+/* buttons */
+.btns-area {margin-top: 50px;}
+.btns-area .button {cursor: pointer; width: 143px; height: 42px; font-weight: bold; font-size: 18px;}
+.btns-area .btn-1 {background-color: #07613a; color: #fff; border: #034a2b solid 1px;}
+.btns-area .btn-2 {background-color: #dbdbdb; color: #484848; margin-left: 10px;}

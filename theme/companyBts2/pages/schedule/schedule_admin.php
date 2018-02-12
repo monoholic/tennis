@@ -49,21 +49,21 @@
             </div>
             <div class="game-right">
                 <div class="game-info flexbox flow-col just-between">
-                    <div class="game-info-row"><span class="row-label">일시</span><input type="text" id="competition_schedule" name="competition_schedule"/></div>
-                    <div class="game-info-row"><span class="row-label">주최</span><input type="text" id="competition_host" name="competition_host"/></div>
-                    <div class="game-info-row"><span class="row-label">주관</span><input type="text" id="competition_subj" name="competition_subj"/></div>
-                    <div class="game-info-row"><span class="row-label">후원</span><input type="text" id="competition_support" name="competition_support"/></div>
-                    <div class="game-info-row"><span class="row-label">협찬</span><input type="text" id="competition_sponsor" name="competition_sponsor"/></div>
-                    <div class="game-info-row"><span class="row-label">참가상품</span><input type="text" id="competition_goods" name="competition_goods"/></div>
-                    <div class="game-info-row flexbox align-center">
-                        <span class="row-label">참가비</span>
+                    <div class="df-row"><span class="df-row-label">일시</span><input type="text" id="competition_schedule" name="competition_schedule"/></div>
+                    <div class="df-row"><span class="df-row-label">주최</span><input type="text" id="competition_host" name="competition_host"/></div>
+                    <div class="df-row"><span class="df-row-label">주관</span><input type="text" id="competition_subj" name="competition_subj"/></div>
+                    <div class="df-row"><span class="df-row-label">후원</span><input type="text" id="competition_support" name="competition_support"/></div>
+                    <div class="df-row"><span class="df-row-label">협찬</span><input type="text" id="competition_sponsor" name="competition_sponsor"/></div>
+                    <div class="df-row"><span class="df-row-label">참가상품</span><input type="text" id="competition_goods" name="competition_goods"/></div>
+                    <div class="df-row flexbox align-center">
+                        <span class="df-row-label">참가비</span>
                         <span style="font-weight:bold;">팀당</span>
                         <input type="text" class="input_sm" style="margin: 0 4px;" id="competition_fee" name="competition_fee"/>
                         <span style="font-weight:bold;">원</span>
                         <input type="checkbox" style="margin: 0 0 0 10px;" id="competition_youth_fund" name="competition_youth_fund"/>
                         <span style="margin-left: 3px;">(유소년 육성기금 2,000원 포함)</span>
                     </div>
-                    <div class="game-info-row"><span class="row-label">참가팀</span><input type="text" class="input_sm" id="competition_teamcnt"/></div>
+                    <div class="df-row"><span class="df-row-label">참가팀</span><input type="text" class="input_sm" id="competition_teamcnt"/></div>
                 </div>
                 <div class="pre-caution">
                     <div class="pre-caution-label">
