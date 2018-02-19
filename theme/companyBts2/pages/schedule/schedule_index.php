@@ -81,7 +81,7 @@
                         <span>100</span><span>/</span><span>23</span><span>팀 접수중</span>
                     </li>
                 </ul>
-                <div class="btns-area flexbox">
+                <div class="btns-area flexbox" style="margin-top: 50px">
                     <div class="button btn-1 flexbox just-center" onclick="openRegister()">
                         <span>참가신청</span>
                     </div>
