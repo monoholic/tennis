@@ -9,7 +9,10 @@
 
 #game-detail .game-right .df-row input[type=text] {width: 195px; margin-left: 0px;}
 #game-detail .game-right .pre-caution {margin-top: 97px; height: 145px;}
-
+#game-detail .game-right .game-info {
+    height: 260px;
+    padding: 0px 4px;
+}
 #game-etc .game-tab-content {width: 880px !important;}
 #game-etc .game-tab-content .content-box {width: 100% !important;}
 #game-etc .game-tab-title { width:100%; margin-top: 55px; color: #cecece; padding-bottom: 10px; border-bottom: 1px solid #cecece;}

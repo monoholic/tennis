@@ -312,8 +312,9 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 
 /* game */
 /* .games-box {height: 490px;} */
-.game-box {position: relative;}
-.game-box {width: 576px; height: 225px; float: left; color: #fff; background-color: gray;}
+.game-box {position: relative; width: 576px; height: 225px; float: left; 
+    padding: 25px 20px;
+    color: #fff; background-color: gray;}
 .game-box:nth-child(odd) {margin: 18px 22px 18px 0px;}
 .game-box:nth-child(even) {margin: 18px 0px 18px 22px;}
 .game-owner {padding-top: 26px;}
