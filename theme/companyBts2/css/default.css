@@ -242,7 +242,11 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 
 /* user box */
 .user-box { position: relative; width: 220px; height: 344px; }
-.user-box .photo { width: 150px; height: 150px;  background-color: gray; border-radius: 50%;}
+.user-box .photo { 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 150px; height: 150px;  background-color: gray; border-radius: 50%;}
 .user-box .name { margin-top: 20px; color: #353535; font-size: 22px; font-weight:bold;}
 .user-box .belong { margin-top: 7px; color: #07613a;}
 
