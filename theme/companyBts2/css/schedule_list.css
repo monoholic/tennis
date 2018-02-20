@@ -1,0 +1,13 @@
+#banner {margin-top: 84px;}
+#banner .banner-box {width: 1200px; height: 170px; overflow: hidden;}
+#banner .banner-1 {background: gray; width: 1200px; height: 170px;}
+#banner .banner-2 {background: gray; width: 1200px; height: 170px;}
+#banner .banner-3 {background: gray; width: 1200px; height: 170px;}
+
+#schedule-list {margin: 70px 0 208px 0;}
+#schedule-list .underline-tab { width: 1200px; }
+#schedule-list .underline-tab li { width: 50%; }
+
+#schedule-list .container {margin-top: 26px;}
+#schedule-list .page-box {margin-top: 55px;}
+
