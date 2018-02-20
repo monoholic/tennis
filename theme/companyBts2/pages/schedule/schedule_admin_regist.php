@@ -1,6 +1,7 @@
 <?php
 include_once('../../../../common.php');
 
+
 $competition_title          = $_POST['competition_title'];
 $competition_subtitle       = $_POST['competition_subtitle'];
 $competition_schedule       = $_POST['competition_schedule'];
@@ -42,13 +43,66 @@ $goods_first                = $_POST['goods_first'];
 $goods_second               = $_POST['goods_second'];
 $goods_third                = $_POST['goods_third'];
 $goods_quater               = $_POST['goods_quater'];
-
-
+$helper_cnt                 = $_POST['helper_cnt'];
 
 //competition max 값 가져와서 comp_id 결정
 $sql = "SELECT ifnull(max(competition_id),0)+1 AS comp_id FROM $g5[competition_table]";
 $comp = sql_fetch($sql);
 $comp_id = $comp['comp_id'];
+
+// 아이콘 업로드
+if (is_uploaded_file($_FILES['competition_bg']['tmp_name'])) {
+    if (!preg_match("/(\.jpg)$/i", $_FILES['competition_bg']['name'])) {
+        alert($_FILES['competition_bg']['name'] . '은(는) jpg 파일이 아닙니다.');
+    }
+
+    if (preg_match("/(\.jpg)$/i", $_FILES['competition_bg']['name'])) {
+        @mkdir(G5_DATA_PATH.'/competition_img/competition_bg/'.$comp_id, G5_DIR_PERMISSION);
+        @chmod(G5_DATA_PATH.'/competition_img/competition_bg/'.$comp_id, G5_DIR_PERMISSION);
+
+        $dest_path = G5_DATA_PATH.'/competition_img/competition_bg/'.$comp_id.'/'.$comp_id.'.jpg';
+
+        move_uploaded_file($_FILES['competition_bg']['tmp_name'], $dest_path);
+        chmod($dest_path, G5_FILE_PERMISSION);
+    }
+}
+
+// 아이콘 업로드
+for ($i=0; $i<$helper_cnt; $i++) {
+    if (is_uploaded_file($_FILES['helper_img'.$i]['tmp_name'])) {
+        if (!preg_match("/(\.jpg)$/i", $_FILES['helper_img'.$i]['name'])) {
+            alert($_FILES['helper_img'.$i]['name'] . '은(는) jpg 파일이 아닙니다.');
+        }
+    
+        if (preg_match("/(\.jpg)$/i", $_FILES['helper_img'.$i]['name'])) {
+            @mkdir(G5_DATA_PATH.'/competition_img/competition_helper/'.$comp_id, G5_DIR_PERMISSION);
+            @chmod(G5_DATA_PATH.'/competition_img/competition_helper/'.$comp_id, G5_DIR_PERMISSION);
+    
+            $dest_path = G5_DATA_PATH.'/competition_img/competition_helper/'.$comp_id.'/'.$comp_id.'_'.$i.'.jpg';
+    
+            move_uploaded_file($_FILES['helper_img'.$i]['tmp_name'], $dest_path);
+            chmod($dest_path, G5_FILE_PERMISSION);
+        }
+    }
+
+    $helper_name                = $_POST['helper_name'.$i];
+    $helper_belong              = $_POST['helper_belong'.$i];
+    $helper_phone               = $_POST['helper_phonef'.$i].'-'.$_POST['helper_phones'.$i].'-'.$_POST['helper_phonet'.$i];
+    $helper_img                 = $comp_id.'_'.$i.'.jpg';
+
+    $sql = " insert {$g5['game_helper_table']}
+                set competition_id = '$comp_id',
+                    helper_img     = '$helper_img',
+                    helper_id      = '$i',
+                    helper_name    = '$helper_name',
+                    helper_belong  = '$helper_belong',
+                    helper_phone   = '$helper_phone',
+                    helper_use_yn  = 'Y'
+                    ";
+    echo $sql."<BR>";
+    sql_query($sql);
+}
+
 
 $sql = " insert {$g5['competition_table']}
             set competition_id              =  '$comp_id',
@@ -88,6 +142,7 @@ $sql = " insert {$g5['competition_table']}
                 competition_priority4       =  '$competition_priority4',
                 competition_priority5       =  '$competition_priority5',
                 competition_priority6       =  '$competition_priority6'
+                helper_cnt                  =  '$helper_cnt' 
                 ";
 
 sql_query($sql);

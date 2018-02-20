@@ -3,6 +3,7 @@
     include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php');
 ?>
 <script type="text/javascript">
+    //datepicker ie 적용
     jQuery.browser = {};
     (function () {
         jQuery.browser.msie = false;
@@ -13,16 +14,18 @@
         }
     })();
 
-    
+
     $(function(){
+
+        //datepicker
         $("#date_wr1, #date_wr2, #date_wr3, #date_wr4, #date_wr5, #date_wr6").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+1d;" });
-        
         $('.timeselector').timepicker({
             template: false,
             showInputs: false,
             timeFormat: 'H:i:s'
         });
-
+        
+        //각 등급별 체크박스 클릭시 제어
         $('#check_level1, #check_level2, #check_level3, #check_level4').on('change', function() { 
             // From the other examples
             var Name = this.name;
@@ -37,9 +40,14 @@
                 $("input[name=" + Name[0] + "_schedule]").attr("disabled", "disabled");
                 $("input[name=" + Name[0] + "_schedule_time]").attr("disabled", "disabled");
                 $("input[name=" + Name[0] + "_court_chk]").attr("disabled", "disabled");
-                $("input[name=" + Name[0] + "_age]").attr("disabled", "disabled");
                 $("input[name=" + Name[0] + "_court_chk]").attr("checked", false);
                 $("input[name=" + Name[0] + "_court]").attr("disabled", "disabled");
+                $("input[name=" + Name[0] + "_age]").attr("disabled", "disabled");
+
+                $("input[name=" + Name[0] + "_schedule]").val("");
+                $("input[name=" + Name[0] + "_schedule_time]").val("");
+                $("input[name=" + Name[0] + "_court]").val("");
+                $("input[name=" + Name[0] + "_age]").val("");
             }
         });
         $('#major_court_chk, #tour_court_chk, #challenger_court_chk, #circuit_court_chk').on('change', function() { 
@@ -53,13 +61,54 @@
                 $("input[name=" + Name[0] + "_court]").attr("disabled", "disabled");
             }
         });
+
+        //파일선택시 상단 div 에 이미지 미리보기
+        $(".competition_helper").on('change',function(){
+            readURL(this);
+        });
     });
+
+    //파일선택시 상단 div 에 이미지 미리보기
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#helper_photo'+input.name.charAt(input.name.length-1)).css('background-image', 'url(\"' + e.target.result + '\")');
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function addHelper(){
+
+        var content = "";
+        for(var i = 4; i<5; i++){
+            content += "<div class=\"user-box flexbox flow-col align-center just-between\">";
+            content += "<div class=\"info flexbox flow-col align-center just-between\">";
+            content += "<div class=\"photo\" id=\"helper_photo"+ i +"></div>";
+            content += "<input type=\"file\" class=\"helper_img\" id=\"helper_img"+ i +" name=\"helper_img"+ i +">";
+            content += "<span class=\"name\"><span>이름</span><input type=\"text\" class=\"input_sm\" id=\"helper_name"+ i + "></span>";
+            content += "<span class=\"belong\"><span>부서</span><input type=\"text\" class=\"input_sm\" id=\"helper_belong" + i + "></span>";
+            content += "</div>";
+
+            content += "<div class=\"info-box flexbox flow-col just-center\">";
+            content += "<span class=\"phone-number\">";
+            content += "<input type=\"number\" maxlength=\"3\" name=\"helper_phonef" + i + ">";
+            content += "- <input type=\"number\" maxlength=\"4\" name=\"helper_phones" + i + ">";
+            content += "- <input type=\"number\" maxlength=\"4\" name=\"helper_phonet" + i +">";
+        }
+        
+        $("#game-helper-box").html(content);
+        
+    }
+
 </script>
 <script src="<?php echo G5_THEME_URL; ?>/pages/schedule/schedule_admin.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule.css">
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule_admin.css">
-<form name="game-form" method="post" action="<?php echo G5_COMPETITION_DIR; ?>/schedule/schedule_admin_regist.php">
+<form name="game-form" method="post" action="<?php echo G5_COMPETITION_DIR; ?>/schedule/schedule_admin_regist.php" enctype="multipart/form-data">
 <section id="game-detail">
     <div class="container flexbox flow-col align-center">
         <div class="title-box flexbox flow-col align-center">
@@ -73,7 +122,8 @@
             </div>
             <div class="game-image">
                 <span>대회리스트 배경 이미지</span>
-                <input type="file"/>
+                <input type="file" name="competition_bg" id="competition_bg">
+                <!-- <input type="file" name="competition_bg" id="competition_bg" class="frm_input"> -->
             </div>
         </div>
         <div class="game-content flexbox just-between">
@@ -288,21 +338,27 @@
                 <div class="game-tab-title">
                     대회문의
                 </div>
-                <div class="game-helper user-list flexbox align-start just-between">
+                <div class="game-helper user-list flexbox align-start just-between" id="game-helper-box">
                     <?php
                     for ($i=0; $i<4; $i++) {
                     ?>
                     <div class="user-box flexbox flow-col align-center just-between">
                         <div class="info flexbox flow-col align-center just-between">
-                            <div class="photo"></div>
-                            <span class="name" >안정민</span>
-                            <span class="belong">분당알파</span>
+                            <div class="photo" id="helper_photo<?php echo $i?>"></div>
+                            <input type="file" class="competition_helper" id="helper_img<?php echo $i?>" name="helper_img<?php echo $i?>">
+                            <span class="name"><span>이름</span><input type="text" class="input_sm" name="helper_name<?php echo $i?>" id="helper_name<?php echo $i?>" placeholder=""></span>
+                            <span class="belong"><span>부서</span><input type="text" class="input_sm" name="helper_belong<?php echo $i?>" id="helper_belong<?php echo $i?>" placeholder=""></span>
                         </div>
                         <div class="info-box flexbox flow-col just-center">
-                            <span class="phone-number">010-1234-1234</span>
+                            <span class="phone-number">
+                                <input type="number" maxlength="3" name="helper_phonef<?php echo $i?>"> -
+                                <input type="number" maxlength="4" name="helper_phones<?php echo $i?>"> -
+                                <input type="number" maxlength="4" name="helper_phonet<?php echo $i?>">
+                            </span>
                         </div>
                     </div>
                     <?php } ?>
+                    <input type="hidden" value="4" name="helper_cnt">
                 </div> 
             </div>  
         </div>
