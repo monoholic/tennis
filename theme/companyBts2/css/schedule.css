@@ -20,8 +20,7 @@
 
 
 #game-detail .game-right {width: 423px; height: 485px;}
-
-#game-detail .game-right .game-info {height: 260px;}
+#game-detail .game-right .game-info {height: 260px; padding: 20px 4px;}
 
 #game-detail .game-right .pre-caution {margin-top: 9px; padding: 14px 10px 14px 10px; width: 423px; height: 88px; border: #e8ac29 solid 1px; font-weight: bold;}
 #game-detail .game-right .pre-caution .pre-caution-label { margin-bottom: 10px; font-size: 15px; color: #e8ac29;}
@@ -58,7 +57,7 @@
 #game-etc .court {font-size: 12px;}
 
 #game-etc .game-helper.user-list { margin-top: 35px; }
-#game-etc .game-helper .user-box { height: 250px; }
+#game-etc .game-helper .user-box { height: auto; }
 #game-etc .game-helper .user-box .phone-number {font-weight: bold; font-size: 16px; color: #353535;}
 
 #game-etc .major-index .game-num { padding: 40px 0 18px 21px; font-weight: bold; font-size: 18px; color: #353535; }

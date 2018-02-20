@@ -7,12 +7,11 @@
     <!-- <div class="banner-1"></div> -->
 </section>
 <section id="schedule-list" class="flexbox flow-col align-center">
-
-    <ul class="underline-tab">
-        <li class="" onclick="onClickListTab(this)"><a>참가 가능한 대회</a></li>
-        <li class="" onclick="onClickListTab(this)"><a>지난 대회</a></li>
-    </ul>
     <div class="container">
+        <ul class="underline-tab">
+            <li class="" onclick="onClickListTab(this)"><a>참가 가능한 대회</a></li>
+            <li class="" onclick="onClickListTab(this)"><a>지난 대회</a></li>
+        </ul>
         <div class="games-box flexbox">
             <?php
                 for ($i=0; $i<6; $i++) {

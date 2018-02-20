@@ -18,7 +18,7 @@ a{text-decoration: none!important;}
 a:focus{outline: 0;}
 .no-padding{padding: 0;}
 
-input[type=text] {height: 25px; margin-left: 10px; padding-left: 8px;}
+input[type=text] {height: 25px; margin-left: 10px; padding-left: 8px; height: 25px; box-shadow: #cecece}
 
 
 /*공통*/
@@ -26,7 +26,7 @@ input[type=text] {height: 25px; margin-left: 10px; padding-left: 8px;}
 .row { margin-left: 0px !important; margin-right: 0px !important;}
 input.input_sm {width:55px !important;}
 
-#container {position: relative; height: 100%;}
+#container {position: relative; height: 100%; min-width: 1200px;}
 #container:after{display:block;content:"";clear:both}
 section{position:relative}
 #introduce, #business, #recruit_process, #recruit, #request{padding-top:30px; padding-bottom:130px}
@@ -307,6 +307,7 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 .w-134 {width: 134px;}
 .w-365 {width: 365px;}
 .w-60 {width: 60px;}
+.w-45 {width: 45px;}
 
 
 /* game */
@@ -315,7 +316,6 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 .game-box {width: 576px; height: 225px; float: left; color: #fff; background-color: gray;}
 .game-box:nth-child(odd) {margin: 18px 22px 18px 0px;}
 .game-box:nth-child(even) {margin: 18px 0px 18px 22px;}
-.game-info {padding: 20px 25px;}
 .game-owner {padding-top: 26px;}
 
 /* search area */

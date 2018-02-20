@@ -345,15 +345,17 @@
                     <div class="user-box flexbox flow-col align-center just-between">
                         <div class="info flexbox flow-col align-center just-between">
                             <div class="photo" id="helper_photo<?php echo $i?>"></div>
-                            <input type="file" class="competition_helper" id="helper_img<?php echo $i?>" name="helper_img<?php echo $i?>">
-                            <span class="name"><span>이름</span><input type="text" class="input_sm" name="helper_name<?php echo $i?>" id="helper_name<?php echo $i?>" placeholder=""></span>
-                            <span class="belong"><span>부서</span><input type="text" class="input_sm" name="helper_belong<?php echo $i?>" id="helper_belong<?php echo $i?>" placeholder=""></span>
-                        </div>
-                        <div class="info-box flexbox flow-col just-center">
-                            <span class="phone-number">
-                                <input type="number" maxlength="3" name="helper_phonef<?php echo $i?>"> -
-                                <input type="number" maxlength="4" name="helper_phones<?php echo $i?>"> -
-                                <input type="number" maxlength="4" name="helper_phonet<?php echo $i?>">
+                            <input type="file" class="competition_helper" id="helper_img<?php echo $i?>" name="helper_img<?php echo $i?>" style="width: 150px; margin-top: 7px">
+                            <span class="name">
+                            <span style="font-size: 12px; font-weight: normal; color: initial;">이름</span>
+                            <input type="text" name="helper_name<?php echo $i?>" id="helper_name<?php echo $i?>" placeholder="" style="width: 85px;"></span>
+                            <span class="belong">
+                            <span style="font-size: 12px; font-weight: normal; color: initial;">부서</span>
+                            <input type="text" name="helper_belong<?php echo $i?>" id="helper_belong<?php echo $i?>" placeholder="" style="width: 85px;"></span>
+                            <span class="phone-number" style="margin-top: 7px;">
+                                <input type="number" class="w-45" maxlength="3" name="helper_phonef<?php echo $i?>"> -
+                                <input type="number" class="w-45" maxlength="4" name="helper_phones<?php echo $i?>"> -
+                                <input type="number" class="w-45" maxlength="4" name="helper_phonet<?php echo $i?>">
                             </span>
                         </div>
                     </div>
@@ -363,7 +365,7 @@
             </div>  
         </div>
     </div>  
-    <div class="btns-area flexbox align-center just-center" style="margin: 0px;">
+    <div class="btns-area flexbox align-center just-center" style="margin: 115px;">
         <div class="button btn-1 flexbox just-center" onclick="addGame()">
             <span>대회등록</span>
         </div>
