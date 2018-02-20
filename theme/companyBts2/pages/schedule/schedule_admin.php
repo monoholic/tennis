@@ -167,7 +167,7 @@
                         <span style="font-weight:bold;">팀당</span>
                         <input type="text" class="input_sm" style="margin: 0 4px;" id="competition_fee" name="competition_fee"/>
                         <span style="font-weight:bold;">원</span>
-                        <input type="checkbox" style="margin: 0 0 0 10px;" id="competition_youth_fund" name="competition_youth_fund"/>
+                        <input type="checkbox" style="margin: 0 0 0 5px;" id="competition_youth_fund" name="competition_youth_fund"/>
                         <span style="margin-left: 3px;">(유소년 육성기금 2,000원 포함)</span>
                     </div>
                     <div class="df-row"><span class="df-row-label">참가팀</span><input type="text" class="input_sm" id="competition_teamcnt"/></div>
@@ -363,8 +363,13 @@
             </div>  
         </div>
     </div>  
-    <div class="active submit-box">
-        <input type="submit">
+    <div class="btns-area flexbox align-center just-center" style="margin: 0px;">
+        <div class="button btn-1 flexbox just-center" onclick="addGame()">
+            <span>대회등록</span>
+        </div>
+        <div class="button btn-2 flexbox just-center" onclick="addGame()">
+            <span>취소</span>
+        </div>
     </div>
 </section>
 </form>

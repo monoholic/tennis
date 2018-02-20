@@ -146,4 +146,6 @@ $sql = " insert {$g5['competition_table']}
                 ";
 
 sql_query($sql);
+
+goto_url("./schedule_list.php");
 ?>
