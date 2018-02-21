@@ -21,8 +21,8 @@
 <section id="schedule-list" class="flexbox flow-col align-center">
     <div class="container">
         <ul class="underline-tab">
-            <li class="" onclick="onClickListTab(this)"><a>참가 가능한 대회</a></li>
-            <li class="" onclick="onClickListTab(this)"><a>지난 대회</a></li>
+            <li class="<?php if($on == 'true') echo 'active'?>" onclick="onClickListTab(this, '<?php echo $PHP_SELF?>', '<?php echo $search?>', true)"><a>참가 가능한 대회</a></li>
+            <li class="<?php if($on == 'false') echo 'active'?>" onclick="onClickListTab(this, '<?php echo $PHP_SELF?>', '<?php echo $search?>', false)"><a>지난 대회</a></li>
         </ul>
         <div class="games-box flexbox">
         <?php 
@@ -49,13 +49,23 @@
                 
                 $limit_idx = ($page - 1) * $page_set; // limit시작위치
                 
+                // 참가가능대회 지난대회 
+                if (!$on) $on = true;
+                $todayDate = date('Y-m-d');
+                $todayTime = date("h:i A");;
+                
                 // 현재페이지 쿼리
                 $sql = "SELECT * FROM {$g5['competition_table']}";
+                if ($on == 'true') {
+                    $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) > '" . $todayDate . $todayTime . "'";
+                } else {
+                    $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) <= '" . $todayDate . $todayTime . "'";
+                }
                 if ($search != null && $search != '' ) {
-                    $sql = $sql . " WHERE competition_title LIKE '%" . $search . "%'";
+                    $sql = $sql . " AND competition_title LIKE '%" . $search . "%'";
                 }
                 $sql = $sql . " ORDER BY competition_schedule_from DESC LIMIT $limit_idx, $page_set";
-                
+                // echo $sql;
                 $result = sql_query($sql, false) or die ("db 에러");
                 for ($i=0; $row=sql_fetch_array($result); $i++){
                 ?>
@@ -91,22 +101,22 @@
                     $next_block_page = $next_block * $block_set - ($block_set - 1); // 다음블럭 페이지번호
                     
                     // 페이징 화면
-                    echo ($prev_page > 0) ? "<a href='$PHP_SELF?page=$prev_page&search=$search'>[prev]</a> " : "";
-                    echo ($prev_block > 0) ? "<a href='$PHP_SELF?page=$prev_block_page&search=$search'>...</a> " : "";
+                    echo ($prev_page > 0) ? "<a href='$PHP_SELF?page=$prev_page&search=$search&on=$on'>[prev]</a> " : "";
+                    echo ($prev_block > 0) ? "<a href='$PHP_SELF?page=$prev_block_page&search=$search&on=$on'>...</a> " : "";
                     
                     for ($i=$first_page; $i<=$last_page; $i++) {
-                        echo ($i != $page) ? "<a href='$PHP_SELF?page=$i&search=$search'>$i</a> " : "<b>$i</b> ";
+                        echo ($i != $page) ? "<a href='$PHP_SELF?page=$i&search=$search&on=$on'>$i</a> " : "<b>$i</b> ";
                     }
                     
-                    echo ($next_block <= $total_block) ? "<a href='$PHP_SELF?page=$next_block_page&search=$search'>...</a> " : "";
-                    echo ($next_page <= $total_page) ? "<a href='$PHP_SELF?page=$next_page&search=$search'>[next]</a>" : "";
+                    echo ($next_block <= $total_block) ? "<a href='$PHP_SELF?page=$next_block_page&search=$search&on=$on'>...</a> " : "";
+                    echo ($next_page <= $total_page) ? "<a href='$PHP_SELF?page=$next_page&search=$search&on=$on'>[next]</a>" : "";
                     
                 ?>
             </div>
             <div class="search-area flexbox align-center">
                 <form name="search-form">
                     <input type="text" name="search" placeholder="대회명 검색" value="<?php echo $search?>"/>
-                    <div class="" onclick="onSearchGame('<?php echo $PHP_SELF?>')">
+                    <div class="" onclick="onSearchGame('<?php echo $PHP_SELF?>', '<?php echo $on?>')">
                         <span>O</span>
                     </div>
                 </form>
