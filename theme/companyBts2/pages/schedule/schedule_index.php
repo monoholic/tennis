@@ -11,6 +11,7 @@ ini_set("display_errors", 1);
     $sql .= " ,replace(competition_caution,'\r\n','</BR>') as competition_caution";
     $sql .= " ,replace(common_standard,'\r\n','</BR>') as common_standard";
     $sql .= " ,replace(participant_caution,'\r\n','</BR>') as participant_caution";
+    $sql .= " ,replace(participant_caution,'\r\n','</BR>') as participant_caution";
     $sql .= " from {$g5['competition_table']} where competition_id =".$competition_id;
 
     echo $competition_id;
@@ -78,7 +79,7 @@ ini_set("display_errors", 1);
                 <ul class="game-info flexbox flow-col just-between">
                     <li class="df-row">
                         <span class="df-row-label">일시</span>
-                        <span><?php echo $comp['competition_schedule_from'].' '.$comp['competition_schedule_to']?></span>
+                        <span><?php echo $comp['competition_schedule_from'].' ~ '.$comp['competition_schedule_to']?></span>
                     </li>
                     <li class="df-row">
                         <span class="df-row-label">주최</span>
@@ -118,7 +119,7 @@ ini_set("display_errors", 1);
                     <div class="button btn-1 flexbox just-center" onclick="openRegister()">
                         <span>참가신청</span>
                     </div>
-                    <div class="button btn-2 flexbox just-center">
+                    <div class="button btn-2 flexbox just-center" onclick="javascript:history.go(-1);">
                         <span>뒤로가기</span>
                     </div>
                 </div>
@@ -249,6 +250,7 @@ ini_set("display_errors", 1);
                 <div class="border-box">
                 <?php echo $comp['competition_proceed']?>
                 </div>
+                <div class="tab-sub-title"><span>예선리그 성적우선순위</span></div>
                 <div class="gray-box">
                     <?php echo $comp['competition_priority1']?>
                 </div>
