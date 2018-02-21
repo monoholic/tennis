@@ -30,19 +30,19 @@
 
                 <div class="game-box flexbox flow-col align-start just-end" style="cursor:pointer;" onclick="goDetail();">
                     <div class="game-info">
-                        <div style="font-size:18px;">2018.01.01 ~ 2018.01.18</div>
-                        <div style="font-size:26px; margin-top: 8px;"><?php echo $row['competition_id'] ?></div>
-                        <div style="font-size:13px; margin-top: 8px;">수지구청 스포츠센터 다이빙 풀</div>
+                        <div style="font-size:18px;"><?php echo $row['competition_schedule_from'].' ~ '.$row['competition_schedule_to'] ?></div>
+                        <div style="font-size:26px; margin-top: 8px;"><?php echo $row['competition_title'] ?></div>
+                        <div style="font-size:13px; margin-top: 8px;"><?php echo $row['competition_address'] ?></div>
                         <div class="game-owner">
                             <span style="font-size:13px;">주최</span>
-                            <span style="font-size:13px; font-weight:bold;">인투터블루</span>
+                            <span style="font-size:13px; font-weight:bold;"><?php echo $row['competition_host'] ?></span>
                             <span style="font-size:13px;">주관</span>
-                            <span style="font-size:13px; font-weight:bold;">스쿠버블</span>
+                            <span style="font-size:13px; font-weight:bold;"><?php echo $row['competition_subj'] ?></span>
                       </div>
                     </div>
                     <div style="width:100px; height:100px; background: orange; position:absolute; top:0px; right: 0px;"></div>
                 </div>
-
+                
             <?php } ?>
         </div>
         <div class="page-box flexbox align-center just-between">
