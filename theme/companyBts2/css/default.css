@@ -351,7 +351,16 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 .game-box:nth-child(4n+2) {margin: 18px 22px 18px 0px;}
 .game-box:nth-child(4n) {margin: 18px 0px 18px 22px;}
 .game-owner {padding-top: 26px; font-size:13px;}
-.game-remain-date {width:100px; height:25px; border: solid 1px orange; position:absolute; top:20px; right: 20px; color: orange;}
+.game-remain-date {
+    min-width:100px; 
+    height:25px; 
+    border: solid 1px orange; 
+    position:absolute; 
+    top:20px; 
+    right: 20px; color: orange;
+    font-size: 11px;
+    padding: 2px;
+}
 
 /* search area */
 .search-area input[type=text]{
