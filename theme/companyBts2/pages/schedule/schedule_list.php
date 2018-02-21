@@ -21,7 +21,7 @@
 <section id="schedule-list" class="flexbox flow-col align-center">
     <div class="container">
         <ul class="underline-tab">
-            <li class="<?php if($on == 'true') echo 'active'?>" onclick="onClickListTab(this, '<?php echo $PHP_SELF?>', '<?php echo $search?>', true)"><a>참가 가능한 대회</a></li>
+            <li class="<?php if($on == 'true' || $on == null) echo 'active'?>" onclick="onClickListTab(this, '<?php echo $PHP_SELF?>', '<?php echo $search?>', true)"><a>참가 가능한 대회</a></li>
             <li class="<?php if($on == 'false') echo 'active'?>" onclick="onClickListTab(this, '<?php echo $PHP_SELF?>', '<?php echo $search?>', false)"><a>지난 대회</a></li>
         </ul>
         <div class="games-box flexbox">
@@ -32,6 +32,11 @@
                 $block_set = 5; // 한페이지 블럭수
                 
                 $sql = "SELECT count(*) as total FROM {$g5['competition_table']}";
+                if ($on == 'true') {
+                    $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) > '" . $todayDate . $todayTime . "'";
+                } else {
+                    $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) <= '" . $todayDate . $todayTime . "'";
+                }
                 if ($search != null && $search != '' ) {
                     $sql = $sql . " WHERE competition_title LIKE '%" . $search . "%'";
                 }
@@ -113,14 +118,12 @@
                     
                 ?>
             </div>
-            <div class="search-area flexbox align-center">
-                <form name="search-form">
-                    <input type="text" name="search" placeholder="대회명 검색" value="<?php echo $search?>"/>
-                    <div class="" onclick="onSearchGame('<?php echo $PHP_SELF?>', '<?php echo $on?>')">
-                        <span>O</span>
-                    </div>
-                </form>
-            </div>
+            <form name="search-form" class="search-area flexbox align-center">
+                <input type="text" name="search" placeholder="대회명 검색" value="<?php echo $search?>"/>
+                <div class="" onclick="onSearchGame('<?php echo $PHP_SELF?>', '<?php echo $on?>')">
+                    <span>O</span>
+                </div>
+            </form>
         </div>
     </div>
 </section>
