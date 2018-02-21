@@ -36,6 +36,12 @@ input[type=text] {height: 25px; margin-left: 10px; padding-left: 8px; height: 25
 .row { margin-left: 0px !important; margin-right: 0px !important;}
 input.input_sm {width:55px !important;}
 
+.bg-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #container {position: relative; height: 100%; min-width: 1200px;}
 #container:after{display:block;content:"";clear:both}
 section{position:relative}
@@ -50,6 +56,10 @@ section{position:relative}
 .content a:hover{text-decoration:none;}
 
 #top_btn{position:fixed;bottom:10%;right:5%;display:block;width:50px;height:50px;border-radius:5px;background-color:#fff !important;text-indent:-9999px;background:url("../img/top_btn.gif") center center no-repeat; overflow:hidden;opacity:0.8;z-index: 999;}
+
+
+
+/* flexbox */
 .flexbox {
     display: flex;
     display: -webkit-flex;
@@ -323,15 +333,25 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 .w-60 {width: 60px;}
 .w-45 {width: 45px;}
 
+/* font style */
+.text-bold {font-weight:bold;}
 
 /* game */
 /* .games-box {height: 490px;} */
-.game-box {position: relative; width: 576px; height: 225px; float: left; 
+.game-box {
+    position: relative; 
+    width: 576px; 
+    height: 225px; 
+    float: left; 
     padding: 25px 20px;
-    color: #fff; background-color: gray;}
-.game-box:nth-child(odd) {margin: 18px 22px 18px 0px;}
-.game-box:nth-child(even) {margin: 18px 0px 18px 22px;}
-.game-owner {padding-top: 26px;}
+    color: #fff; 
+    background-color: gray;
+    cursor:pointer;
+}
+.game-box:nth-child(4n+2) {margin: 18px 22px 18px 0px;}
+.game-box:nth-child(4n) {margin: 18px 0px 18px 22px;}
+.game-owner {padding-top: 26px; font-size:13px;}
+.game-remain-date {width:100px; height:25px; border: solid 1px orange; position:absolute; top:20px; right: 20px; color: orange;}
 
 /* search area */
 .search-area input[type=text]{
@@ -344,3 +364,7 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 .search-area input::-moz-placeholder { color: #dbdbdb; }
 
 .search-area div {width: 30px; height: 30px; background: #000}
+
+/* paging */
+.paging-area a {color: #dbdbdb;}
+.paging-area b {color: #034a2b;}
