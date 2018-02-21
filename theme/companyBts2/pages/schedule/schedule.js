@@ -18,3 +18,8 @@ function closeRegister() {
     var popup = $('#popup-register');
     popup.removeClass("active");
 }
+
+function onSearchGame(url) {
+    var searchText = $('form[name="search-form"] input[name="search"]').val();
+    window.location.href = url + '?search=' + searchText;
+}

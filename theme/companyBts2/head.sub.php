@@ -70,6 +70,7 @@ if ($is_admin) {
 <script src="<?php echo G5_JS_URL ?>/wrest.js"></script>
 <script src="<?php echo G5_THEME_JS_URL ?>/bootstrap.min.js"></script>
 <script src="<?php echo G5_THEME_JS_URL ?>/custom.js"></script>
+<script src="<?php echo G5_THEME_JS_URL ?>/default.js"></script>
 <script src="<?php echo G5_THEME_JS_URL ?>/jquery.bxslider.min.js"></script>
 <script src="<?php echo G5_THEME_JS_URL ?>/jquery.easing.1.3.js"></script>
 <script src="<?php echo G5_THEME_JS_URL ?>/jquery.scrollTo.js"></script>

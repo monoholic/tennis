@@ -47,4 +47,5 @@ jQuery(function($) {
     });
 
     $('#back-top').tooltip('hide');
+
 });

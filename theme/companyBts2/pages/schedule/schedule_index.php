@@ -150,17 +150,17 @@ ini_set("display_errors", 1);
                 <div class="flexbox flow-col align-center">
                     <div class="reward-list flexbox align-end just-start">
                         <div class="reward-box flexbox flow-col align-center">
-                            <div class="reward-img-1"></div>
+                            <div class="reward-img reward-img-1"></div>
                             <div class="reward-name">우승</div>
                             <div class="reward-gift"><?php echo $comp['goods_first']?></div>
                         </div>
                         <div class="reward-box flexbox flow-col align-center">
-                            <div class="reward-img-1"></div>
+                            <div class="reward-img reward-img-2"></div>
                             <div class="reward-name">준우승</div>
                             <div class="reward-gift"><?php echo $comp['goods_second']?></div>
                         </div>
                         <div class="reward-box flexbox flow-col align-center">
-                            <div class="reward-img-1"></div>
+                            <div class="reward-img reward-img-3"></div>
                             <div class="reward-name">4강</div>
                             <div class="reward-gift"><?php echo $comp['goods_third']?></div>
                         </div>
@@ -168,7 +168,7 @@ ini_set("display_errors", 1);
                             <div class="div-line-v" style="height:73px; margin-bottom:44px;"></div>
                         </div>
                         <div class="reward-box flexbox flow-col align-center">
-                            <div class="reward-img-1"></div>
+                            <div class="reward-img reward-img-4"></div>
                             <div class="reward-name">8강</div>
                             <div class="reward-gift"><?php echo $comp['goods_quater']?></div>
                         </div>
