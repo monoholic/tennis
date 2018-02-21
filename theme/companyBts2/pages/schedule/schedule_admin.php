@@ -18,12 +18,8 @@
     $(function(){
 
         //datepicker
-        $("#date_wr1, #date_wr2, #date_wr3, #date_wr4, #date_wr5, #date_wr6").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+1d;" });
-        $('.timeselector').timepicker({
-            template: false,
-            showInputs: false,
-            timeFormat: 'H:i:s'
-        });
+        $("#date_wr1, #date_wr2, #date_wr3, #date_wr4, #date_wr5, #date_wr6, #date_wr7").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yy-mm-dd", showButtonPanel: true, yearRange: "c-99:c+99", minDate: "+1d;" });
+        $('.timepicker').timepicki();
         
         //각 등급별 체크박스 클릭시 제어
         $('#check_level1, #check_level2, #check_level3, #check_level4').on('change', function() { 
@@ -103,15 +99,47 @@
         
     }
 
+    function onlyNumber(event){
+        event = event || window.event;
+        var keyID = (event.which) ? event.which : event.keyCode;
+        if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+            return;
+        else
+            return false;
+    }
+    function removeChar(event) {
+        event = event || window.event;
+        var keyID = (event.which) ? event.which : event.keyCode;
+        if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+            return;
+        else
+            event.target.value = event.target.value.replace(/[^0-9]/g, "");
+    }
+
+    function addGame(){
+        $("#game-form").submit();
+    }
+
+    function cancelGame(){
+        location.href = "./schedule_list.php";
+    }
 </script>
 <script src="<?php echo G5_THEME_URL; ?>/pages/schedule/schedule_admin.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.js"></script>
+<script src="<?php echo G5_THEME_JS_URL; ?>/timepicki.js"></script>
+<link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/timepicki.css">
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule.css">
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule_admin.css">
-<form name="game-form" method="post" action="<?php echo G5_COMPETITION_DIR; ?>/schedule/schedule_admin_regist.php" enctype="multipart/form-data">
+<form name="game-form" id="game-form" method="post" action="<?php echo G5_COMPETITION_DIR; ?>/schedule/schedule_admin_regist.php" enctype="multipart/form-data">
 <section id="game-detail">
     <div class="container flexbox flow-col align-center">
         <div class="title-box flexbox flow-col align-center">
+
+            <div class="game-deadline">
+                <span>접수마감일</span>
+                <input type="text" id="date_wr6" name="competition_deadline" value=""/> 
+                <input type="text" id="competition_deadline_time" name="competition_deadline_time" class="timepicker"  value=""/>
+            </div>
             <div class="game-title">
                 <span>대회이름</span>
                 <input type="text" id="competition_title" name="competition_title" value=""/>
@@ -129,7 +157,8 @@
         <div class="game-content flexbox just-between">
             <div class="game-left">
                 <div class="complex-map" id="map"></div>
-                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2f17c15d3dc2614a3da80008b5b1d91a"></script>
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2f17c15d3dc2614a3da80008b5b1d91a&libraries=services"></script>
+                <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
                 <script>
                     var container = document.getElementById('map');
                     var options = {
@@ -138,6 +167,7 @@
                     };
 
                     var map = new daum.maps.Map(container, options);
+                    var geocoder = new daum.maps.services.Geocoder();
 
                     function setZoomable(zoomable) {
                         // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
@@ -145,18 +175,61 @@
                     }
 
                     setZoomable(false);
+
+                    function mapPopUp(){
+                        new daum.Postcode({
+                            oncomplete: function(data) {
+                                getCoder(data);
+                            }
+                        }).open();
+                    }
+                    
+                    function getCoder(data){
+                        // 주소로 좌표를 검색합니다
+                        geocoder.addressSearch(data.address, function(result, status) {
+
+                        // 정상적으로 검색이 완료됐으면 
+                        if (status === daum.maps.services.Status.OK) {
+
+                            var coords = new daum.maps.LatLng(result[0].y, result[0].x);
+                            
+                            // 마커가 표시될 위치입니다 
+                            var markerPosition  = new daum.maps.LatLng(result[0].y, result[0].x); 
+
+                            // 마커를 생성합니다
+                            var marker = new daum.maps.Marker({
+                                position: markerPosition
+                            });
+
+                            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                            map.setCenter(coords);
+                            // 마커가 지도 위에 표시되도록 설정합니다
+                            marker.setMap(map);
+                            
+                            $("#competition_address").val(data.address);
+                            $("#competition_latitude").val(result[0].y);
+                            $("#competition_longitude").val(result[0].x);
+                        } 
+                        });    
+                    }
                 </script>
                 <div class="complex-address flexbox align-center just-center">
                     <div class="addr-img">
                     </div>
                     <div>
-                        <input type="text" style="width:225px;"/>
+                        <input type="text" id="competition_address" name="competition_address" style="width:225px;" readOnly="readOnly"/>
+                        <input type="hidden" id="competition_latitude" name="competition_latitude" readOnly="readOnly" value=""/>
+                        <input type="hidden" id="competition_longitude" name="competition_longitude" readOnly="readOnly" value=""/>
+                        <input type="button" onClick="javascript:mapPopUp();" value="주소검색">
                     </div> 
                 </div>
             </div>
             <div class="game-right">
                 <div class="game-info flexbox flow-col just-between">
-                    <div class="df-row"><span class="df-row-label">일시</span><input type="text" id="date_wr1" class="frm_input" name="competition_schedule"/></div>
+                    <div class="df-df-row-schedule"><span class="df-row-label">일시</span>
+                        <input type="text" id="date_wr1" class="frm_input" name="competition_schedule_from" style="width:80px;"/>
+                        <input type="text" id="date_wr7" class="frm_input" name="competition_schedule_to" style="width:80px;"/>
+                    </div>
                     <div class="df-row"><span class="df-row-label">주최</span><input type="text" class="frm_input" id="competition_host" name="competition_host"/></div>
                     <div class="df-row"><span class="df-row-label">주관</span><input type="text" class="frm_input" id="competition_subj" name="competition_subj"/></div>
                     <div class="df-row"><span class="df-row-label">후원</span><input type="text" class="frm_input" id="competition_support" name="competition_support"/></div>
@@ -165,12 +238,12 @@
                     <div class="df-row flexbox align-center">
                         <span class="df-row-label">참가비</span>
                         <span style="font-weight:bold;">팀당</span>
-                        <input type="text" class="input_sm" style="margin: 0 4px;" id="competition_fee" name="competition_fee"/>
+                        <input type="text" class="input_sm" style="margin: 0 4px;" id="competition_fee" name="competition_fee" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'/>
                         <span style="font-weight:bold;">원</span>
                         <input type="checkbox" style="margin: 0 0 0 5px;" id="competition_youth_fund" name="competition_youth_fund"/>
                         <span style="margin-left: 3px;">(유소년 육성기금 2,000원 포함)</span>
                     </div>
-                    <div class="df-row"><span class="df-row-label">참가팀</span><input type="text" class="input_sm" id="competition_teamcnt"/></div>
+                    <div class="df-row"><span class="df-row-label">참가팀</span><input type="text" class="input_sm" id="competition_teamcnt" name="competition_teamcnt" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'/></div>
                 </div>
                 <div class="pre-caution">
                     <div class="pre-caution-label">
@@ -238,7 +311,10 @@
                     <tr class="col-type-1">
                         <td>
                             <div class="flexbox flow-col align-center">
-                                <span><input type="text" id="date_wr2" class="frm_input" name="major_schedule" disabled="disabled"/><br/><input name="major_schedule_time" id="timepicker" class="timepicker" data-provide="timepicker" data-template="false" type="text" disabled="disabled"/></span>
+                                <span>
+                                    <input type="text" id="date_wr2" class="frm_input" name="major_schedule" disabled="disabled"/><br/>
+                                    <input name="major_schedule_time" id="timepicker" class="timepicker" type="text" disabled="disabled"/>
+                                </span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
                                 <span><input type="checkbox" id="major_court_chk" name="major_court_chk" disabled="disabled">코트 추후 안내 예정</span>
                                 <span><input type="text" id="major_court" name="major_court" disabled="disabled"></span>
@@ -246,7 +322,10 @@
                         </td>
                         <td>
                             <div class="flexbox flow-col align-center">
-                                <span><input type="text" id="date_wr3" class="frm_input" name="tour_schedule" disabled="disabled"/><br/><input name="tour_schedule_time" id="timepicker" class="timepicker" data-provide="timepicker" data-template="false" type="text" disabled="disabled"/></span>
+                                <span>
+                                    <input type="text" id="date_wr3" class="frm_input" name="tour_schedule" disabled="disabled"/><br/>
+                                    <input name="tour_schedule_time" id="timepicker" class="timepicker" type="text" disabled="disabled"/>
+                                </span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
                                 <span><input type="checkbox" id="tour_court_chk" name="tour_court_chk" disabled="disabled">코트 추후 안내 예정</span>
                                 <span><input type="text" id="tour_court" name="tour_court" disabled="disabled"></span>
@@ -254,7 +333,10 @@
                         </td>
                         <td>
                             <div class="flexbox flow-col align-center">
-                                <span><input type="text" id="date_wr4" class="frm_input" name="challenger_schedule" disabled="disabled"/><br/><input name="challenger_schedule_time" id="timepicker" class="timepicker" data-provide="timepicker" data-template="false" type="text" disabled="disabled"/></span>
+                                <span>
+                                    <input type="text" id="date_wr4" class="frm_input" name="challenger_schedule" disabled="disabled"/><br/>
+                                    <input name="challenger_schedule_time" id="timepicker" class="timepicker" type="text" disabled="disabled"/>
+                                </span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
                                 <span><input type="checkbox" id="challenger_court_chk" name="challenger_court_chk" disabled="disabled">코트 추후 안내 예정</span>
                                 <span><input type="text" id="challenger_court" name="challenger_court" disabled="disabled"></span>
@@ -262,7 +344,10 @@
                         </td>
                         <td>
                             <div class="flexbox flow-col align-center">
-                                <span><input type="text" id="date_wr5" class="frm_input" name="circuit_schedule" disabled="disabled"/><br/><input name="circuit_schedule_time" id="timepicker" class="timepicker" data-provide="timepicker" data-template="false" type="text" disabled="disabled"/></span>
+                                <span>
+                                    <input type="text" id="date_wr5" class="frm_input" name="circuit_schedule" disabled="disabled"/><br/>
+                                    <input name="circuit_schedule_time" id="timepicker" class="timepicker" type="text" disabled="disabled"/>
+                                </span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
                                 <span><input type="checkbox" id="circuit_court_chk" name="circuit_court_chk" disabled="disabled">코트 추후 안내 예정</span>
                                 <span><input type="text" id="circuit_court" name="circuit_court" disabled="disabled"></span>
@@ -279,10 +364,10 @@
                         <th>서킷</th>
                     </tr>
                     <tr class="col-type-3">
-                        <td>만 <input type="number" name="major_age" min="5" max="120" disabled="disabled"> 세 이상</td>
-                        <td>만 <input type="number" name="tour_age" min="5" max="120" disabled="disabled">세 이상</td>
-                        <td>만 <input type="number" name="challenger_age" min="5" max="120" disabled="disabled">세 이상</td>
-                        <td>만 <input type="number" name="circuit_age" min="5" max="120" disabled="disabled">세 이상</td>
+                        <td>만 <input type="number" name="major_age" min="5" max="120" disabled="disabled" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'> 세 이상</td>
+                        <td>만 <input type="number" name="tour_age" min="5" max="120" disabled="disabled" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'>세 이상</td>
+                        <td>만 <input type="number" name="challenger_age" min="5" max="120" disabled="disabled" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'>세 이상</td>
+                        <td>만 <input type="number" name="circuit_age" min="5" max="120" disabled="disabled" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'>세 이상</td>
                     </tr>
                 </table>
                 <table class="table game-schd-table">
@@ -306,7 +391,7 @@
                 </div>
                 <div class="gray-box">
                     예선리그 성적우선순위</br>
-                    <textarea rows="6" style="width: 100%; resize: none;" id="competition_priority" name="competition_priority"></textarea>
+                    <textarea rows="6" style="width: 100%; resize: none;" id="competition_priority1" name="competition_priority1"></textarea>
                 </div>
                 <div class="tab-sub-title"><span>경기순서</span></div>
                 <div class="border-box">
@@ -353,9 +438,9 @@
                             <span style="font-size: 12px; font-weight: normal; color: initial;">부서</span>
                             <input type="text" name="helper_belong<?php echo $i?>" id="helper_belong<?php echo $i?>" placeholder="" style="width: 85px;"></span>
                             <span class="phone-number" style="margin-top: 7px;">
-                                <input type="number" class="w-45" maxlength="3" name="helper_phonef<?php echo $i?>"> -
-                                <input type="number" class="w-45" maxlength="4" name="helper_phones<?php echo $i?>"> -
-                                <input type="number" class="w-45" maxlength="4" name="helper_phonet<?php echo $i?>">
+                                <input type="number" class="w-45" maxlength="3" name="helper_phonef<?php echo $i?>" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'> -
+                                <input type="number" class="w-45" maxlength="4" name="helper_phones<?php echo $i?>" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'> -
+                                <input type="number" class="w-45" maxlength="4" name="helper_phonet<?php echo $i?>" onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'>
                             </span>
                         </div>
                     </div>
@@ -369,7 +454,7 @@
         <div class="button btn-1 flexbox just-center" onclick="addGame()">
             <span>대회등록</span>
         </div>
-        <div class="button btn-2 flexbox just-center" onclick="addGame()">
+        <div class="button btn-2 flexbox just-center" onclick="cancelGame()">
             <span>취소</span>
         </div>
     </div>

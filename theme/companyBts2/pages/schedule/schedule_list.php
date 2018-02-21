@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule_list.css">
 <script type="text/javascript">
-    function goDetail(){
-        location.href="./schedule.php";
+    function goDetail(id){
+        location.href="./schedule.php?competition_id=" + id;
     }
 
     function addGame(){
@@ -28,7 +28,7 @@
                 for ($i=0; $row=sql_fetch_array($result); $i++){
                 ?>
 
-                <div class="game-box flexbox flow-col align-start just-end" style="cursor:pointer;" onclick="goDetail();">
+                <div class="game-box flexbox flow-col align-start just-end" style="cursor:pointer;" onclick="goDetail(<?php echo $row['competition_id'] ?>);">
                     <div class="game-info">
                         <div style="font-size:18px;"><?php echo $row['competition_schedule_from'].' ~ '.$row['competition_schedule_to'] ?></div>
                         <div style="font-size:26px; margin-top: 8px;"><?php echo $row['competition_title'] ?></div>

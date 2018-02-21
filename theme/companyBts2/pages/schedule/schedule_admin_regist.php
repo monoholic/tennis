@@ -1,10 +1,11 @@
 <?php
 include_once('../../../../common.php');
 
-
 $competition_title          = $_POST['competition_title'];
 $competition_subtitle       = $_POST['competition_subtitle'];
-$competition_schedule       = $_POST['competition_schedule'];
+$competition_schedule_from  = $_POST['competition_schedule_from'];
+$competition_schedule_to    = $_POST['competition_schedule_to'];
+$competition_address        = $_POST['competition_address'];
 $competition_host           = $_POST['competition_host'];
 $competition_subj           = $_POST['competition_subj'];
 $competition_support        = $_POST['competition_support'];
@@ -14,7 +15,9 @@ $competition_fee            = $_POST['competition_fee'];
 $competition_youth_fund     = $_POST['competition_youth_fund'];
 $competition_teamcnt        = $_POST['competition_teamcnt'];
 $competition_caution        = $_POST['competition_caution'];
+$participant_caution        = $_POST['participant_caution'];
 $competition_deadline       = $_POST['competition_deadline'];
+$competition_deadline_time  = $_POST['competition_deadline_time'];
 $major_schedule             = $_POST['major_schedule'];
 $major_schedule_time        = $_POST['major_schedule_time'];
 $tour_schedule              = $_POST['tour_schedule'];
@@ -87,7 +90,10 @@ for ($i=0; $i<$helper_cnt; $i++) {
 
     $helper_name                = $_POST['helper_name'.$i];
     $helper_belong              = $_POST['helper_belong'.$i];
-    $helper_phone               = $_POST['helper_phonef'.$i].'-'.$_POST['helper_phones'.$i].'-'.$_POST['helper_phonet'.$i];
+    echo $_POST['helper_phonef'.$i];
+    if($_POST['helper_phonef'.$i] != null || $_POST['helper_phonef'.$i] != ''){
+        $helper_phone               = $_POST['helper_phonef'.$i].'-'.$_POST['helper_phones'.$i].'-'.$_POST['helper_phonet'.$i];
+    }
     $helper_img                 = $comp_id.'_'.$i.'.jpg';
 
     $sql = " insert {$g5['game_helper_table']}
@@ -97,18 +103,19 @@ for ($i=0; $i<$helper_cnt; $i++) {
                     helper_name    = '$helper_name',
                     helper_belong  = '$helper_belong',
                     helper_phone   = '$helper_phone',
-                    helper_use_yn  = 'Y'
+                    helper_use_yn  = 'Y',
+                    helper_regi_dt = NOW()
                     ";
-    echo $sql."<BR>";
     sql_query($sql);
 }
-
 
 $sql = " insert {$g5['competition_table']}
             set competition_id              =  '$comp_id',
                 competition_title           =  '$competition_title',
                 competition_subtitle        =  '$competition_subtitle',
-                competition_schedule        =  '$competition_schedule',
+                competition_address         =  '$competition_address',
+                competition_schedule_from   =  '$competition_schedule_from',
+                competition_schedule_to     =  '$competition_schedule_to',
                 competition_host            =  '$competition_host',
                 competition_subj            =  '$competition_subj',
                 competition_support         =  '$competition_support',
@@ -118,14 +125,21 @@ $sql = " insert {$g5['competition_table']}
                 competition_youth_fund      =  '$competition_youth_fund',
                 competition_teamcnt         =  '$competition_teamcnt',
                 competition_caution         =  '$competition_caution',
+                participant_caution         =  '$participant_caution',
+                competition_deadline        =  '$competition_deadline',
+                competition_deadline_time   =  '$competition_deadline_time',
                 goods_first                 =  '$goods_first',
                 goods_second                =  '$goods_second',
                 goods_third                 =  '$goods_third',
                 goods_quater                =  '$goods_quater',
-                major_schedule              =  '$major_schedule.$major_schedule_time',  
-                tour_schedule               =  '$tour_schedule.$tour_schedule_time',
-                challenger_schedule         =  '$challenger_schedule.$challenger_schedule_time',
-                circuit_schedule            =  '$circuit_schedule.$circuit_schedule_time',
+                major_schedule              =  '$major_schedule',  
+                major_schedule_time         =  '$major_schedule_time',
+                tour_schedule               =  '$tour_schedule',
+                tour_schedule_time          =  '$tour_schedule_time',
+                challenger_schedule         =  '$challenger_schedule',
+                challenger_schedule_time    =  '$challenger_schedule_time',
+                circuit_schedule            =  '$circuit_schedule',
+                circuit_schedule_time       =  '$circuit_schedule_time',
                 major_court                 =  '$major_court',
                 tour_court                  =  '$tour_court',
                 challenger_court            =  '$challenger_court',
@@ -134,18 +148,20 @@ $sql = " insert {$g5['competition_table']}
                 tour_age                    =  '$tour_age',
                 challenger_age              =  '$challenger_age',       
                 circuit_age                 =  '$circuit_age',          
-                common_standard             =  '$common_standard',      
+                common_standard             =  '$common_standard',
                 competition_proceed         =  '$competition_proceed',     
                 competition_priority1       =  '$competition_priority1',
                 competition_priority2       =  '$competition_priority2',
                 competition_priority3       =  '$competition_priority3',       
                 competition_priority4       =  '$competition_priority4',
                 competition_priority5       =  '$competition_priority5',
-                competition_priority6       =  '$competition_priority6'
+                competition_priority6       =  '$competition_priority6',
                 helper_cnt                  =  '$helper_cnt' 
                 ";
 
 sql_query($sql);
+echo $sql;
+//alert("등록되었습니다.");
 
-goto_url("./schedule_list.php");
+//goto_url(G5_THEME_URL."/pages/schedule/schedule_list.php");
 ?>

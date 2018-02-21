@@ -4,6 +4,8 @@
 #game-detail .title-box .game-title input[type=text] {width: 400px;}
 #game-detail .title-box .part-title {margin-top: 15px; font-size: 14px; color: #484848; font-weight: bold;}
 #game-detail .title-box .part-title input[type=text] {width: 275px;}
+#game-detail .title-box .game-deadline {margin-top: 15px; font-size: 14px; color: #484848; font-weight: bold;}
+#game-detail .title-box .game-deadline input[type=text] {width: 100px;}
 #game-detail .title-box .game-image {margin-top: 18px; font-size: 14px; color: #484848; font-weight: bold;}
 #game-detail .title-box .game-image input[type=file] {float: right; margin-left: 10px}
 
