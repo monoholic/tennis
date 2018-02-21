@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule_list.css">
 <section id="banner" class="container">
     <div class="banner-box">
-        <div class="banner-1"></div>
+        <div class="banner banner-1"></div>
     </div>
     <!-- <div class="banner-1"></div> -->
     <!-- <div class="banner-1"></div> -->
