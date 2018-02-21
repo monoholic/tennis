@@ -1,15 +1,11 @@
 function makeGameBox(gameBoxClass, row, dataUrl) {
 
-    console.log(row['competition_deadline']);
-    console.log(row['competition_deadline_time']);
-
     var deadline = new Date(row['competition_deadline'] + ' ' + row['competition_deadline_time']);
     var today = new Date();
 
     var gap = today - deadline;
     var gapHours = gap / 1000 / 60 / 60 ;
     var gapDays = Math.ceil(gapHours / 24);
-    console.log(gapDays);
 
     var gapStr = '';
     if (gapDays < 0) {

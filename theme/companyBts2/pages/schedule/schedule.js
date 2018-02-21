@@ -19,7 +19,20 @@ function closeRegister() {
     popup.removeClass("active");
 }
 
-function onSearchGame(url) {
+function onSearchGame(url, on) {
     var searchText = $('form[name="search-form"] input[name="search"]').val();
-    window.location.href = url + '?search=' + searchText;
+    goScheduleList(url, searchText, on);
+}
+
+function onClickListTab(selected, url, search, on) {
+    var tab = $(selected);
+    var tabs = tab.parent().children();
+    tabs.removeClass("active");
+    tab.addClass("active");
+
+    goScheduleList(url, search, on);
+}
+
+function goScheduleList(url, search, on) {
+    window.location.href = url + '?search=' + search + '&on=' + on;
 }
