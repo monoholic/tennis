@@ -1,6 +1,16 @@
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+@font-face{
+    font-family:NanumGothic;
+    src:url('./font/NanumGothic.eot');
+    src:url('./font/NanumGothic.eot?#iefix') format('embedded-opentype'),
+    url('./font/NanumGothic.woff') format('woff'),
+    url('./font/NanumGothic.ttf') format('truetype'),
+    url('./font/NanumGothic.svg#NanumGothic') format('svg');
+    src:local(※), url('./font/NanumGothic.woff') format('woff');
+}
+
 /* 초기화 */
 * {
     -webkit-box-sizing: border-box;
