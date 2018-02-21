@@ -160,8 +160,8 @@ $sql = " insert {$g5['competition_table']}
                 ";
 
 sql_query($sql);
-echo $sql;
-//alert("등록되었습니다.");
 
-//goto_url(G5_THEME_URL."/pages/schedule/schedule_list.php");
+alert("등록되었습니다.");
+
+goto_url(G5_URL.'/schedule_list.php');
 ?>
