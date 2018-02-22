@@ -58,7 +58,7 @@ if(defined('_INDEX_')) {
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="<?php echo G5_URL ?>">
-                <img src="<?php echo G5_THEME_IMG_URL ?>/logo.png" alt="" class="img-responsive" style="margin-top:27px;">
+                <img src="<?php echo G5_THEME_IMG_URL ?>/logo.jpg" alt="" class="img-responsive" style="margin-top:10px;">
             </a>
         </div>
         <nav class="collapse navbar-collapse<?php echo $idx_nav; ?>" id="bs-example-navbar-collapse-1" role="navigation">
