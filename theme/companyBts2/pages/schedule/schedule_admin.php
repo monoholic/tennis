@@ -135,22 +135,22 @@
     <div class="container flexbox flow-col align-center">
         <div class="title-box flexbox flow-col align-center">
 
-            <div class="game-deadline">
+            <div class="game-deadline flexbox align-center">
                 <span>접수마감일</span>
-                <input type="text" id="date_wr6" name="competition_deadline" value=""/> 
-                <input type="text" id="competition_deadline_time" name="competition_deadline_time" class="timepicker"  value=""/>
+                <input type="text" id="date_wr6" name="competition_deadline" class="m-left-10" value=""/> 
+                <input type="text" id="competition_deadline_time" name="competition_deadline_time" class="timepicker m-left-10"  value=""/>
             </div>
             <div class="game-title">
                 <span>대회이름</span>
-                <input type="text" id="competition_title" name="competition_title" value=""/>
+                <input type="text" id="competition_title" name="competition_title" class="m-left-10" value=""/>
             </div>
             <div class="part-title">
                 <span>서브타이틀</span>
-                <input type="text" id="competition_subtitle" name="competition_subtitle" value=""/>
+                <input type="text" id="competition_subtitle" name="competition_subtitle" class="m-left-10" value=""/>
             </div>
             <div class="game-image">
                 <span>대회리스트 배경 이미지</span>
-                <input type="file" name="competition_bg" id="competition_bg">
+                <input type="file" name="competition_bg" id="competition_bg" class="m-left-10">
                 <!-- <input type="file" name="competition_bg" id="competition_bg" class="frm_input"> -->
             </div>
         </div>
@@ -226,7 +226,8 @@
             </div>
             <div class="game-right">
                 <div class="game-info flexbox flow-col just-between">
-                    <div class="df-df-row-schedule"><span class="df-row-label">일시</span>
+                    <div class="df-row">
+                        <span class="df-row-label">일시</span>
                         <input type="text" id="date_wr1" class="frm_input" name="competition_schedule_from" style="width:80px;"/>
                         <input type="text" id="date_wr7" class="frm_input" name="competition_schedule_to" style="width:80px;"/>
                     </div>
@@ -270,17 +271,17 @@
                         <div class="reward-box flexbox flow-col align-center">
                             <div class="reward-img reward-img-1"></div>
                             <div class="reward-name">우승</div>
-                            <div class="reward-gift"><input type="text" class="input_sm" id="goods_first" name="goods_first"/></div>
+                            <div class="reward-gift"><input type="text" class="w-100" id="goods_first" name="goods_first"/></div>
                         </div>
                         <div class="reward-box flexbox flow-col align-center">
                             <div class="reward-img reward-img-2"></div>
                             <div class="reward-name">준우승</div>
-                            <div class="reward-gift"><input type="text" class="input_sm" id="goods_second" name="goods_second"/></div>
+                            <div class="reward-gift"><input type="text" class="w-100" id="goods_second" name="goods_second"/></div>
                         </div>
                         <div class="reward-box flexbox flow-col align-center">
                             <div class="reward-img reward-img-3"></div>
                             <div class="reward-name">4강</div>
-                            <div class="reward-gift"><input type="text" class="input_sm" id="goods_third" name="goods_third"/></div>
+                            <div class="reward-gift"><input type="text" class="w-100" id="goods_third" name="goods_third"/></div>
                         </div>
                         <div style="width:2px; margin-left: 70px;" class="flexbox just-center">
                             <div class="div-line-v" style="height:73px; margin-bottom:44px;"></div>
@@ -288,7 +289,7 @@
                         <div class="reward-box flexbox flow-col align-center">
                             <div class="reward-img reward-img-4"></div>
                             <div class="reward-name">8강</div>
-                            <div class="reward-gift"><input type="text" class="input_sm" id="goods_quater" name="goods_quater"/></div>
+                            <div class="reward-gift"><input type="text" class="w-100" id="goods_quater" name="goods_quater"/></div>
                         </div>
                     </div>
                     <div class="reward-desc">
@@ -310,47 +311,47 @@
                     </tr>
                     <tr class="col-type-1">
                         <td>
-                            <div class="flexbox flow-col align-center">
-                                <span>
-                                    <input type="text" id="date_wr2" class="frm_input" name="major_schedule" disabled="disabled"/><br/>
-                                    <input name="major_schedule_time" id="timepicker" class="timepicker" type="text" disabled="disabled"/>
+                            <div class="flexbox flow-col align-center just-center">
+                                <span class="flexbox align-center just-center">
+                                    <input type="text" id="date_wr2" class="frm_input w-90" name="major_schedule" disabled="disabled"/><br/>
+                                    <input name="major_schedule_time" id="timepicker" class="timepicker w-90 m-left-10" type="text" disabled="disabled"/>
                                 </span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
                                 <span><input type="checkbox" id="major_court_chk" name="major_court_chk" disabled="disabled">코트 추후 안내 예정</span>
-                                <span><input type="text" id="major_court" name="major_court" disabled="disabled"></span>
+                                <span class="m-top-10"><input type="text" id="major_court" class="w-190" name="major_court" disabled="disabled"></span>
                             </div>
                         </td>
                         <td>
-                            <div class="flexbox flow-col align-center">
-                                <span>
-                                    <input type="text" id="date_wr3" class="frm_input" name="tour_schedule" disabled="disabled"/><br/>
-                                    <input name="tour_schedule_time" id="timepicker" class="timepicker" type="text" disabled="disabled"/>
+                            <div class="flexbox flow-col align-center just-center">
+                                <span class="flexbox align-center just-center">
+                                    <input type="text" id="date_wr3" class="frm_input w-90" name="tour_schedule" disabled="disabled"/><br/>
+                                    <input name="tour_schedule_time" id="timepicker" class="timepicker w-90 m-left-10" type="text" disabled="disabled"/>
                                 </span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
                                 <span><input type="checkbox" id="tour_court_chk" name="tour_court_chk" disabled="disabled">코트 추후 안내 예정</span>
-                                <span><input type="text" id="tour_court" name="tour_court" disabled="disabled"></span>
+                                <span class="m-top-10"><input type="text" id="tour_court" class="w-190" name="tour_court" disabled="disabled"></span>
                             </div>
                         </td>
                         <td>
-                            <div class="flexbox flow-col align-center">
-                                <span>
-                                    <input type="text" id="date_wr4" class="frm_input" name="challenger_schedule" disabled="disabled"/><br/>
-                                    <input name="challenger_schedule_time" id="timepicker" class="timepicker" type="text" disabled="disabled"/>
+                            <div class="flexbox flow-col align-center just-center">
+                                <span class="flexbox align-center just-center">
+                                    <input type="text" id="date_wr4" class="frm_input w-90" name="challenger_schedule" disabled="disabled"/><br/>
+                                    <input name="challenger_schedule_time" id="timepicker" class="timepicker w-90 m-left-10" type="text" disabled="disabled"/>
                                 </span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
                                 <span><input type="checkbox" id="challenger_court_chk" name="challenger_court_chk" disabled="disabled">코트 추후 안내 예정</span>
-                                <span><input type="text" id="challenger_court" name="challenger_court" disabled="disabled"></span>
+                                <span class="m-top-10"><input type="text" id="challenger_court" class="w-190" name="challenger_court" disabled="disabled"></span>
                             </div>
                         </td>
                         <td>
-                            <div class="flexbox flow-col align-center">
-                                <span>
-                                    <input type="text" id="date_wr5" class="frm_input" name="circuit_schedule" disabled="disabled"/><br/>
-                                    <input name="circuit_schedule_time" id="timepicker" class="timepicker" type="text" disabled="disabled"/>
+                            <div class="flexbox flow-col align-center just-center">
+                                <span class="flexbox align-center just-center">
+                                    <input type="text" id="date_wr5" class="frm_input w-90" name="circuit_schedule" disabled="disabled"/><br/>
+                                    <input name="circuit_schedule_time" id="timepicker" class="timepicker w-90 m-left-10" type="text" disabled="disabled"/>
                                 </span>
                                 <div class="div-line-h" style="width: 13px; margin: 8px 0;"></div>
                                 <span><input type="checkbox" id="circuit_court_chk" name="circuit_court_chk" disabled="disabled">코트 추후 안내 예정</span>
-                                <span><input type="text" id="circuit_court" name="circuit_court" disabled="disabled"></span>
+                                <span class="m-top-10"><input type="text" id="circuit_court" class="w-190" name="circuit_court" disabled="disabled"></span>
                             </div>
                         </td>
                     </tr>
@@ -395,22 +396,22 @@
                 </div>
                 <div class="tab-sub-title"><span>경기순서</span></div>
                 <div class="border-box">
-                    * 3팀일 경우 : 1-2, 3-(1-2번승자), 3-(1-2번패자)<input type="text" id="competition_priority2" name="competition_priority2"></br>
-                    * 4팀일 경우 : 1-4, 2-3, 2-4, 3-4<input type="text" id="competition_priority3" name="competition_priority3"></br>
+                    * 3팀일 경우 : 1-2, 3-(1-2번승자), 3-(1-2번패자)<input type="text" id="competition_priority2" name="competition_priority2" class="m-left-10"></br>
+                    * 4팀일 경우 : 1-4, 2-3, 2-4, 3-4<input type="text" id="competition_priority3" name="competition_priority3" class="m-left-10"></br>
                 </div>
                 <div class="grame-seq-content gray-box flexbox flow-col align-center">
                     <div>1코트에 2개조가 들어갈 경우</div>
-                    <input type="text" id="competition_priority4" name="competition_priority4">
+                    <input type="text" id="competition_priority4" name="competition_priority4" class="m-top-10">
                     <div class="game-seq-court flexbox align-center just-between">
                         <div class="court flexbox flow-col align-center just-between">
                             <div class="court-img"></div>
-                            <div><span>홀수조 1-2, 3-(1-2번승자), 3-(1-2번패자)</span></div>
-                            <input type="text" id="competition_priority5" name="competition_priority5">
+                            <div class="m-top-10"><span>홀수조 1-2, 3-(1-2번승자), 3-(1-2번패자)</span></div>
+                            <input type="text" id="competition_priority5" name="competition_priority5" class="m-top-10">
                         </div>
                         <div class="court flexbox flow-col align-center just-between">
                             <div class="court-img"></div>
-                            <div><span>홀수조 1-2, 3-(1-2번승자), 3-(1-2번패자)</span></div>
-                            <input type="text" id="competition_priority6" name="competition_priority6">
+                            <div class="m-top-10"><span>홀수조 1-2, 3-(1-2번승자), 3-(1-2번패자)</span></div>
+                            <input type="text" id="competition_priority6" name="competition_priority6" class="m-top-10">
                         </div>
                     </div>
                 </div>

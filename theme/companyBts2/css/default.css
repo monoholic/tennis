@@ -28,7 +28,7 @@ a{text-decoration: none!important;}
 a:focus{outline: 0;}
 .no-padding{padding: 0;}
 
-input[type=text] {height: 25px; margin-left: 10px; padding-left: 8px; height: 25px; box-shadow: #cecece}
+input[type=text] {height: 25px; padding-left: 8px; height: 25px; box-shadow: #cecece}
 
 
 /*공통*/
@@ -327,11 +327,18 @@ footer {background:url('../img/ft_bg.png') repeat !important;}
 .button.md-btn {margin-left: 10px; width: 137px; height: 32px; background-color: #fff; font-size: 12px; color: #929292;}
 
 /* width */
+.w-365 {width: 365px;}
+.w-190 {width: 190px;}
 .w-150 {width: 150px;}
 .w-134 {width: 134px;}
-.w-365 {width: 365px;}
+.w-100 {width: 100px;}
+.w-90 {width: 90px;}
 .w-60 {width: 60px;}
 .w-45 {width: 45px;}
+
+/* margin */
+.m-top-10 {margin-top: 10px;}
+.m-left-10 {margin-left: 10px;}
 
 /* font style */
 .text-bold {font-weight:bold;}

@@ -37,3 +37,12 @@ function makeGameBox(gameBoxClass, row, dataUrl) {
         + '</div>';
     $(gameBoxClass).append(str);
 }
+
+function goDetail(id){
+    location.href="./schedule.php?competition_id=" + id;
+}
+
+function addGame(){
+    location.href = "./schedule_admin.php";
+}
+

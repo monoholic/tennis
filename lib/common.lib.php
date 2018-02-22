@@ -3348,4 +3348,64 @@ function is_include_path_check($path='')
 
     return true;
 }
+
+function getGames($page, $search, $on, $page_set, $block_set, $g5) {
+    // 페이지 설정
+    
+    $limit_idx = ($page - 1) * $page_set; // limit시작위치
+
+    $sql = "SELECT count(*) as total FROM {$g5['competition_table']}";
+    $sql = makeWhereSql($sql, $search, $on, $limit_idx, $page_set);
+
+    $result = sql_query($sql, false);
+    $row = sql_fetch_array($result);
+    
+    $total = $row['total']; // 전체글수
+    
+    $total_page = ceil ($total / $page_set); // 총페이지수(올림함수)
+    $total_block = ceil ($total_page / $block_set); // 총블럭수(올림함수)
+    
+    $block = ceil ($page / $block_set); // 현재블럭(올림함수)
+    
+    // 참가가능대회 지난대회 
+    if (!$on) $on = true;
+    $todayDate = date('Y-m-d');
+    $todayTime = date("h:i A");;
+    
+    // 현재페이지 쿼리
+    $sql = "SELECT * FROM {$g5['competition_table']}";
+    $sql = makeWhereSql($sql, $search, $on, $limit_idx, $page_set);
+    
+    // echo $sql;
+    $result = sql_query($sql, false) or die ("db 에러");
+
+    return $result;
+}
+
+function makeWhereSql($sql, $search, $on, $limit_idx, $page_set) {
+
+    // 참가가능대회 지난대회 
+    if (!$on) $on = true;
+    $todayDate = date('Y-m-d');
+    $todayTime = date("h:i A");;
+
+    if ($on == 'true') {
+        $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) > '" . $todayDate . $todayTime . "'";
+    } else {
+        $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) <= '" . $todayDate . $todayTime . "'";
+    }
+    if ($search != null && $search != '' ) {
+        $sql = $sql . " WHERE competition_title LIKE '%" . $search . "%'";
+    }
+
+    $sql = $sql . " ORDER BY competition_schedule_from";
+
+    // if ($limit_idx != null && $page_set != null) {
+        $sql = $sql . " DESC LIMIT $limit_idx, $page_set";
+    // }
+    
+    return $sql;
+}
+
+
 ?>

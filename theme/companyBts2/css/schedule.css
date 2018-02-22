@@ -1,7 +1,6 @@
 /*대회상세*/
 #game-detail {height:710px; margin: 215px 0 72px 0;overflow:hidden;}
 
-#game-detail .title-box {height: 115px !important;  }
 #game-detail .title-box .due-date-box {width: 310px; height: 32px; border: #07613a solid 1px; font-weight: bold; font-size: 17px;}
 #game-detail .title-box .due-date-label {color: #000;}
 #game-detail .title-box .due-date {margin-left: 10px; color: #e7a619;}

@@ -2,15 +2,6 @@
 <script src="<?php echo G5_THEME_URL; ?>/js/default.js"></script>
 <script src="<?php echo G5_THEME_URL; ?>/pages/schedule/schedule.js"></script>
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule_list.css">
-<script type="text/javascript">
-    function goDetail(id){
-        location.href="./schedule.php?competition_id=" + id;
-    }
-
-    function addGame(){
-        location.href = "./schedule_admin.php";
-    }
-</script>
 <section id="banner" class="container">
     <div class="banner-box">
         <div class="banner banner-1"></div>
@@ -25,21 +16,17 @@
             <li class="<?php if($on == 'false') echo 'active'?>" onclick="onClickListTab(this, '<?php echo $PHP_SELF?>', '<?php echo $search?>', false)"><a>지난 대회</a></li>
         </ul>
         <div class="games-box flexbox">
-        <?php 
+            <?php 
  
                 // 페이지 설정
+                if (!$page) $page = 1; // 현재페이지(넘어온값)
                 $page_set = 10; // 한페이지 줄수
                 $block_set = 5; // 한페이지 블럭수
-                
+                $limit_idx = ($page - 1) * $page_set; // limit시작위치
+
                 $sql = "SELECT count(*) as total FROM {$g5['competition_table']}";
-                if ($on == 'true') {
-                    $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) > '" . $todayDate . $todayTime . "'";
-                } else {
-                    $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) <= '" . $todayDate . $todayTime . "'";
-                }
-                if ($search != null && $search != '' ) {
-                    $sql = $sql . " WHERE competition_title LIKE '%" . $search . "%'";
-                }
+
+                $sql = makeWhereSql($sql, $search, $on, $limit_idx, $page_set);
 
                 $result = sql_query($sql, false);
                 $row = sql_fetch_array($result);
@@ -49,27 +36,12 @@
                 $total_page = ceil ($total / $page_set); // 총페이지수(올림함수)
                 $total_block = ceil ($total_page / $block_set); // 총블럭수(올림함수)
                 
-                if (!$page) $page = 1; // 현재페이지(넘어온값)
                 $block = ceil ($page / $block_set); // 현재블럭(올림함수)
-                
-                $limit_idx = ($page - 1) * $page_set; // limit시작위치
-                
-                // 참가가능대회 지난대회 
-                if (!$on) $on = true;
-                $todayDate = date('Y-m-d');
-                $todayTime = date("h:i A");;
                 
                 // 현재페이지 쿼리
                 $sql = "SELECT * FROM {$g5['competition_table']}";
-                if ($on == 'true') {
-                    $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) > '" . $todayDate . $todayTime . "'";
-                } else {
-                    $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) <= '" . $todayDate . $todayTime . "'";
-                }
-                if ($search != null && $search != '' ) {
-                    $sql = $sql . " AND competition_title LIKE '%" . $search . "%'";
-                }
-                $sql = $sql . " ORDER BY competition_schedule_from DESC LIMIT $limit_idx, $page_set";
+
+                $sql = makeWhereSql($sql, $search, $on, $limit_idx, $page_set);
                 // echo $sql;
                 $result = sql_query($sql, false) or die ("db 에러");
                 for ($i=0; $row=sql_fetch_array($result); $i++){

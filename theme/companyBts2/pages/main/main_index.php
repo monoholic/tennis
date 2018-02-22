@@ -31,6 +31,19 @@
         btn.parent().children().removeClass('active');
         btn.addClass('active');
     }   
+
+    function moreGames(dir) {
+      $.ajax({
+           type: "GET",
+           dataType: 'json',
+           url: dir + '/schedule/getGames.php',
+           success:function(html) {
+             alert(html);
+             makeGameBox('.main-games', <?php echo json_encode($row) ?>, '<?php echo G5_DATA_URL ?>');
+           }
+
+      });
+ }
     
 </script>
 
@@ -79,37 +92,17 @@
 
 <section id="games">
     <div class="container">
-        <div class="games-box flexbox just-between align-cont-between">
-        <?php 
- 
-            // 페이지 설정
-            $page_set = 4; // 한페이지 줄수
-            
-            $sql = "SELECT count(*) as total FROM {$g5['competition_table']}";
-            if ($search != null && $search != '' ) {
-                $sql = $sql . " WHERE competition_title LIKE '%" . $search . "%'";
-            }
+        <div class="main-games games-box flexbox just-between align-cont-between">
+            <?php 
 
-            $result = sql_query($sql, false);
-            $row = sql_fetch_array($result);
-            
-            $total = $row['total']; // 전체글수
-            
-            $total_page = ceil ($total / $page_set); // 총페이지수(올림함수)
-            
-            if (!$page) $page = 1; // 현재페이지(넘어온값)
-            
-            $limit_idx = ($page - 1) * $page_set; // limit시작위치
-            
-            // 현재페이지 쿼리
-            $sql = "SELECT * FROM {$g5['competition_table']}";
-            if ($search != null && $search != '' ) {
-                $sql = $sql . " WHERE competition_title LIKE '%" . $search . "%'";
-            }
-            $sql = $sql . " ORDER BY competition_schedule_from DESC LIMIT $limit_idx, $page_set";
-            
-            $result = sql_query($sql, false) or die ("db 에러");
-            for ($i=0; $row=sql_fetch_array($result); $i++){
+                // 페이지 설정
+                if (!$page) $page = 1; // 현재페이지(넘어온값)
+                $page_set = 4; // 한페이지 줄수
+                $block_set = 5; // 한페이지 블럭수
+
+                $result = getGames($page, $search, $on, $page_set, $block_set, $g5);
+                
+                for ($i=0; $row=sql_fetch_array($result); $i++){
             ?>
 
             <script>
@@ -119,7 +112,7 @@
             <?php } ?>
         </div>
         <div class="more flexbox just-center">
-            <a class="more_down" href="#recruit_process"></a>
+            <a class="more_down" onclick="moreGames('<?php echo G5_COMPETITION_DIR; ?>')"></a>
         </div>
     </div>
 

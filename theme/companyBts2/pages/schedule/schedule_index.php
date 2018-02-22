@@ -266,11 +266,11 @@ ini_set("display_errors", 1);
                     <div class="game-seq-court flexbox align-center just-between">
                         <div class="court flexbox flow-col align-center just-between">
                             <div class="court-img"></div>
-                            <div><span><?php echo $comp['competition_priority5']?></span></div>
+                            <div class="m-top-10"><span><?php echo $comp['competition_priority5']?></span></div>
                         </div>
                         <div class="court flexbox flow-col align-center just-between">
                             <div class="court-img"></div>
-                            <div><span><?php echo $comp['competition_priority6']?></span></div>
+                            <div class="m-top-10"><span><?php echo $comp['competition_priority6']?></span></div>
                         </div>
                     </div>
                 </div>
