@@ -1,7 +1,8 @@
 <?php
 
 include_once('../../../../common.php');
-$return = getGames($page, $search, $on, $page_set, $block_set, $g5);
-$return["json"] = json_encode($return);
-echo json_encode($return);
+$result_array = getGames($page, $search, $isProgress, $willBeOpen, $page_set, $block_set);
+
+$res["json"] = json_encode($result_array);
+echo json_encode($res);
 ?>

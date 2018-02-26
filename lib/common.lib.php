@@ -3349,13 +3349,14 @@ function is_include_path_check($path='')
     return true;
 }
 
-function getGames($page, $search, $on, $page_set, $block_set, $g5) {
+function getGames($page, $search, $inProgress, $willBeOpen, $page_set, $block_set) {
     // 페이지 설정
     
-    $limit_idx = ($page - 1) * $page_set; // limit시작위치
+    global $g5;
 
-    $sql = "SELECT count(*) as total FROM {$g5['competition_table']}";
-    $sql = makeWhereSql($sql, $search, $on, $limit_idx, $page_set);
+    $limit_idx = ($page - 1) * $page_set; // limit시작위치
+    $sql = "SELECT count(*) as total FROM {$g5['competition_table']} WHERE 1=1";
+    $sql = makeWhereSql($sql, $search, $inProgress, $willBeOpen, $limit_idx, $page_set);
 
     $result = sql_query($sql, false);
     $row = sql_fetch_array($result);
@@ -3368,40 +3369,48 @@ function getGames($page, $search, $on, $page_set, $block_set, $g5) {
     $block = ceil ($page / $block_set); // 현재블럭(올림함수)
     
     // 참가가능대회 지난대회 
-    if (!$on) $on = true;
+    if (!$inProgress) $inProgress = true;
     $todayDate = date('Y-m-d');
     $todayTime = date("h:i A");;
     
     // 현재페이지 쿼리
-    $sql = "SELECT * FROM {$g5['competition_table']}";
-    $sql = makeWhereSql($sql, $search, $on, $limit_idx, $page_set);
+    $sql = "SELECT * FROM {$g5['competition_table']} WHERE 1=1";
+    $sql = makeWhereSql($sql, $search, $inProgress, $willBeOpen, $limit_idx, $page_set);
     
-    // echo $sql;
     $result = sql_query($sql, false) or die ("db 에러");
 
-    return $result;
+    $result_array = array(); 
+    for ($i=0; $row=sql_fetch_array($result); $i++) { 
+      $result_array[] = $row; 
+    } 
+
+    return $result_array;
 }
 
-function makeWhereSql($sql, $search, $on, $limit_idx, $page_set) {
+function makeWhereSql($sql, $search, $inProgress, $willBeOpen, $limit_idx, $page_set) {
 
     // 참가가능대회 지난대회 
-    if (!$on) $on = true;
+    if (!$inProgress) $inProgress = 'true';
     $todayDate = date('Y-m-d');
     $todayTime = date("h:i A");;
 
-    if ($on == 'true') {
-        $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) > '" . $todayDate . $todayTime . "'";
-    } else {
-        $sql = $sql . " WHERE CONCAT(competition_deadline,competition_deadline_time) <= '" . $todayDate . $todayTime . "'";
+    if ($inProgress == 'true') {
+        $sql = $sql . " AND CONCAT(competition_deadline,competition_deadline_time) > '" . $todayDate . $todayTime . "'";
+    } else if ($inProgress == 'false') {
+        $sql = $sql . " AND CONCAT(competition_deadline,competition_deadline_time) <= '" . $todayDate . $todayTime . "'";
     }
+    if ($willBeOpen == 'true') {
+      $sql = $sql . " AND competition_schedule_to >= '" . $todayDate . "'";
+    }
+
     if ($search != null && $search != '' ) {
-        $sql = $sql . " WHERE competition_title LIKE '%" . $search . "%'";
+        $sql = $sql . " AND competition_title LIKE '%" . $search . "%'";
     }
 
     $sql = $sql . " ORDER BY competition_schedule_from";
 
     // if ($limit_idx != null && $page_set != null) {
-        $sql = $sql . " DESC LIMIT $limit_idx, $page_set";
+        $sql = $sql . " ASC LIMIT $limit_idx, $page_set";
     // }
     
     return $sql;

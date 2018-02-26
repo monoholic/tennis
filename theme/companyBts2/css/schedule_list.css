@@ -15,9 +15,13 @@
 }
 
 #schedule-list {margin: 70px 0 208px 0;}
+
+
 #schedule-list .underline-tab { width: 1200px; }
 #schedule-list .underline-tab li { width: 50%; }
 
 #schedule-list .games-box {margin-top: 26px;}
 #schedule-list .page-box {margin-top: 55px;}
 
+/* #schedule-list .game-box:nth-child(4n + 2) {margin: 18px 22px 18px 0px;}
+#schedule-list .game-box:nth-child(4n) {margin: 18px 0px 18px 22px;} */

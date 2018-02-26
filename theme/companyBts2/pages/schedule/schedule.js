@@ -20,7 +20,7 @@ function closeRegister() {
 }
 
 function onSearchGame(url, on) {
-    var searchText = $('form[name="search-form"] input[name="search"]').val();
+    var searchText = $('.search-area input[name="search"]').val();
     goScheduleList(url, searchText, on);
 }
 
@@ -34,5 +34,5 @@ function onClickListTab(selected, url, search, on) {
 }
 
 function goScheduleList(url, search, on) {
-    window.location.href = url + '?search=' + search + '&on=' + on;
+    window.location.href = url + '?search=' + search + '&inProgress=' + on;
 }

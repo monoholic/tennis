@@ -28,7 +28,7 @@
 #ranking .user-box .score-box .score {margin-left:5px; color: #f7bd49; font-size: 25px;}
 
 /* 대회리스트 */
-#games .container {height: 650px; padding: 0px; margin-top: 22px;}
+#games .container {padding: 0px; margin-top: 22px;}
 #games .more {height: 110px;}
 
 /* 공식후원사 */

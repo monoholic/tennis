@@ -1,5 +1,3 @@
-
-<script src="<?php echo G5_THEME_URL; ?>/js/default.js"></script>
 <script src="<?php echo G5_THEME_URL; ?>/pages/schedule/schedule.js"></script>
 <link rel="stylesheet" href="<?php echo G5_THEME_CSS_URL; ?>/schedule_list.css">
 <section id="banner" class="container">
@@ -12,37 +10,34 @@
 <section id="schedule-list" class="flexbox flow-col align-center">
     <div class="container">
         <ul class="underline-tab">
-            <li class="<?php if($on == 'true' || $on == null) echo 'active'?>" onclick="onClickListTab(this, '<?php echo $PHP_SELF?>', '<?php echo $search?>', true)"><a>참가 가능한 대회</a></li>
-            <li class="<?php if($on == 'false') echo 'active'?>" onclick="onClickListTab(this, '<?php echo $PHP_SELF?>', '<?php echo $search?>', false)"><a>지난 대회</a></li>
+            <li class="<?php if($inProgress == 'true' || $inProgress == null) echo 'active'?>" onclick="onClickListTab(this, '<?php echo $PHP_SELF?>', '<?php echo $search?>', true)"><a>참가 가능한 대회</a></li>
+            <li class="<?php if($inProgress == 'false') echo 'active'?>" onclick="onClickListTab(this, '<?php echo $PHP_SELF?>', '<?php echo $search?>', false)"><a>지난 대회</a></li>
         </ul>
-        <div class="games-box flexbox">
+        <div class="games-box flexbox just-between">
             <?php 
  
                 // 페이지 설정
-                if (!$page) $page = 1; // 현재페이지(넘어온값)
+                if ($page == null) $page = 1; // 현재페이지(넘어온값)
                 $page_set = 10; // 한페이지 줄수
                 $block_set = 5; // 한페이지 블럭수
                 $limit_idx = ($page - 1) * $page_set; // limit시작위치
+                $sql = "SELECT count(*) as total FROM {$g5['competition_table']} WHERE 1=1";
 
-                $sql = "SELECT count(*) as total FROM {$g5['competition_table']}";
-
-                $sql = makeWhereSql($sql, $search, $on, $limit_idx, $page_set);
-
+                $sql = makeWhereSql($sql, $search, $inProgress, 'false', null, null);
+                                
                 $result = sql_query($sql, false);
                 $row = sql_fetch_array($result);
                 
                 $total = $row['total']; // 전체글수
-                
                 $total_page = ceil ($total / $page_set); // 총페이지수(올림함수)
                 $total_block = ceil ($total_page / $block_set); // 총블럭수(올림함수)
                 
                 $block = ceil ($page / $block_set); // 현재블럭(올림함수)
                 
                 // 현재페이지 쿼리
-                $sql = "SELECT * FROM {$g5['competition_table']}";
+                $sql = "SELECT * FROM {$g5['competition_table']} WHERE 1=1";
 
-                $sql = makeWhereSql($sql, $search, $on, $limit_idx, $page_set);
-                // echo $sql;
+                $sql = makeWhereSql($sql, $search, $inProgress, 'false', $limit_idx, $page_set);
                 $result = sql_query($sql, false) or die ("db 에러");
                 for ($i=0; $row=sql_fetch_array($result); $i++){
                 ?>
@@ -78,24 +73,24 @@
                     $next_block_page = $next_block * $block_set - ($block_set - 1); // 다음블럭 페이지번호
                     
                     // 페이징 화면
-                    echo ($prev_page > 0) ? "<a href='$PHP_SELF?page=$prev_page&search=$search&on=$on'>[prev]</a> " : "";
-                    echo ($prev_block > 0) ? "<a href='$PHP_SELF?page=$prev_block_page&search=$search&on=$on'>...</a> " : "";
+                    echo ($prev_page > 0) ? "<a href='$PHP_SELF?page=$prev_page&search=$search&on=$inProgress'>[prev]</a> " : "";
+                    echo ($prev_block > 0) ? "<a href='$PHP_SELF?page=$prev_block_page&search=$search&on=$inProgress'>...</a> " : "";
                     
                     for ($i=$first_page; $i<=$last_page; $i++) {
-                        echo ($i != $page) ? "<a href='$PHP_SELF?page=$i&search=$search&on=$on'>$i</a> " : "<b>$i</b> ";
+                        echo ($i != $page) ? "<a href='$PHP_SELF?page=$i&search=$search&on=$inProgress'>$i</a> " : "<b>$i</b> ";
                     }
                     
-                    echo ($next_block <= $total_block) ? "<a href='$PHP_SELF?page=$next_block_page&search=$search&on=$on'>...</a> " : "";
-                    echo ($next_page <= $total_page) ? "<a href='$PHP_SELF?page=$next_page&search=$search&on=$on'>[next]</a>" : "";
+                    echo ($next_block <= $total_block) ? "<a href='$PHP_SELF?page=$next_block_page&search=$search&on=$inProgress'>...</a> " : "";
+                    echo ($next_page <= $total_page) ? "<a href='$PHP_SELF?page=$next_page&search=$search&on=$inProgress'>[next]</a>" : "";
                     
                 ?>
             </div>
-            <form name="search-form" class="search-area flexbox align-center">
+            <div class="search-area flexbox align-center">
                 <input type="text" name="search" placeholder="대회명 검색" value="<?php echo $search?>"/>
-                <div class="" onclick="onSearchGame('<?php echo $PHP_SELF?>', '<?php echo $on?>')">
+                <div class="" onclick="onSearchGame('<?php echo $PHP_SELF?>', '<?php echo $inProgress?>')">
                     <span>O</span>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </section>

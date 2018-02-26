@@ -11,7 +11,7 @@ function makeGameBox(gameBoxClass, row, dataUrl) {
     if (gapDays < 0) {
         gapStr = gapDays + '일';
     } else if (gapDays == 0) {
-        gapStr = gapHours + '시간';
+        gapStr = 'D-day';
     } else {
         gapStr = '마감완료';
     }

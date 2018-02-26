@@ -22,28 +22,58 @@
 <script>
     //IE8에서 background 100% 적용
 	$( function() {
-        $.backstretch("<?php echo G5_THEME_IMG_URL ?>/main_banner.jpg");
+    $.backstretch("<?php echo G5_THEME_IMG_URL ?>/main_banner.jpg");
+  });
+
+  // 페이지 설정
+  var page = 1; // 현재페이지(넘어온값)
+  var isProgress = 'null'; 
+  var willBeOpen = 'true'; 
+  var page_set = 4; // 한페이지 줄수
+  var block_set = 5; // 한페이지 블럭수
+  var limit_idx = (page - 1) * page_set; // limit시작위치
+
+  $(document).ready(function() {
+    moreGames('<?php echo G5_COMPETITION_DIR; ?>');
+  });
+
+  function onClickRankingTab (btn) {
+      var btn = $(btn)
+      btn.parent().children().removeClass('active');
+      btn.addClass('active');
+  }   
+
+  function moreGames(dir) {
+
+    console.log('page2 : ', page);
+
+    $.ajax({
+      type: "GET",
+      dataType: 'json',
+      url: dir + '/schedule/getGames.php',
+      data: {
+        page: page,
+        search: '',
+        isProgress: isProgress,
+        willBeOpen: willBeOpen,
+        page_set: page_set,
+        block_set: block_set
+      },
+      success: function(result) {
+        var data = result.json;
+        data = jQuery.parseJSON(data);
+
+        page++;
+
+        for(var i = 0; i < data.length; i++) {
+          makeGameBox('.main-games', data[i], '<?php echo G5_DATA_URL ?>');
+        }
+      },
+      error: function (request, status, error) {
+          console.log('code: '+request.status+"\n"+'message: '+request.responseText+"\n"+'error: '+error);
+      }
     });
-
-
-    function onClickRankingTab (btn) {
-        var btn = $(btn)
-        btn.parent().children().removeClass('active');
-        btn.addClass('active');
-    }   
-
-    function moreGames(dir) {
-      $.ajax({
-           type: "GET",
-           dataType: 'json',
-           url: dir + '/schedule/getGames.php',
-           success:function(html) {
-             alert(html);
-             makeGameBox('.main-games', <?php echo json_encode($row) ?>, '<?php echo G5_DATA_URL ?>');
-           }
-
-      });
- }
+  }
     
 </script>
 
@@ -81,7 +111,7 @@
                                 <span class="score-total">TOTAL</span><span class="score">757</span>
                             </div>
                         </div>
-                        <div class="rank rank-img-<?php echo$i+1 ?>"></div>
+                        <div class="rank rank-img-<?php echo $i+1 ?>"></div>
                     </div>
                     <?php } ?>
                 </div> 
@@ -93,23 +123,6 @@
 <section id="games">
     <div class="container">
         <div class="main-games games-box flexbox just-between align-cont-between">
-            <?php 
-
-                // 페이지 설정
-                if (!$page) $page = 1; // 현재페이지(넘어온값)
-                $page_set = 4; // 한페이지 줄수
-                $block_set = 5; // 한페이지 블럭수
-
-                $result = getGames($page, $search, $on, $page_set, $block_set, $g5);
-                
-                for ($i=0; $row=sql_fetch_array($result); $i++){
-            ?>
-
-            <script>
-                makeGameBox('.games-box', <?php echo json_encode($row) ?>, '<?php echo G5_DATA_URL ?>');
-            </script>
-            
-            <?php } ?>
         </div>
         <div class="more flexbox just-center">
             <a class="more_down" onclick="moreGames('<?php echo G5_COMPETITION_DIR; ?>')"></a>

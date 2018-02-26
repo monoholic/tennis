@@ -62,6 +62,10 @@ ini_set("display_errors", 1);
                         map.setZoomable(zoomable);    
                     }
                     setZoomable(false);
+
+                    function copy_to_clipboard() {
+                        window.prompt("Copy to clipboard: Ctrl+C, Enter", $("#competition_address").val());
+                    }
                 </script>
 
                 <div class="complex-address flexbox align-center just-center">
@@ -70,9 +74,10 @@ ini_set("display_errors", 1);
                     <div>
                         <span><?php echo $comp['competition_address'] ?></span>
                     </div> 
-                    <div class="copy-addr-btn flexbox just-center">
+                    <div class="copy-addr-btn flexbox just-center" style="cursor:pointer;" onclick="copy_to_clipboard();">
                         <span>주소복사</span>
                     </div>
+                    <input type="hidden" id="competition_address" value="<?php echo $comp['competition_address'] ?>">
                 </div>
             </div>
             <div class="game-right">

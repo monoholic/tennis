@@ -48,8 +48,7 @@ if(defined('_INDEX_')) {
 <div id="skip_to_container"><a href="#container">본문 바로가기</a></div>
 
 <!-- } 상단 끝 -->
-<header id="header" class="navbar-fixed-top navbar-inverse video-menu" role="banner">
-    <div class="container">
+<header id="header" class="flexbox flow align-center just-between" role="banner">
         <div class="navbar-header ">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -62,7 +61,7 @@ if(defined('_INDEX_')) {
             </a>
         </div>
         <nav class="collapse navbar-collapse<?php echo $idx_nav; ?>" id="bs-example-navbar-collapse-1" role="navigation">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="flexbox flow align-center just-end">
                 <li<?php echo $nav_li_1; ?>><a href="<?php echo $menu_href; ?>#introduce">테니스라인소개</a></li>
                 <li<?php echo $nav_li_2; ?>><a href="<?php echo 'schedule_list.php'; ?>"><div>대회스케줄</div></a></li>
                 <li<?php echo $nav_li_3; ?>><a href="<?php echo 'schedule_admin.php'; ?>">랭킹</a></li>
@@ -71,7 +70,6 @@ if(defined('_INDEX_')) {
                 <li<?php echo $nav_li_5; ?>><a href="<?php echo 'join.php'; ?>#request">스토어</a></li>
             </ul>
         </nav>
-    </div>
 </header>
 <script>
     function goPage(link) {
